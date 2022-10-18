@@ -1,43 +1,249 @@
-commit a9217e65350437dbd520b3f9bc2b6a20da2d33ad
-Author: Swastika Gupta <64654203+Swastyy@users.noreply.github.com>
-Date:   Tue Oct 18 05:45:08 2022 +0530
+commit c72f63bd747132ad33982a8cb65f1b5390aefeba
+Author: Raigor <raigor.jiang@gmail.com>
+Date:   Tue Oct 18 16:50:30 2022 +0800
 
-    Update readwrite-splitting.cn.md (#21605)
+    For #21611, update how the authority is configured. (#21621)
 
-diff --git a/docs/document/content/dev-manual/readwrite-splitting.cn.md b/docs/document/content/dev-manual/readwrite-splitting.cn.md
-index 3655853c64b..5a6d9bbe1ed 100644
---- a/docs/document/content/dev-manual/readwrite-splitting.cn.md
-+++ b/docs/document/content/dev-manual/readwrite-splitting.cn.md
-@@ -9,7 +9,7 @@ chapter = true
+diff --git a/docs/document/content/reference/management/_index.cn.md b/docs/document/content/reference/management/_index.cn.md
+index c4ca3cddd4d..18c804071da 100644
+--- a/docs/document/content/reference/management/_index.cn.md
++++ b/docs/document/content/reference/management/_index.cn.md
+@@ -55,15 +55,14 @@ namespace
  
- ### 全限定类名
+ ### /rules
  
--[`org.apache.shardingsphere.readwritesplitting.spi.ReadQueryLoadBalanceAlgorithm`](https://github.com/apache/shardingsphere/blob/master/shardingsphere-features/shardingsphere-readwrite-splitting/shardingsphere-readwrite-splitting-api/src/main/java/org/apache/shardingsphere/readwritesplitting/spi/ReadQueryLoadBalanceAlgorithm.java)
-+[`org.apache.shardingsphere.readwritesplitting.spi.ReadQueryLoadBalanceAlgorithm`](https://github.com/apache/shardingsphere/blob/master/features/readwrite-splitting/api/src/main/java/org/apache/shardingsphere/readwritesplitting/spi/ReadQueryLoadBalanceAlgorithm.java)
+-全局规则配置，可包括访问 ShardingSphere-Proxy 用户名和密码的权限配置。
++全局规则配置，可包含事务配置、SQL 解析配置等。
  
- ### 定义
+ ```yaml
+-- !AUTHORITY
+-users:
+-  - root@%:root
+-  - sharding@127.0.0.1:sharding
+-provider:
+-  type: ALL_PERMITTED
++- !TRANSACTION
++  defaultType: XA
++  providerType: Atomikos
++- !SQL_PARSER
++  sqlCommentParseEnabled: true
+ ```
  
-@@ -19,13 +19,13 @@ chapter = true
+ ### /props
+diff --git a/docs/document/content/reference/management/_index.en.md b/docs/document/content/reference/management/_index.en.md
+index a5f98d86fda..c9552219813 100644
+--- a/docs/document/content/reference/management/_index.en.md
++++ b/docs/document/content/reference/management/_index.en.md
+@@ -55,15 +55,14 @@ namespace
  
- | *配置标识*                     | *详细说明*                                                                           | *全限定类名*                                               |
- | ----------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------- |
--| ROUND_ROBIN                   | 基于轮询的读库负载均衡算法                                                              | [`org.apache.shardingsphere.readwritesplitting.algorithm.loadbalance.RoundRobinReadQueryLoadBalanceAlgorithm`](https://github.com/apache/shardingsphere/blob/master/shardingsphere-features/shardingsphere-readwrite-splitting/shardingsphere-readwrite-splitting-core/src/main/java/org/apache/shardingsphere/readwritesplitting/algorithm/loadbalance/RoundRobinReadQueryLoadBalanceAlgorithm.java) |
--| RANDOM                        | 基于随机的读库负载均衡算法                                                              | [`org.apache.shardingsphere.readwritesplitting.algorithm.loadbalance.RandomReadQueryLoadBalanceAlgorithm`](https://github.com/apache/shardingsphere/blob/master/shardingsphere-features/shardingsphere-readwrite-splitting/shardingsphere-readwrite-splitting-core/src/main/java/org/apache/shardingsphere/readwritesplitting/algorithm/loadbalance/RandomReadQueryLoadBalanceAlgorithm.java) |
--| WEIGHT                        | 基于权重的读库负载均衡算法                                                              | [`org.apache.shardingsphere.readwritesplitting.algorithm.loadbalance.WeightReadQueryLoadBalanceAlgorithm`](https://github.com/apache/shardingsphere/blob/master/shardingsphere-features/shardingsphere-readwrite-splitting/shardingsphere-readwrite-splitting-core/src/main/java/org/apache/shardingsphere/readwritesplitting/algorithm/loadbalance/WeightReadQueryLoadBalanceAlgorithm.java) |                                 |
--| TRANSACTION_RANDOM            | 无论是否在事务中，读请求采用随机策略路由到多个读库                                           | [`org.apache.shardingsphere.readwritesplitting.algorithm.loadbalance.TransactionRandomReadQueryLoadBalanceAlgorithm`](https://github.com/apache/shardingsphere/blob/master/shardingsphere-features/shardingsphere-readwrite-splitting/shardingsphere-readwrite-splitting-core/src/main/java/org/apache/shardingsphere/readwritesplitting/algorithm/loadbalance/TransactionRandomReadQueryLoadBalanceAlgorithm.java) |
--| TRANSACTION_ROUND_ROBIN       | 无论是否在事务中，读请求采用轮询策略路由到多个读库                                           | [`org.apache.shardingsphere.readwritesplitting.algorithm.loadbalance.TransactionRoundRobinReadQueryLoadBalanceAlgorithm`](https://github.com/apache/shardingsphere/blob/master/shardingsphere-features/shardingsphere-readwrite-splitting/shardingsphere-readwrite-splitting-core/src/main/java/org/apache/shardingsphere/readwritesplitting/algorithm/loadbalance/TransactionRoundRobinReadQueryLoadBalanceAlgorithm.java) |
--| TRANSACTION_WEIGHT            | 无论是否在事务中，读请求采用权重策略路由到多个读库                                           | [`org.apache.shardingsphere.readwritesplitting.algorithm.loadbalance.TransactionWeightReadQueryLoadBalanceAlgorithm`](https://github.com/apache/shardingsphere/blob/master/shardingsphere-features/shardingsphere-readwrite-splitting/shardingsphere-readwrite-splitting-core/src/main/java/org/apache/shardingsphere/readwritesplitting/algorithm/loadbalance/TransactionWeightReadQueryLoadBalanceAlgorithm.java) |
--| FIXED_REPLICA_RANDOM          | 显式开启事务，读请求采用随机策略路由到一个固定读库；不开事务，每次读流量使用指定算法路由到不同的读库   | [`org.apache.shardingsphere.readwritesplitting.algorithm.loadbalance.FixedReplicaRandomReadQueryLoadBalanceAlgorithm`](https://github.com/apache/shardingsphere/blob/master/shardingsphere-features/shardingsphere-readwrite-splitting/shardingsphere-readwrite-splitting-core/src/main/java/org/apache/shardingsphere/readwritesplitting/algorithm/loadbalance/FixedReplicaRandomReadQueryLoadBalanceAlgorithm.java) |
--| FIXED_REPLICA_ROUND_ROBIN     | 显式开启事务，读请求采用轮询策略路由到一个固定读库；不开事务，每次读流量使用指定算法路由到不同的读库   | [`org.apache.shardingsphere.readwritesplitting.algorithm.loadbalance.FixedReplicaRoundRobinReadQueryLoadBalanceAlgorithm`](https://github.com/apache/shardingsphere/blob/master/shardingsphere-features/shardingsphere-readwrite-splitting/shardingsphere-readwrite-splitting-core/src/main/java/org/apache/shardingsphere/readwritesplitting/algorithm/loadbalance/FixedReplicaRoundRobinReadQueryLoadBalanceAlgorithm.java) |
--| FIXED_REPLICA_WEIGHT          | 显式开启事务，读请求采用权重策略路由到多个读库；不开事务，每次读流量使用指定算法路由到不同的读库      | [`org.apache.shardingsphere.readwritesplitting.algorithm.loadbalance.FixedReplicaWeightReadQueryLoadBalanceAlgorithm`](https://github.com/apache/shardingsphere/blob/master/shardingsphere-features/shardingsphere-readwrite-splitting/shardingsphere-readwrite-splitting-core/src/main/java/org/apache/shardingsphere/readwritesplitting/algorithm/loadbalance/FixedReplicaWeightReadQueryLoadBalanceAlgorithm.java) |
--| FIXED_PRIMARY                 | 读请求全部路由到主库                                                                    | [`org.apache.shardingsphere.readwritesplitting.algorithm.loadbalance.FixedPrimaryReadQueryLoadBalanceAlgorithm`](https://github.com/apache/shardingsphere/blob/master/shardingsphere-features/shardingsphere-readwrite-splitting/shardingsphere-readwrite-splitting-core/src/main/java/org/apache/shardingsphere/readwritesplitting/algorithm/loadbalance/FixedPrimaryReadQueryLoadBalanceAlgorithm.java) |
-+| ROUND_ROBIN                   | 基于轮询的读库负载均衡算法                                                              | [`org.apache.shardingsphere.readwritesplitting.algorithm.loadbalance.RoundRobinReadQueryLoadBalanceAlgorithm`](https://github.com/apache/shardingsphere/blob/master/features/readwrite-splitting/core/src/main/java/org/apache/shardingsphere/readwritesplitting/algorithm/loadbalance/RoundRobinReadQueryLoadBalanceAlgorithm.java) |
-+| RANDOM                        | 基于随机的读库负载均衡算法                                                              | [`org.apache.shardingsphere.readwritesplitting.algorithm.loadbalance.RandomReadQueryLoadBalanceAlgorithm`](https://github.com/apache/shardingsphere/blob/master/features/readwrite-splitting/core/src/main/java/org/apache/shardingsphere/readwritesplitting/algorithm/loadbalance/RandomReadQueryLoadBalanceAlgorithm.java) |
-+| WEIGHT                        | 基于权重的读库负载均衡算法                                                              | [`org.apache.shardingsphere.readwritesplitting.algorithm.loadbalance.WeightReadQueryLoadBalanceAlgorithm`](https://github.com/apache/shardingsphere/blob/master/features/readwrite-splitting/core/src/main/java/org/apache/shardingsphere/readwritesplitting/algorithm/loadbalance/WeightReadQueryLoadBalanceAlgorithm.java) |                                 |
-+| TRANSACTION_RANDOM            | 无论是否在事务中，读请求采用随机策略路由到多个读库                                           | [`org.apache.shardingsphere.readwritesplitting.algorithm.loadbalance.TransactionRandomReadQueryLoadBalanceAlgorithm`](https://github.com/apache/shardingsphere/blob/master/features/readwrite-splitting/core/src/main/java/org/apache/shardingsphere/readwritesplitting/algorithm/loadbalance/TransactionRandomReadQueryLoadBalanceAlgorithm.java) |
-+| TRANSACTION_ROUND_ROBIN       | 无论是否在事务中，读请求采用轮询策略路由到多个读库                                           | [`org.apache.shardingsphere.readwritesplitting.algorithm.loadbalance.TransactionRoundRobinReadQueryLoadBalanceAlgorithm`](https://github.com/apache/shardingsphere/blob/master/features/readwrite-splitting/core/src/main/java/org/apache/shardingsphere/readwritesplitting/algorithm/loadbalance/TransactionRoundRobinReadQueryLoadBalanceAlgorithm.java) |
-+| TRANSACTION_WEIGHT            | 无论是否在事务中，读请求采用权重策略路由到多个读库                                           | [`org.apache.shardingsphere.readwritesplitting.algorithm.loadbalance.TransactionWeightReadQueryLoadBalanceAlgorithm`](https://github.com/apache/shardingsphere/blob/master/features/readwrite-splitting/core/src/main/java/org/apache/shardingsphere/readwritesplitting/algorithm/loadbalance/TransactionWeightReadQueryLoadBalanceAlgorithm.java) |
-+| FIXED_REPLICA_RANDOM          | 显式开启事务，读请求采用随机策略路由到一个固定读库；不开事务，每次读流量使用指定算法路由到不同的读库   | [`org.apache.shardingsphere.readwritesplitting.algorithm.loadbalance.FixedReplicaRandomReadQueryLoadBalanceAlgorithm`](https://github.com/apache/shardingsphere/blob/master/features/readwrite-splitting/core/src/main/java/org/apache/shardingsphere/readwritesplitting/algorithm/loadbalance/FixedReplicaRandomReadQueryLoadBalanceAlgorithm.java) |
-+| FIXED_REPLICA_ROUND_ROBIN     | 显式开启事务，读请求采用轮询策略路由到一个固定读库；不开事务，每次读流量使用指定算法路由到不同的读库   | [`org.apache.shardingsphere.readwritesplitting.algorithm.loadbalance.FixedReplicaRoundRobinReadQueryLoadBalanceAlgorithm`](https://github.com/apache/shardingsphere/blob/master/features/readwrite-splitting/core/src/main/java/org/apache/shardingsphere/readwritesplitting/algorithm/loadbalance/FixedReplicaRoundRobinReadQueryLoadBalanceAlgorithm.java) |
-+| FIXED_REPLICA_WEIGHT          | 显式开启事务，读请求采用权重策略路由到多个读库；不开事务，每次读流量使用指定算法路由到不同的读库      | [`org.apache.shardingsphere.readwritesplitting.algorithm.loadbalance.FixedReplicaWeightReadQueryLoadBalanceAlgorithm`](https://github.com/apache/shardingsphere/blob/master/features/readwrite-splitting/core/src/main/java/org/apache/shardingsphere/readwritesplitting/algorithm/loadbalance/FixedReplicaWeightReadQueryLoadBalanceAlgorithm.java) |
-+| FIXED_PRIMARY                 | 读请求全部路由到主库                                                                    | [`org.apache.shardingsphere.readwritesplitting.algorithm.loadbalance.FixedPrimaryReadQueryLoadBalanceAlgorithm`](https://github.com/apache/shardingsphere/blob/master/features/readwrite-splitting/core/src/main/java/org/apache/shardingsphere/readwritesplitting/algorithm/loadbalance/FixedPrimaryReadQueryLoadBalanceAlgorithm.java) |
+ ### /rules
+ 
+-global rule configurations, including configure the username and password for ShardingSphere-Proxy.
++Global rule configuration, which can include transaction configuration, SQL parser configuration, etc.
+ 
+ ```yaml
+-- !AUTHORITY
+-users:
+-  - root@%:root
+-  - sharding@127.0.0.1:sharding
+-provider:
+-  type: ALL_PERMITTED
++- !TRANSACTION
++  defaultType: XA
++  providerType: Atomikos
++- !SQL_PARSER
++  sqlCommentParseEnabled: true
+ ```
+ 
+ ### /props
+diff --git a/docs/document/content/user-manual/shardingsphere-proxy/yaml-config/authentication.cn.md b/docs/document/content/user-manual/shardingsphere-proxy/yaml-config/authentication.cn.md
+index f2a0d84cd26..307f860729e 100644
+--- a/docs/document/content/user-manual/shardingsphere-proxy/yaml-config/authentication.cn.md
++++ b/docs/document/content/user-manual/shardingsphere-proxy/yaml-config/authentication.cn.md
+@@ -7,24 +7,24 @@ weight = 1
+ 
+ ## 背景信息
+ 
+-在 ShardingSphere-Proxy 中，通过全局规则 Authority Rule （标识为 !AUTHORITY）来配置用户和授权信息。
++在 ShardingSphere-Proxy 中，通过 `authority` 来配置用户和授权信息。
+ 
+ 得益于 ShardingSphere 的可插拔架构，Proxy 提供了两种级别的权限提供者，分别是：
+ 
+ - `ALL_PERMITTED`：授予所有权限，不鉴权；
+ - `DATABASE_PERMITTED`：为用户授予指定逻辑库的权限，通过 user-database-mappings 进行映射。
+ 
+-在配置 Authority Rule 时，管理员可根据需要选择使用哪一种权限提供者。
++在配置 `authority` 时，管理员可根据需要选择使用哪一种权限提供者。
+ 
+ ## 参数解释
+ 
+ ```yaml
+-rules:
+-  - !AUTHORITY
+-    users:
+-      - # 用于登录计算节点的用户名，授权主机和密码的组合。格式：<username>@<hostname>:<password>，hostname 为 % 或空字符串表示不限制授权主机
+-    provider:
+-      type: # 存储节点数据授权的权限提供者类型，缺省值为 ALL_PERMITTED
++authority:
++  users:
++    - user: # 用于登录计算节点的用户名和授权主机的组合，格式：<username>@<hostname>，hostname 为 % 或空字符串表示不限制授权主机
++      password: # 用户密码
++  privilege:
++    type: # 权限提供者类型，缺省值为 ALL_PERMITTED
+ ```
+ 
+ ## 配置示例
+@@ -32,37 +32,39 @@ rules:
+ ### ALL_PERMITTED
+ 
+ ```yaml
+-rules:
+-  - !AUTHORITY
+-    users:
+-      - root@localhost:root
+-      - my_user@:pwd
+-    provider:
+-      type: ALL_PERMITTED
++authority:
++  users:
++    - user: root@localhost
++      password: root
++    - user: my_user
++      password: pwd
++  privilege:
++    type: ALL_PERMITTED
+ ```
+ 
+ 以上配置表示：
+ - 用户 `root`，仅可从 `localhost` 连接 Proxy，密码为 `root`；
+ - 用户 `my_user`，可以从任意主机连接 Proxy，密码为 `pwd`；
+-- `provider` 类型为 `ALL_PERMITTED`，表示对用户授予所有权限，不鉴权。
++- `privilege` 类型为 `ALL_PERMITTED`，表示对用户授予所有权限，不鉴权。
+ 
+ ### DATABASE_PERMITTED
+ 
+ ```yaml
+-rules:
+-  - !AUTHORITY
+-    users:
+-      - root@localhost:root
+-      - my_user@:pwd
+-    provider:
+-      type: DATABASE_PERMITTED
+-      props:
+-        user-database-mappings: root@localhost=sharding_db, root@localhost=test_db, my_user@=sharding_db
++authority:
++  users:
++    - user: root@localhost
++      password: root
++    - user: my_user
++      password: pwd
++  privilege:
++    type: DATABASE_PERMITTED
++    props:
++      user-database-mappings: root@localhost=sharding_db, root@localhost=test_db, my_user@=sharding_db
+ ```
+ 
+ 以上配置表示：
+ 
+-- `provider` 类型为 `DATABASE_PERMITTED`，表示对用户授予库级别权限，需要配置；
++- `privilege` 类型为 `DATABASE_PERMITTED`，表示对用户授予库级别权限，需要配置；
+ - 用户 `root` 仅可从 `localhost` 主机连接，可访问 `sharding_db` 和 `test_db`；
+ - 用户 `my_user` 可从任意主机连接，可访问 `sharding_db`。
+ 
+diff --git a/docs/document/content/user-manual/shardingsphere-proxy/yaml-config/authentication.en.md b/docs/document/content/user-manual/shardingsphere-proxy/yaml-config/authentication.en.md
+index 44b90e457d2..6c3947d0a88 100644
+--- a/docs/document/content/user-manual/shardingsphere-proxy/yaml-config/authentication.en.md
++++ b/docs/document/content/user-manual/shardingsphere-proxy/yaml-config/authentication.en.md
+@@ -7,60 +7,62 @@ Authorization configuration provided for users who can connect to ShardingSphere
+ 
+ ## Background
+ 
+-ShardingSphere-Proxy uses the global rule, Authority Rule (identified as !AUTHORITY), to configure user and authorization information.
++ShardingSphere-Proxy uses `authority` to configure user and authorization information.
+ 
+-Thanks to ShardingSphere's pluggable architecture, Proxy provides two levels of authority providers, namely: 
++Thanks to ShardingSphere's pluggable architecture, Proxy provides two levels of privilege providers, namely: 
+ 
+ - `ALL_PERMITTED`: grant all authorities by default without authentication.
+ - `DATABASE_PERMITTED`: grant users the authority to specify a logical database, mapped through `user-database-mappings`.
+ 
+-The administrator can choose which authority provider to use as needed when configuring the Authority Rule. 
++The administrator can choose which privilege provider to use as needed when configuring `authority`. 
+ 
+ ## Parameter
+ 
+ ```yaml
+-rules:
+-  - !AUTHORITY
+-    users:
+-      - # Specify the username, authorized host, and password for logging in to the compute node. Format: <username>@<hostname>:<password>. When the hostname is % or an empty string, it indicates that the authorized host is not limited.
+-    provider:
+-      type: # The authority provider type for storage node. The default value is ALL_PERMITTED.
++authority:
++  users:
++    - user: # Specify the username, and authorized host for logging in to the compute node. Format: <username>@<hostname>. When the hostname is % or an empty string, it indicates that the authorized host is not limited.
++      password: # Password
++  privilege:
++    type: # Privilege provider type. The default value is ALL_PERMITTED.
+ ```
+ 
+ ## Sample
+ 
+ ### ALL_PERMITTED
+ ```yaml
+-rules:
+-  - !AUTHORITY
+-    users:
+-      - root@localhost:root
+-      - my_user@:pwd
+-    provider:
+-      type: ALL_PERMITTED
++authority:
++  users:
++    - user: root@localhost
++      password: root
++    - user: my_user
++      password: pwd
++  privilege:
++    type: ALL_PERMITTED
+ ```
+ 
+ The above configuration indicates: 
+-- The user `root` can connect to Proxy only through [localhost](http://localhost), and the password is `root`.
++- The user `root` can connect to Proxy only through `localhost`, and the password is `root`.
+ - The user `my_user` can connect to Proxy through any host, and the password is `pwd`.
+-- The `provider` type is `ALL_PERMITTED`, which indicates that users are granted all authorities by default without authentication.
++- The `privilege` type is `ALL_PERMITTED`, which indicates that users are granted all authorities by default without authentication.
+ 
+ ### DATABASE_PERMITTED
+ ```yaml
+-rules:
+-  - !AUTHORITY
+-    users:
+-      - root@localhost:root
+-      - my_user@:pwd
+-    provider:
+-      type: DATABASE_PERMITTED
+-      props:
+-        user-database-mappings: root@localhost=sharding_db, root@localhost=test_db, my_user@=sharding_db
++authority:
++  users:
++    - user: root@localhost
++      password: root
++    - user: my_user
++      password: pwd
++  privilege:
++    type: DATABASE_PERMITTED
++    props:
++      user-database-mappings: root@localhost=sharding_db, root@localhost=test_db, my_user@=sharding_db
+ ```
+ 
+ The above configuration indicates: 
+-- The `provider` type is `DATABASE_PERMITTED`, which indicates that users are granted database-level authority and configuration is needed.
+-- The user `root` can connect to Proxy only through [localhost](http://localhost) and can access `sharding_db` and `test_db`.
++- The `privilege` type is `DATABASE_PERMITTED`, which indicates that users are granted database-level authority and configuration is needed.
++- The user `root` can connect to Proxy only through `localhost` and can access `sharding_db` and `test_db`.
+ - The user `my_user` can connect to Proxy through any host and can access `sharding_db`.
+ 
+ ## Related References
