@@ -5,27 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="generator" content="Hugo 0.70.0" />
     <meta name="description" content="">
-    <meta name="buildDate" content="2022-10-26 18:40:51">
+    <meta name="buildDate" content="2022-10-26 23:20:50">
 
 
     <link rel="shortcut icon" href="https://shardingsphere.apache.org/document/current/img/favicon.png" type="image/x-icon" />
 
-    <title>DROP DEFAULT SINGLE TABLE RULE :: ShardingSphere</title>
+    <title>强制路由 :: ShardingSphere</title>
     
     
-    <link href="https://shardingsphere.apache.org/document/current/css/nucleus.css?1666780851" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/font-awesome.min.css?1666780851" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/hybrid.css?1666780851" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/featherlight.min.css?1666780851" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/perfect-scrollbar.min.css?1666780851" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/auto-complete.css?1666780851" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/theme.css?1666780851" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/hugo-theme.css?1666780851" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/nucleus.css?1666797650" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/font-awesome.min.css?1666797650" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/hybrid.css?1666797650" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/featherlight.min.css?1666797650" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/perfect-scrollbar.min.css?1666797650" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/auto-complete.css?1666797650" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/theme.css?1666797650" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/hugo-theme.css?1666797650" rel="stylesheet">
     
-      <link href="https://shardingsphere.apache.org/document/current/css/theme-white.css?1666780851" rel="stylesheet">
+      <link href="https://shardingsphere.apache.org/document/current/css/theme-white.css?1666797650" rel="stylesheet">
     
 
-    <script src="https://shardingsphere.apache.org/document/current/js/jquery-2.x.min.js?1666780851"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/jquery-2.x.min.js?1666797650"></script>
     
     <script>
       var _hmt = _hmt || [];
@@ -57,7 +57,7 @@
     
 
   </head>
-  <body class="" data-url="/cn/reference/distsql/syntax/rdl/rule-definition/single-table/drop-default-single-table-rule/">
+  <body class="" data-url="/cn/reference/distsql/syntax/ral/hint/">
     <div class="change-theme">
     <div class="wrap">
         
@@ -116,7 +116,7 @@
                       
                         
                         
-<option id="en" value="/document/current/en/reference/distsql/syntax/rdl/rule-definition/single-table/drop-default-single-table-rule/">English</option>
+<option id="en" value="/document/current/en/reference/distsql/syntax/ral/hint/">English</option>
                         
                       
                   
@@ -130,7 +130,7 @@
                       
                         
                         
-<option id="cn" value="/document/current/cn/reference/distsql/syntax/rdl/rule-definition/single-table/drop-default-single-table-rule/" selected>简体中文</option>
+<option id="cn" value="/document/current/cn/reference/distsql/syntax/ral/hint/" selected>简体中文</option>
                         
                       
                   
@@ -162,14 +162,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/lunr.min.js?1666780851"></script>
-<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/auto-complete.js?1666780851"></script>
+<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/lunr.min.js?1666797650"></script>
+<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/auto-complete.js?1666797650"></script>
 <script type="text/javascript">
     
         var baseurl = "\/cn";
     
 </script>
-<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/search.js?1666780851"></script>
+<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/search.js?1666797650"></script>
 
     
   </div>
@@ -5966,7 +5966,7 @@
   
     
     <li data-nav-id="/cn/reference/distsql/syntax/rdl/" title="RDL 语法" class="dd-item 
-        parent
+        
         
         
         ">
@@ -5975,12 +5975,12 @@
          <i class="collapse" style="display:inline; font-family:'courier';">
          
              <svg  class="icon icon-down" 
-              style="display: inline-block;"
+              style="display: none;"
               viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"   width="20" height="20" fill="#777">
               <path d="M500.8 604.778667L267.306667 371.392l-45.226667 45.269333 278.741333 278.613334 278.485334-278.613334-45.248-45.248z" p-id="5376" ></path>
             </svg>
             <svg  class="icon icon-right" 
-              style="display: none;"
+              style="display: inline-block;"
               viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"  width="20" height="20" fill="#777">
               <path d="M593.450667 512.128L360.064 278.613333l45.290667-45.226666 278.613333 278.762666L405.333333 790.613333l-45.226666-45.269333z" p-id="5605" ></path>
             </svg>
@@ -6117,7 +6117,7 @@
   
     
     <li data-nav-id="/cn/reference/distsql/syntax/rdl/rule-definition/" title="规则定义" class="dd-item 
-        parent
+        
         
         
         ">
@@ -6126,12 +6126,12 @@
          <i class="collapse" style="display:inline; font-family:'courier';">
          
              <svg  class="icon icon-down" 
-              style="display: inline-block;"
+              style="display: none;"
               viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"   width="20" height="20" fill="#777">
               <path d="M500.8 604.778667L267.306667 371.392l-45.226667 45.269333 278.741333 278.613334 278.485334-278.613334-45.248-45.248z" p-id="5376" ></path>
             </svg>
             <svg  class="icon icon-right" 
-              style="display: none;"
+              style="display: inline-block;"
               viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"  width="20" height="20" fill="#777">
               <path d="M593.450667 512.128L360.064 278.613333l45.290667-45.226666 278.613333 278.762666L405.333333 790.613333l-45.226666-45.269333z" p-id="5605" ></path>
             </svg>
@@ -6238,26 +6238,6 @@
  
   
     
-      <li data-nav-id="/cn/reference/distsql/syntax/rdl/rule-definition/sharding/create-sharding-algorithm/" title="CREATE SHARDING ALGORITHM" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/rdl/rule-definition/sharding/create-sharding-algorithm/">
-          <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        CREATE SHARDING ALGORITHM
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
       <li data-nav-id="/cn/reference/distsql/syntax/rdl/rule-definition/sharding/create-default-sharding-strategy/" title="CREATE DEFAULT SHARDING STRATEGY" class="dd-item ">
         <a href="https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/rdl/rule-definition/sharding/create-default-sharding-strategy/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
@@ -6278,10 +6258,10 @@
  
   
     
-      <li data-nav-id="/cn/reference/distsql/syntax/rdl/rule-definition/sharding/create-sharding-binding-table-rule/" title="CREATE SHARDING BINDING TABLE RULE" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/rdl/rule-definition/sharding/create-sharding-binding-table-rule/">
+      <li data-nav-id="/cn/reference/distsql/syntax/rdl/rule-definition/sharding/create-sharding-table-reference-rule/" title="CREATE SHARDING TABLE REFERENCE RULE" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/rdl/rule-definition/sharding/create-sharding-table-reference-rule/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        CREATE SHARDING BINDING TABLE RULE
+        CREATE SHARDING TABLE REFERENCE RULE
         
         </a>
     </li>
@@ -6331,26 +6311,6 @@
 
             
           
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/cn/reference/distsql/syntax/rdl/rule-definition/sharding/create-sharding-key-generator/" title="CREATE SHARDING KEY GENERATOR" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/rdl/rule-definition/sharding/create-sharding-key-generator/">
-          <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        CREATE SHARDING KEY GENERATOR
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
         
         </ul>
               
@@ -6368,7 +6328,7 @@
   
     
     <li data-nav-id="/cn/reference/distsql/syntax/rdl/rule-definition/single-table/" title="单表" class="dd-item 
-        parent
+        
         
         
         ">
@@ -6377,12 +6337,12 @@
          <i class="collapse" style="display:inline; font-family:'courier';">
          
              <svg  class="icon icon-down" 
-              style="display: inline-block;"
+              style="display: none;"
               viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"   width="20" height="20" fill="#777">
               <path d="M500.8 604.778667L267.306667 371.392l-45.226667 45.269333 278.741333 278.613334 278.485334-278.613334-45.248-45.248z" p-id="5376" ></path>
             </svg>
             <svg  class="icon icon-right" 
-              style="display: none;"
+              style="display: inline-block;"
               viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"  width="20" height="20" fill="#777">
               <path d="M593.450667 512.128L360.064 278.613333l45.290667-45.226666 278.613333 278.762666L405.333333 790.613333l-45.226666-45.269333z" p-id="5605" ></path>
             </svg>
@@ -6407,50 +6367,10 @@
  
   
     
-      <li data-nav-id="/cn/reference/distsql/syntax/rdl/rule-definition/single-table/alter-default-single-table-rule/" title="ALTER DEFAULT SINGLE TABLE RULE" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/rdl/rule-definition/single-table/alter-default-single-table-rule/">
+      <li data-nav-id="/cn/reference/distsql/syntax/rdl/rule-definition/single-table/set-default-single-table-storage-unit/" title="SET DEFAULT SINGLE TABLE STORAGE UNIT" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/rdl/rule-definition/single-table/set-default-single-table-storage-unit/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        ALTER DEFAULT SINGLE TABLE RULE
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/cn/reference/distsql/syntax/rdl/rule-definition/single-table/create-default-single-table-rule/" title="CREATE DEFAULT SINGLE TABLE RULE" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/rdl/rule-definition/single-table/create-default-single-table-rule/">
-          <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        CREATE DEFAULT SINGLE TABLE RULE
-        
-        </a>
-    </li>
-     
-  
- 
-
-            
-          
-            
-            
-
-
- 
-  
-    
-      <li data-nav-id="/cn/reference/distsql/syntax/rdl/rule-definition/single-table/drop-default-single-table-rule/" title="DROP DEFAULT SINGLE TABLE RULE" class="dd-item active">
-        <a href="https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/rdl/rule-definition/single-table/drop-default-single-table-rule/">
-          <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        DROP DEFAULT SINGLE TABLE RULE
+        SET DEFAULT SINGLE TABLE STORAGE UNIT
         
         </a>
     </li>
@@ -7796,7 +7716,7 @@
   
     
     <li data-nav-id="/cn/reference/distsql/syntax/ral/" title="RAL 语法" class="dd-item 
-        
+        parent
         
         
         ">
@@ -7804,13 +7724,203 @@
       <a href="https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/ral/">
          <i class="collapse" style="display:inline; font-family:'courier';">
          
-            <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
+             <svg  class="icon icon-down" 
+              style="display: inline-block;"
+              viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"   width="20" height="20" fill="#777">
+              <path d="M500.8 604.778667L267.306667 371.392l-45.226667 45.269333 278.741333 278.613334 278.485334-278.613334-45.248-45.248z" p-id="5376" ></path>
+            </svg>
+            <svg  class="icon icon-right" 
+              style="display: none;"
+              viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"  width="20" height="20" fill="#777">
+              <path d="M593.450667 512.128L360.064 278.613333l45.290667-45.226666 278.613333 278.762666L405.333333 790.613333l-45.226666-45.269333z" p-id="5605" ></path>
+            </svg>
           
           </i>
           RAL 语法
           
       </a>
       
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/cn/reference/distsql/syntax/ral/hint/" title="强制路由" class="dd-item 
+        parent
+        active
+        
+        ">
+            
+      <a href="https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/ral/hint/">
+         <i class="collapse" style="display:inline; font-family:'courier';">
+         
+             <svg  class="icon icon-down" 
+              style="display: inline-block;"
+              viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"   width="20" height="20" fill="#777">
+              <path d="M500.8 604.778667L267.306667 371.392l-45.226667 45.269333 278.741333 278.613334 278.485334-278.613334-45.248-45.248z" p-id="5376" ></path>
+            </svg>
+            <svg  class="icon icon-right" 
+              style="display: none;"
+              viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"  width="20" height="20" fill="#777">
+              <path d="M593.450667 512.128L360.064 278.613333l45.290667-45.226666 278.613333 278.762666L405.333333 790.613333l-45.226666-45.269333z" p-id="5605" ></path>
+            </svg>
+          
+          </i>
+          强制路由
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/cn/reference/distsql/syntax/ral/hint/set-readwrite-spitting-hint-source/" title="SET READWRITE_SPLITTING HINT SOURCE" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/ral/hint/set-readwrite-spitting-hint-source/">
+          <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
+        SET READWRITE_SPLITTING HINT SOURCE
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/cn/reference/distsql/syntax/ral/hint/set-sharding-hint-database-value/" title="SET SHARDING HINT DATABASE_VALUE" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/ral/hint/set-sharding-hint-database-value/">
+          <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
+        SET SHARDING HINT DATABASE_VALUE
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/cn/reference/distsql/syntax/ral/hint/add-sharding-hint-database-value/" title="ADD SHARDING HINT DATABASE_VALUE" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/ral/hint/add-sharding-hint-database-value/">
+          <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
+        ADD SHARDING HINT DATABASE_VALUE
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/cn/reference/distsql/syntax/ral/hint/add-sharding-hint-table-value/" title="ADD SHARDING HINT TABLE_VALUE" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/ral/hint/add-sharding-hint-table-value/">
+          <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
+        ADD SHARDING HINT TABLE_VALUE
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/cn/reference/distsql/syntax/ral/hint/clear-hint/" title="CLEAR HINT" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/ral/hint/clear-hint/">
+          <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
+        CLEAR HINT
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+      <li data-nav-id="/cn/reference/distsql/syntax/ral/hint/show-hint-status/" title="SHOW HINT STATUS" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/ral/hint/show-hint-status/">
+          <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
+        SHOW HINT STATUS
+        
+        </a>
+    </li>
+     
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
               
     </li>
   
@@ -7988,7 +8098,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/apache/shardingsphere/tree/master/docs/document/content/reference/distsql/syntax/rdl/rule-definition/single-table/drop-default-single-table-rule.cn.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/apache/shardingsphere/tree/master/docs/document/content/reference/distsql/syntax/ral/hint/_index.cn.md" target="blank">
                       <i class="fa fa-code-fork"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -8002,8 +8112,6 @@
                           <i class="fa fa-bars"></i>
                         </a>
                     </span>
-                  
-                  <span id="toc-menu"><i class="fa fa-list-alt"></i></span>
                   
                   <span class="links">
                     
@@ -8029,19 +8137,7 @@
             
           
           
-            
-            
-          
-          
-            
-            
-          
-          
-            <a href='https://shardingsphere.apache.org/document/current/cn/'>ShardingSphere</a> > <a href='https://shardingsphere.apache.org/document/current/cn/reference/'>技术参考</a> > <a href='https://shardingsphere.apache.org/document/current/cn/reference/distsql/'>DistSQL</a> > <a href='https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/'>语法</a> > <a href='https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/rdl/'>RDL 语法</a> > <a href='https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/rdl/rule-definition/'>规则定义</a> > <a href='https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/rdl/rule-definition/single-table/'>单表</a> > DROP DEFAULT SINGLE TABLE RULE
-          
-         
-          
-         
+            <a href='https://shardingsphere.apache.org/document/current/cn/'>ShardingSphere</a> > <a href='https://shardingsphere.apache.org/document/current/cn/reference/'>技术参考</a> > <a href='https://shardingsphere.apache.org/document/current/cn/reference/distsql/'>DistSQL</a> > <a href='https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/'>语法</a> > <a href='https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/ral/'>RAL 语法</a> > 强制路由
           
          
           
@@ -8057,58 +8153,30 @@
                   </span>
                 </div>
                 
-                    
-                
               </div>
             </div>
             
 
         
+          <div id="chapter">
+        
         <div id="body-inner">
-          
-            <h1>DROP DEFAULT SINGLE TABLE RULE</h1>
           
 
         
 
 
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#描述">描述</a>
-      <ul>
-        <li><a href="#语法定义">语法定义</a></li>
-        <li><a href="#示例">示例</a></li>
-        <li><a href="#保留字">保留字</a></li>
-        <li><a href="#相关链接">相关链接</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+<nav id="TableOfContents"></nav>
 
-<h2 id="描述">描述</h2>
-<p><code>DROP DEFAULT SINGLE TABLE RULE</code> 语法用于删除默认的单表规则</p>
-<h3 id="语法定义">语法定义</h3>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql">DropDefaultSingleTableRule ::<span style="color:#f92672">=</span>
-  <span style="color:#e6db74">&#39;DROP&#39;</span> <span style="color:#e6db74">&#39;DEFAULT&#39;</span> <span style="color:#e6db74">&#39;SINGLE&#39;</span> <span style="color:#e6db74">&#39;TABLE&#39;</span> <span style="color:#e6db74">&#39;RULE&#39;</span> ifExists<span style="color:#f92672">?</span>
-
-ifExists ::<span style="color:#f92672">=</span>
-  <span style="color:#e6db74">&#39;IF&#39;</span> <span style="color:#e6db74">&#39;EXISTS&#39;</span>
-</code></pre></div><h3 id="示例">示例</h3>
-<h4 id="删除默认单表规则">删除默认单表规则</h4>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sql" data-lang="sql"><span style="color:#66d9ef">DROP</span> <span style="color:#66d9ef">DEFAULT</span> SINGLE <span style="color:#66d9ef">TABLE</span> <span style="color:#66d9ef">RULE</span>;
-</code></pre></div><h3 id="保留字">保留字</h3>
-<p><code>DROP</code>、<code>SHARDING</code>、<code>SINGLE</code>、<code>TABLE</code>、<code>RULE</code></p>
-<h3 id="相关链接">相关链接</h3>
-<ul>
-<li><a href="https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/reserved-word/">保留字</a></li>
-</ul>
+<p>本章节将对强制路由功能的语法进行详细说明。</p>
 
 
 <footer class=" footline" >
 	
 </footer>
 
-
+        
+            </div> 
         
         </div> 
         
@@ -11522,6 +11590,8 @@ ifExists ::<span style="color:#f92672">=</span>
             
                 
                     
+                        
+                        
                     
                 
                 
@@ -11537,9 +11607,6 @@ ifExists ::<span style="color:#f92672">=</span>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -11605,7 +11672,6 @@ ifExists ::<span style="color:#f92672">=</span>
             
                 
                     
-                    
                 
                 
 
@@ -11620,9 +11686,6 @@ ifExists ::<span style="color:#f92672">=</span>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -11724,6 +11787,9 @@ ifExists ::<span style="color:#f92672">=</span>
                     
                     
 
+                    
+            
+        
                     
             
         
@@ -11740,9 +11806,6 @@ ifExists ::<span style="color:#f92672">=</span>
                     
                     
 
-                    
-            
-        
                     
                         
             
@@ -11768,7 +11831,6 @@ ifExists ::<span style="color:#f92672">=</span>
             
                 
                     
-                    
                 
                 
 
@@ -11781,9 +11843,6 @@ ifExists ::<span style="color:#f92672">=</span>
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -11816,7 +11875,6 @@ ifExists ::<span style="color:#f92672">=</span>
             
             
                 
-                    
                     
                 
                 
@@ -11837,9 +11895,6 @@ ifExists ::<span style="color:#f92672">=</span>
             
                 
                     
-                        
-                        
-                    
                 
                 
 
@@ -11860,6 +11915,9 @@ ifExists ::<span style="color:#f92672">=</span>
                     
                     
 
+                    
+            
+        
                     
             
         
@@ -11876,9 +11934,6 @@ ifExists ::<span style="color:#f92672">=</span>
                     
                     
 
-                    
-            
-        
                     
                         
             
@@ -11892,9 +11947,6 @@ ifExists ::<span style="color:#f92672">=</span>
                     
                     
 
-                    
-            
-        
                     
             
         
@@ -11911,6 +11963,9 @@ ifExists ::<span style="color:#f92672">=</span>
                     
                     
 
+                    
+            
+        
                     
                         
             
@@ -11960,18 +12015,11 @@ ifExists ::<span style="color:#f92672">=</span>
             
         
                     
-                        
             
-            
-                
-                    
-                
-                
-
-                    
-                    
+        
                     
-
+            
+        
                     
             
         
@@ -11986,14 +12034,10 @@ ifExists ::<span style="color:#f92672">=</span>
 
                     
                     
-                    
-
+                        
                     
-            
-        
                     
-            
-        
+
                     
                         
             
@@ -12020,12 +12064,6 @@ ifExists ::<span style="color:#f92672">=</span>
                     
                     
 
-                    
-            
-        
-                    
-            
-        
                     
             
         
@@ -12073,9 +12111,6 @@ ifExists ::<span style="color:#f92672">=</span>
                     
                     
 
-                    
-            
-        
                     
             
         
@@ -12088,12 +12123,13 @@ ifExists ::<span style="color:#f92672">=</span>
                 
                 
 
-                    
                     
-                        
                     
                     
 
+                    
+            
+        
                     
                         
             
@@ -12107,6 +12143,9 @@ ifExists ::<span style="color:#f92672">=</span>
                     
                     
 
+                    
+            
+        
                     
                         
             
@@ -12248,10 +12287,26 @@ ifExists ::<span style="color:#f92672">=</span>
                     
                     
 
+                    
+            
+        
                     
             
         
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
                     
+
+                    
                         
             
             
@@ -12408,6 +12463,9 @@ ifExists ::<span style="color:#f92672">=</span>
                     
                     
 
+                    
+            
+        
                     
             
         
@@ -12425,12 +12483,6 @@ ifExists ::<span style="color:#f92672">=</span>
                     
 
                     
-            
-        
-                    
-            
-        
-                    
                         
             
             
@@ -12443,6 +12495,9 @@ ifExists ::<span style="color:#f92672">=</span>
                     
                     
 
+                    
+            
+        
                     
                         
             
@@ -12504,30 +12559,56 @@ ifExists ::<span style="color:#f92672">=</span>
                     
                     
 
+                    
+            
+        
+                    
+            
+        
                     
             
         
                     
+            
+        
+                    
                         
             
             
                 
                     
+                    
                 
                 
 
+                    
                     
+                        
                     
                     
 
                     
+                        
             
-        
+            
+                
+                    
+                    
+                
+                
+
+                    
                     
+                    
+
+                    
                         
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -12539,7 +12620,20 @@ ifExists ::<span style="color:#f92672">=</span>
                     
             
         
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
                     
+                    
+                    
+
+                    
             
         
                     
@@ -12555,6 +12649,9 @@ ifExists ::<span style="color:#f92672">=</span>
                     
                     
 
+                    
+            
+        
                     
                         
             
@@ -12572,11 +12669,18 @@ ifExists ::<span style="color:#f92672">=</span>
             
         
                     
+                        
             
-        
-                    
             
-        
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
                     
             
         
@@ -12593,6 +12697,12 @@ ifExists ::<span style="color:#f92672">=</span>
                     
                     
 
+                    
+            
+        
+                    
+            
+        
                     
             
         
@@ -12678,12 +12788,12 @@ ifExists ::<span style="color:#f92672">=</span>
 
         
              
-                <a class="nav nav-prev" href="https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/rdl/rule-definition/single-table/create-default-single-table-rule/" title="CREATE DEFAULT SINGLE TABLE RULE"> <i class="fa fa-long-arrow-left fa-lg"></i> 上一篇</a>
+                <a class="nav nav-prev" href="https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/ral/" title="RAL 语法"> <i class="fa fa-long-arrow-left fa-lg"></i> 上一篇</a>
             
         
         
              
-                <a class="nav nav-next" href="https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/rdl/rule-definition/shadow/" title="影子库压测" style="margin-right: 0px;">下一篇 <i class="fa fa-long-arrow-right fa-lg"></i></a>
+                <a class="nav nav-next" href="https://shardingsphere.apache.org/document/current/cn/reference/distsql/syntax/ral/hint/set-readwrite-spitting-hint-source/" title="SET READWRITE_SPLITTING HINT SOURCE" style="margin-right: 0px;">下一篇 <i class="fa fa-long-arrow-right fa-lg"></i></a>
             
         
     </div>
@@ -12694,17 +12804,17 @@ ifExists ::<span style="color:#f92672">=</span>
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
     
-    <script src="https://shardingsphere.apache.org/document/current/js/clipboard.min.js?1666780851"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/perfect-scrollbar.min.js?1666780851"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/perfect-scrollbar.jquery.min.js?1666780851"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/jquery.sticky.js?1666780851"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/featherlight.min.js?1666780851"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/html5shiv-printshiv.min.js?1666780851"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/highlight.pack.js?1666780851"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/clipboard.min.js?1666797650"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/perfect-scrollbar.min.js?1666797650"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/perfect-scrollbar.jquery.min.js?1666797650"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/jquery.sticky.js?1666797650"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/featherlight.min.js?1666797650"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/html5shiv-printshiv.min.js?1666797650"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/highlight.pack.js?1666797650"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="https://shardingsphere.apache.org/document/current/js/modernizr.custom.71422.js?1666780851"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/learn.js?1666780851"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/hugo-learn.js?1666780851"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/modernizr.custom.71422.js?1666797650"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/learn.js?1666797650"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/hugo-learn.js?1666797650"></script>
     <script>
         try{
 
