@@ -25,7 +25,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-proxy/distsql/syntax/rdl/rule-definition/single-table/</guid>
-      <description>定义 SET DEFAULT SINGLE TABLE storageUnitDefinition storageUnitDefinition: STORAGE UNIT = storageUnitName | RANDOM  STORAGE UNIT 需使用 RDL 管理的存储单元。RANDOM 关键字代表随机存储。  示例 SET DEFAULT SINGLE TABLE STORAGE UNIT = ds_0 SET DEFAULT SINGLE TABLE STORAGE UNIT = RANDOM </description>
+      <description>定义 SET DEFAULT SINGLE TABLE STORAGE UNIT = (storageUnitName | RANDOM)  storageUnitName 需使用 RDL 管理的存储单元。RANDOM 代表随机存储。  示例 SET DEFAULT SINGLE TABLE STORAGE UNIT = ds_0 SET DEFAULT SINGLE TABLE STORAGE UNIT = RANDOM </description>
     </item>
     
     <item>
@@ -61,7 +61,7 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-proxy/distsql/syntax/rdl/rule-definition/shadow/</guid>
-      <description>语法说明 CREATE SHADOW RULE shadowRuleDefinition [, shadowRuleDefinition] ... ALTER SHADOW RULE shadowRuleDefinition [, shadowRuleDefinition] ... DROP SHADOW RULE ruleName [, ruleName] ... DROP SHADOW ALGORITHM algorithmName [, algorithmName] ... CREATE DEFAULT SHADOW ALGORITHM shadowAlgorithm ALTER DEFAULT SHADOW ALGORITHM shadowAlgorithm DROP DEFAULT SHADOW ALGORITHM [IF EXISTS] SHOW DEFAULT SHADOW ALGORITHM SHOW SHADOW ALGORITHMS shadowRuleDefinition: ruleName(resourceMapping, shadowTableRule [, shadowTableRule] ...) resourceMapping: SOURCE=resourceName, SHADOW=resourceName shadowTableRule: tableName(shadowAlgorithm [, shadowAlgorithm] ...) shadowAlgorithm: TYPE(NAME=shadowAlgorithmType, PROPERTIES([algorithmProperties] ...)) algorithmProperties: algorithmProperty [, algorithmProperty] .</description>
+      <description>语法说明 CREATE SHADOW RULE shadowRuleDefinition [, shadowRuleDefinition] ... ALTER SHADOW RULE shadowRuleDefinition [, shadowRuleDefinition] ... DROP SHADOW RULE ruleName [, ruleName] ... DROP SHADOW ALGORITHM algorithmName [, algorithmName] ... CREATE DEFAULT SHADOW ALGORITHM shadowAlgorithm ALTER DEFAULT SHADOW ALGORITHM shadowAlgorithm DROP DEFAULT SHADOW ALGORITHM [IF EXISTS] SHOW DEFAULT SHADOW ALGORITHM SHOW SHADOW ALGORITHMS shadowRuleDefinition: ruleName(storageUnitMapping, shadowTableRule [, shadowTableRule] ...) storageUnitMapping: SOURCE=storageUnitName, SHADOW=storageUnitName shadowTableRule: tableName(shadowAlgorithm [, shadowAlgorithm] ...) shadowAlgorithm: TYPE(NAME=shadowAlgorithmType, PROPERTIES([algorithmProperties] ...)) algorithmProperties: algorithmProperty [, algorithmProperty] .</description>
     </item>
     
   </channel>
