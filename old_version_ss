@@ -1,64 +1,44 @@
-commit d4a94ee8a97f75316502e94695da811bd9feb906
-Author: jiangML <1060319118@qq.com>
-Date:   Tue Jan 3 11:42:36 2023 +0800
+commit b37aabe0f0ecaf5453e017c932aae442e71ad04d
+Author: Zhengqiang Duan <duanzhengqiang@apache.org>
+Date:   Tue Jan 3 11:48:44 2023 +0800
 
-    Update agent development manual (#23279)
+    Revise ShardingConditionEngine logic (#23276)
 
-diff --git a/docs/document/content/dev-manual/agent.cn.md b/docs/document/content/dev-manual/agent.cn.md
-index 7070bc2929b..91d22671b43 100644
---- a/docs/document/content/dev-manual/agent.cn.md
-+++ b/docs/document/content/dev-manual/agent.cn.md
-@@ -9,7 +9,7 @@ chapter = true
- 
- ### 全限定类名
- 
--[`org.apache.shardingsphere.agent.spi.boot.PluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/api/src/main/java/org/apache/shardingsphere/agent/spi/boot/PluginBootService.java)
-+[`org.apache.shardingsphere.agent.spi.PluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/api/src/main/java/org/apache/shardingsphere/agent/spi/PluginBootService.java)
+diff --git a/docs/document/content/dev-manual/sharding.cn.md b/docs/document/content/dev-manual/sharding.cn.md
+index 28ead0899f7..9b2998c4f5d 100644
+--- a/docs/document/content/dev-manual/sharding.cn.md
++++ b/docs/document/content/dev-manual/sharding.cn.md
+@@ -94,10 +94,10 @@ chapter = true
  
  ### 定义
  
-@@ -19,9 +19,9 @@ chapter = true
+-Sharding condition generator definition
++分片条件生成引擎
  
- | *配置标识*      | *详细说明*                         | *全限定类名* |
- | ------------- | --------------------------------- | ---------- |
--| Prometheus    | Prometheus plugin 启动类           | [`org.apache.shardingsphere.agent.metrics.prometheus.service.PrometheusPluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/plugins/metrics/prometheus/src/main/java/org/apache/shardingsphere/agent/metrics/prometheus/service/PrometheusPluginBootService.java) |
--| Logging       | Logging plugin 启动类              | [`org.apache.shardingsphere.agent.plugin.logging.base.service.FileLoggingPluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/plugins/logging/base/src/main/java/org/apache/shardingsphere/agent/plugin/logging/file/service/FileLoggingPluginBootService.java) |
--| Jaeger        | Jaeger plugin 启动类               | [`org.apache.shardingsphere.agent.plugin.tracing.jaeger.service.JaegerTracingPluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/plugins/tracing/jaeger/src/main/java/org/apache/shardingsphere/agent/plugin/tracing/jaeger/service/JaegerTracingPluginBootService.java) |
--| OpenTelemetry | OpenTelemetryTracing plugin 启动类 | [`org.apache.shardingsphere.agent.plugin.tracing.opentelemetry.service.OpenTelemetryTracingPluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/plugins/tracing/opentelemetry/src/main/java/org/apache/shardingsphere/agent/plugin/tracing/opentelemetry/service/OpenTelemetryTracingPluginBootService.java) |
--| OpenTracing   | OpenTracing plugin 启动类          | [`org.apache.shardingsphere.agent.plugin.tracing.opentracing.service.OpenTracingPluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/plugins/tracing/opentracing/src/main/java/org/apache/shardingsphere/agent/plugin/tracing/opentracing/service/OpenTracingPluginBootService.java) |
--| Zipkin        | Zipkin plugin 启动类               | [`org.apache.shardingsphere.agent.plugin.tracing.zipkin.service.ZipkinTracingPluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/plugins/tracing/zipkin/src/main/java/org/apache/shardingsphere/agent/plugin/tracing/zipkin/service/ZipkinTracingPluginBootService.java) |
-+| Prometheus    | Prometheus plugin 启动类           | [`org.apache.shardingsphere.agent.plugin.metrics.prometheus.PrometheusPluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/plugins/metrics/type/prometheus/src/main/java/org/apache/shardingsphere/agent/plugin/metrics/prometheus/PrometheusPluginBootService.java) |
-+| Logging       | Logging plugin 启动类              | [`org.apache.shardingsphere.agent.plugin.logging.file.FileLoggingPluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/plugins/logging/type/file/src/main/java/org/apache/shardingsphere/agent/plugin/logging/file/FileLoggingPluginBootService.java) |
-+| Jaeger        | Jaeger plugin 启动类               | [`org.apache.shardingsphere.agent.plugin.tracing.jaeger.JaegerTracingPluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/plugins/tracing/type/jaeger/src/main/java/org/apache/shardingsphere/agent/plugin/tracing/jaeger/JaegerTracingPluginBootService.java) |
-+| OpenTelemetry | OpenTelemetryTracing plugin 启动类 | [`org.apache.shardingsphere.agent.plugin.tracing.opentelemetry.OpenTelemetryTracingPluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/plugins/tracing/type/opentelemetry/src/main/java/org/apache/shardingsphere/agent/plugin/tracing/opentelemetry/OpenTelemetryTracingPluginBootService.java) |
-+| OpenTracing   | OpenTracing plugin 启动类          | [`org.apache.shardingsphere.agent.plugin.tracing.opentracing.OpenTracingPluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/plugins/tracing/type/opentracing/src/main/java/org/apache/shardingsphere/agent/plugin/tracing/opentracing/OpenTracingPluginBootService.java) |
-+| Zipkin        | Zipkin plugin 启动类               | [`org.apache.shardingsphere.agent.plugin.tracing.zipkin.ZipkinTracingPluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/plugins/tracing/type/zipkin/src/main/java/org/apache/shardingsphere/agent/plugin/tracing/zipkin/ZipkinTracingPluginBootService.java) |
-diff --git a/docs/document/content/dev-manual/agent.en.md b/docs/document/content/dev-manual/agent.en.md
-index ca3020ff170..b2bac4b86a9 100644
---- a/docs/document/content/dev-manual/agent.en.md
-+++ b/docs/document/content/dev-manual/agent.en.md
-@@ -9,7 +9,7 @@ chapter = true
+ ### 已知实现
  
- ### Fully-qualified class name
- 
--[`org.apache.shardingsphere.agent.spi.boot.PluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/api/src/main/java/org/apache/shardingsphere/agent/spi/boot/PluginBootService.java)
-+[`org.apache.shardingsphere.agent.spi.PluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/api/src/main/java/org/apache/shardingsphere/agent/spi/PluginBootService.java)
+-| *配置标识*           | *详细说明*                                                                                   | *全限定类名*                                                                                                                                                                                                                                                                                 |
+-|--------------------------------|-------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+-| DefaultShardingConditionEngine | Default implementation that generates the sharding conditions from the configured sharding rule | [`org.apache.shardingsphere.sharding.route.engine.condition.engine.impl.DefaultShardingConditionEngine`](https://github.com/apache/shardingsphere/blob/master/features/sharding/core/src/main/java/org/apache/shardingsphere/sharding/route/engine/condition/engine/impl/DefaultShardingConditionEngine.java) |
++| *配置标识*           | *详细说明*     | *全限定类名*                                                                                                                                                                                                                                                                                 |
++|--------------------------------|------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
++| DefaultShardingConditionEngine | 默认分片条件生成引擎 | [`org.apache.shardingsphere.sharding.route.engine.condition.engine.impl.DefaultShardingConditionEngine`](https://github.com/apache/shardingsphere/blob/master/features/sharding/core/src/main/java/org/apache/shardingsphere/sharding/route/engine/condition/engine/impl/DefaultShardingConditionEngine.java) |
+diff --git a/docs/document/content/dev-manual/sharding.en.md b/docs/document/content/dev-manual/sharding.en.md
+index 89423844b64..b68c8e9f937 100644
+--- a/docs/document/content/dev-manual/sharding.en.md
++++ b/docs/document/content/dev-manual/sharding.en.md
+@@ -94,10 +94,10 @@ Obtain the current date for routing definition
  
  ### Definition
  
-@@ -19,9 +19,9 @@ Plugin startup service definition
+-Sharding condition generator definition
++Sharding condition generator engine
  
- | *Configuration Type* | *Description*                             | *Fully-qualified class name* |
- | -------------------- | ----------------------------------------- | ---------------------------- |
--| Prometheus           | Prometheus plugin startup class           | [`org.apache.shardingsphere.agent.metrics.prometheus.service.PrometheusPluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/plugins/metrics/prometheus/src/main/java/org/apache/shardingsphere/agent/metrics/prometheus/service/PrometheusPluginBootService.java) |
--| Logging              | Logging plugin startup class              | [`org.apache.shardingsphere.agent.plugin.logging.base.service.FileLoggingPluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/plugins/logging/base/src/main/java/org/apache/shardingsphere/agent/plugin/logging/file/service/FileLoggingPluginBootService.java) |
--| Jaeger               | Jaeger plugin startup class               | [`org.apache.shardingsphere.agent.plugin.tracing.jaeger.service.JaegerTracingPluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/plugins/tracing/jaeger/src/main/java/org/apache/shardingsphere/agent/plugin/tracing/jaeger/service/JaegerTracingPluginBootService.java) |
--| OpenTelemetry        | OpenTelemetryTracing plugin startup class | [`org.apache.shardingsphere.agent.plugin.tracing.opentelemetry.service.OpenTelemetryTracingPluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/plugins/tracing/opentelemetry/src/main/java/org/apache/shardingsphere/agent/plugin/tracing/opentelemetry/service/OpenTelemetryTracingPluginBootService.java) |
--| OpenTracing          | OpenTracing plugin startup class          | [`org.apache.shardingsphere.agent.plugin.tracing.opentracing.service.OpenTracingPluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/plugins/tracing/opentracing/src/main/java/org/apache/shardingsphere/agent/plugin/tracing/opentracing/service/OpenTracingPluginBootService.java) |
--| Zipkin               | Zipkin plugin startup class               | [`org.apache.shardingsphere.agent.plugin.tracing.zipkin.service.ZipkinTracingPluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/plugins/tracing/zipkin/src/main/java/org/apache/shardingsphere/agent/plugin/tracing/zipkin/service/ZipkinTracingPluginBootService.java) |
-+| Prometheus           | Prometheus plugin startup class           | [`org.apache.shardingsphere.agent.plugin.metrics.prometheus.PrometheusPluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/plugins/metrics/type/prometheus/src/main/java/org/apache/shardingsphere/agent/plugin/metrics/prometheus/PrometheusPluginBootService.java) |
-+| Logging              | Logging plugin startup class              | [`org.apache.shardingsphere.agent.plugin.logging.file.FileLoggingPluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/plugins/logging/type/file/src/main/java/org/apache/shardingsphere/agent/plugin/logging/file/FileLoggingPluginBootService.java) |
-+| Jaeger               | Jaeger plugin startup class               | [`org.apache.shardingsphere.agent.plugin.tracing.jaeger.JaegerTracingPluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/plugins/tracing/type/jaeger/src/main/java/org/apache/shardingsphere/agent/plugin/tracing/jaeger/JaegerTracingPluginBootService.java) |
-+| OpenTelemetry        | OpenTelemetryTracing plugin startup class | [`org.apache.shardingsphere.agent.plugin.tracing.opentelemetry.OpenTelemetryTracingPluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/plugins/tracing/type/opentelemetry/src/main/java/org/apache/shardingsphere/agent/plugin/tracing/opentelemetry/OpenTelemetryTracingPluginBootService.java) |
-+| OpenTracing          | OpenTracing plugin startup class          | [`org.apache.shardingsphere.agent.plugin.tracing.opentracing.OpenTracingPluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/plugins/tracing/type/opentracing/src/main/java/org/apache/shardingsphere/agent/plugin/tracing/opentracing/OpenTracingPluginBootService.java) |
-+| Zipkin               | Zipkin plugin startup class               | [`org.apache.shardingsphere.agent.plugin.tracing.zipkin.ZipkinTracingPluginBootService`](https://github.com/apache/shardingsphere/blob/master/agent/plugins/tracing/type/zipkin/src/main/java/org/apache/shardingsphere/agent/plugin/tracing/zipkin/ZipkinTracingPluginBootService.java) |
+ ### Implementation classes
+ 
+-| *Configuration Type*           | *Description*                                                                                   | *Fully-qualified class name*                                                                                                                                                                                                                                                                                  |
+-|--------------------------------|-------------------------------------------------------------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+-| DefaultShardingConditionEngine | Default implementation that generates the sharding conditions from the configured sharding rule | [`org.apache.shardingsphere.sharding.route.engine.condition.engine.impl.DefaultShardingConditionEngine`](https://github.com/apache/shardingsphere/blob/master/features/sharding/core/src/main/java/org/apache/shardingsphere/sharding/route/engine/condition/engine/impl/DefaultShardingConditionEngine.java) |
++| *Configuration Type*           | *Description*                               | *Fully-qualified class name*                                                                                                                                                                                                                                                                                  |
++|--------------------------------|---------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
++| DefaultShardingConditionEngine | Default sharding condition generator engine | [`org.apache.shardingsphere.sharding.route.engine.condition.engine.impl.DefaultShardingConditionEngine`](https://github.com/apache/shardingsphere/blob/master/features/sharding/core/src/main/java/org/apache/shardingsphere/sharding/route/engine/condition/engine/impl/DefaultShardingConditionEngine.java) |
