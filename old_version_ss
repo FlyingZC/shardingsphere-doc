@@ -1,52 +1,72 @@
-commit 097556f689b400837e7949d80d52d5fc1f426b06
-Author: Liang Zhang <zhangliang@apache.org>
-Date:   Sat Mar 16 21:39:36 2024 +0800
+commit 44db84c19a86a04f3fae12f78758b97e3abc0329
+Author: 孙念君 Nianjun Sun <sunnianjun@apache.org>
+Date:   Mon Mar 18 18:53:29 2024 +0800
 
-    Refactor SnowflakeClockMoveBackException to AlgorithmExecuteException (#30517)
+    Add : add committer rights (#30521)
+    
+    * Add : add committer rights
+    
+    * Document : update the content
+    
+    * Document : update the committer rights content
+    
+    * Document : update the committer rights content
+    
+    * Document : update the committer rights content
+    
+    * Document : update the committer rights content
+    
+    * Document : update the commiter rights content
+    
+    * Document : update the commiter rights content
+    
+    * Document : update the commiter rights content
+    
+    * Document : update the commiter rights content
 
-diff --git a/docs/document/content/user-manual/error-code/sql-error-code.cn.md b/docs/document/content/user-manual/error-code/sql-error-code.cn.md
-index 10f0a577e90..346177fd439 100644
---- a/docs/document/content/user-manual/error-code/sql-error-code.cn.md
-+++ b/docs/document/content/user-manual/error-code/sql-error-code.cn.md
-@@ -22,8 +22,9 @@ SQL 错误码以标准的 SQL State，Vendor Code 和详细错误信息提供，
- | 42S02     | 10006       | Unknown column '%s' in '%s'.                                                   |
- | 42S02     | 10007       | Table or view \`%s\` does not exist.                                           |
- | 42000     | 10010       | Rule does not exist.                                                           |
--| 44000     | 10011       | '%s.'%s' initialization failed, reason is: %s.                                 |
-+| 44000     | 10011       | Algorithm '%s.'%s' initialization failed, reason is: %s.                       |
- | 44000     | 10012       | Can not find '%s' algorithm on table '%s'.                                     |
-+| 44000     | 10013       | Algorithm '%s.%s' execute failed, reason is: %s.                               |
- | 42S02     | 10020       | Schema \`%s\` does not exist.                                                  |
- | 42S02     | 10021       | Single table \`%s\` does not exist.                                            |
- | HY000     | 10022       | Can not load table with database name \`%s\` and data source name \`%s\`.      |
-@@ -212,7 +213,6 @@ SQL 错误码以标准的 SQL State，Vendor Code 和详细错误信息提供，
- | 44000     | 20086       | Some routed data sources do not belong to configured data sources. routed data sources: \`%s\`, configured data sources: \`%s\`. |
- | 44000     | 20087       | Please check your sharding conditions \`%s\` to avoid same record in table \`%s\` routing to multiple data nodes.                |
- | 44000     | 20088       | Cannot found routing table factor, data source: %s, actual table: %s.                                                            |
--| HY000     | 20092       | Clock is moving backwards, last time is %d milliseconds, current time is %d milliseconds.                                        |
- | HY000     | 20099       | Sharding plugin error, reason is: %s                                                                                             |
- 
- ### 读写分离
-diff --git a/docs/document/content/user-manual/error-code/sql-error-code.en.md b/docs/document/content/user-manual/error-code/sql-error-code.en.md
-index b1ae0044a31..dc06b30e7fe 100644
---- a/docs/document/content/user-manual/error-code/sql-error-code.en.md
-+++ b/docs/document/content/user-manual/error-code/sql-error-code.en.md
-@@ -22,8 +22,9 @@ SQL error codes provide by standard `SQL State`, `Vendor Code` and `Reason`, whi
- | 42S02     | 10006       | Unknown column '%s' in '%s'.                                                   |
- | 42S02     | 10007       | Table or view \`%s\` does not exist.                                           |
- | 42000     | 10010       | Rule does not exist.                                                           |
--| 44000     | 10011       | '%s.'%s' initialization failed, reason is: %s.                                 |
-+| 44000     | 10011       | Algorithm '%s.'%s' initialization failed, reason is: %s.                       |
- | 44000     | 10012       | Can not find '%s' algorithm on table '%s'.                                     |
-+| 44000     | 10013       | Algorithm '%s.%s' execute failed, reason is: %s.                               |
- | 42S02     | 10020       | Schema \`%s\` does not exist.                                                  |
- | 42S02     | 10021       | Single table \`%s\` does not exist.                                            |
- | HY000     | 10022       | Can not load table with database name \`%s\` and data source name \`%s\`.      |
-@@ -212,7 +213,6 @@ SQL error codes provide by standard `SQL State`, `Vendor Code` and `Reason`, whi
- | 44000     | 20086       | Some routed data sources do not belong to configured data sources. routed data sources: \`%s\`, configured data sources: \`%s\`. |
- | 44000     | 20087       | Please check your sharding conditions \`%s\` to avoid same record in table \`%s\` routing to multiple data nodes.                |
- | 44000     | 20088       | Cannot found routing table factor, data source: %s, actual table: %s.                                                            |
--| HY000     | 20092       | Clock is moving backwards, last time is %d milliseconds, current time is %d milliseconds.                                        |
- | HY000     | 20099       | Sharding plugin error, reason is: %s                                                                                             |
- 
- ### Readwrite-splitting
+diff --git a/docs/community/content/involved/committer/commiter_rights.cn.md b/docs/community/content/involved/committer/commiter_rights.cn.md
+new file mode 100644
+index 00000000000..699f0127c3a
+--- /dev/null
++++ b/docs/community/content/involved/committer/commiter_rights.cn.md
+@@ -0,0 +1,17 @@
+++++
++title = "提交者权益"
++weight = 5
++chapter = true
+++++
++
++## 提交者权益
++
++每个 Apache Committer 都有资格获得免费 JetBrains 订阅，使他们能够访问 JetBrains 产品包，如 IntelliJ IDEA、PyCharm 和其他桌面工具。
++
++### 获取免费 JetBrains 订阅
++
++如果您是 Apache ShardingSphere 提交者，但未收到免费的 JetBrains 订阅，请使用您的 @apache.org 电子邮件地址[立即获取免费的所有产品包](https://www.jetbrains.com/shop/eform/apache?product=ALL) 以便于 ShardingSphere 的后续开发。
++
++### 重新激活 JetBrains 到期订阅
++
++如果您已经使用了免费的 JetBrains 订阅，遇到 License 到期，可以使用您的 @apache.org 电子邮件地址[续订免费的所有产品包](https://www.jetbrains.com/shop/eform/apache?product=ALL)，并在您的 JetBrains 桌面工具（例如 IntelliJ IDEA） 中点击 `Refresh license list` 刷新订阅。
+diff --git a/docs/community/content/involved/committer/commiter_rights.en.md b/docs/community/content/involved/committer/commiter_rights.en.md
+new file mode 100644
+index 00000000000..486063dfff4
+--- /dev/null
++++ b/docs/community/content/involved/committer/commiter_rights.en.md
+@@ -0,0 +1,17 @@
+++++
++title = "Committer Rights"
++weight = 5
++chapter = true
+++++
++
++## Committer Rights
++
++Every Apache Committer is eligible for a free license that grants them access to all the JetBrains IDEs such as IntelliJ IDEA, PyCharm, and other desktop tools.
++
++### Get free JetBrains license
++
++If you are an Apache ShardingSphere Committer and still haven’t received a free JetBrains license, please use your @apache.org email address to [get a free All Products Pack now](https://www.jetbrains.com/shop/eform/apache?product=ALL) for the subsequent development of ShardingSphere.
++
++### Reactivate expired JetBrains license
++
++If you have obtained a free JetBrains subscription but it has expired, you can reactivate all product packs for free using your @apache.org email address [by this link](https://www.jetbrains.com/shop/eform/apache?product=ALL) and click 'Refresh license list' in your JetBrains desktop tools (e.g. IntelliJ IDEA) to refresh the subscription.
