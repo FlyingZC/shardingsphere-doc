@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="cn" class="js csstransforms3d">
+<html lang="en" class="js csstransforms3d">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -10,7 +10,7 @@
 
     <link rel="shortcut icon" href="https://shardingsphere.apache.org/elasticjob/images/favicon.png" type="image/x-icon" />
 
-    <title>表结构说明 :: ElasticJob</title>
+    <title>GraalVM Native Image :: ElasticJob</title>
     
     
     <link href="https://shardingsphere.apache.org/elasticjob/current/css/nucleus.css?1722239077" rel="stylesheet">
@@ -57,33 +57,33 @@
     
 
   </head>
-  <body class="" data-url="/cn/user-manual/usage/tracing/table-structure/">
+  <body class="" data-url="/en/user-manual/configuration/graalvm-native-image/">
     <div class="change-theme">
     <div class="wrap">
         
         <span data-item="retro">
             <svg t="1649761460834" class="icon" viewBox="0 0 1243 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2052" width="16" height="16"><path d="M755.093336 61.436797a511.973304 511.973304 0 1 0 207.495466 693.650688l-99.615377-53.757197a398.827204 398.827204 0 1 1-161.637286-540.351253l53.757197-99.615378z" fill="#ffffff" p-id="2053"></path><path d="M1204.971593 188.84501L534.652259 736.217612l-285.242269-364.086159 86.304071-67.653615 216.199012 275.953611 583.649567-476.574007 69.335813 84.987568z" fill="#ffffff" p-id="2054"></path></svg>
-            复古
+            Retro
         </span>
         <span data-item="eyehelp">
             <svg t="1649761460834" class="icon" viewBox="0 0 1243 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2052" width="16" height="16"><path d="M755.093336 61.436797a511.973304 511.973304 0 1 0 207.495466 693.650688l-99.615377-53.757197a398.827204 398.827204 0 1 1-161.637286-540.351253l53.757197-99.615378z" fill="#ffffff" p-id="2053"></path><path d="M1204.971593 188.84501L534.652259 736.217612l-285.242269-364.086159 86.304071-67.653615 216.199012 275.953611 583.649567-476.574007 69.335813 84.987568z" fill="#ffffff" p-id="2054"></path></svg>
-            护眼
+            Eye care
         </span>
         <span data-item="haitian">
             <svg t="1649761460834" class="icon" viewBox="0 0 1243 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2052" width="16" height="16"><path d="M755.093336 61.436797a511.973304 511.973304 0 1 0 207.495466 693.650688l-99.615377-53.757197a398.827204 398.827204 0 1 1-161.637286-540.351253l53.757197-99.615378z" fill="#ffffff" p-id="2053"></path><path d="M1204.971593 188.84501L534.652259 736.217612l-285.242269-364.086159 86.304071-67.653615 216.199012 275.953611 583.649567-476.574007 69.335813 84.987568z" fill="#ffffff" p-id="2054"></path></svg>
-            海天
+            Haitian
         </span>
         <span data-item="deep">
             <svg t="1649761460834" class="icon" viewBox="0 0 1243 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2052" width="16" height="16"><path d="M755.093336 61.436797a511.973304 511.973304 0 1 0 207.495466 693.650688l-99.615377-53.757197a398.827204 398.827204 0 1 1-161.637286-540.351253l53.757197-99.615378z" fill="#ffffff" p-id="2053"></path><path d="M1204.971593 188.84501L534.652259 736.217612l-285.242269-364.086159 86.304071-67.653615 216.199012 275.953611 583.649567-476.574007 69.335813 84.987568z" fill="#ffffff" p-id="2054"></path></svg>
-            深邃
+            Deep
         </span>
         <span data-item="dark">
             <svg t="1649761460834" class="icon" viewBox="0 0 1243 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2052" width="16" height="16"><path d="M755.093336 61.436797a511.973304 511.973304 0 1 0 207.495466 693.650688l-99.615377-53.757197a398.827204 398.827204 0 1 1-161.637286-540.351253l53.757197-99.615378z" fill="#ffffff" p-id="2053"></path><path d="M1204.971593 188.84501L534.652259 736.217612l-285.242269-364.086159 86.304071-67.653615 216.199012 275.953611 583.649567-476.574007 69.335813 84.987568z" fill="#ffffff" p-id="2054"></path></svg>
-            暗黑
+            Dark
         </span>
         <span class="active">
             <svg t="1649761460834" class="icon" viewBox="0 0 1243 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2052" width="16" height="16"><path d="M755.093336 61.436797a511.973304 511.973304 0 1 0 207.495466 693.650688l-99.615377-53.757197a398.827204 398.827204 0 1 1-161.637286-540.351253l53.757197-99.615378z" fill="#ffffff" p-id="2053"></path><path d="M1204.971593 188.84501L534.652259 736.217612l-285.242269-364.086159 86.304071-67.653615 216.199012 275.953611 583.649567-476.574007 69.335813 84.987568z" fill="#ffffff" p-id="2054"></path></svg>
-            默认
+            Default
         </span>
         
     </div>
@@ -119,7 +119,7 @@
                       
                         
                         
-<option id="en" value="/elasticjob/current/en/user-manual/usage/tracing/table-structure/">English</option>
+<option id="en" value="/elasticjob/current/en/user-manual/configuration/graalvm-native-image/" selected>English</option>
                         
                       
                   
@@ -133,7 +133,7 @@
                       
                         
                         
-<option id="cn" value="/elasticjob/current/cn/user-manual/usage/tracing/table-structure/" selected>简体中文</option>
+<option id="cn" value="/elasticjob/current/cn/user-manual/configuration/graalvm-native-image/">简体中文</option>
                         
                       
                   
@@ -169,7 +169,7 @@
 <script type="text/javascript" src="https://shardingsphere.apache.org/elasticjob/current/js/auto-complete.js?1722239077"></script>
 <script type="text/javascript">
     
-        var baseurl = "\/cn";
+        var baseurl = "\/en";
     
 </script>
 <script type="text/javascript" src="https://shardingsphere.apache.org/elasticjob/current/js/search.js?1722239077"></script>
@@ -189,19 +189,19 @@
  
   
     
-    <li data-nav-id="/cn/overview/" title="概览" class="dd-item 
+    <li data-nav-id="/en/overview/" title="Overview" class="dd-item 
         
         
         
         ">
             
-      <a href="https://shardingsphere.apache.org/elasticjob/current/cn/overview/">
+      <a href="https://shardingsphere.apache.org/elasticjob/current/en/overview/">
          <i class="collapse" style="display:inline; font-family:'courier';">
          
             <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
           
           </i>
-          <b>1. </b>概览
+          <b>1. </b>Overview
           
       </a>
       
@@ -217,19 +217,19 @@
  
   
     
-    <li data-nav-id="/cn/quick-start/" title="快速入门" class="dd-item 
+    <li data-nav-id="/en/quick-start/" title="Quick Start" class="dd-item 
         
         
         
         ">
             
-      <a href="https://shardingsphere.apache.org/elasticjob/current/cn/quick-start/">
+      <a href="https://shardingsphere.apache.org/elasticjob/current/en/quick-start/">
          <i class="collapse" style="display:inline; font-family:'courier';">
          
             <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
           
           </i>
-          <b>2. </b>快速入门
+          <b>2. </b>Quick Start
           
       </a>
       
@@ -245,13 +245,13 @@
  
   
     
-    <li data-nav-id="/cn/features/" title="概念 &amp; 功能" class="dd-item 
+    <li data-nav-id="/en/features/" title="Concepts &amp; Features" class="dd-item 
         
         
         
         ">
             
-      <a href="https://shardingsphere.apache.org/elasticjob/current/cn/features/">
+      <a href="https://shardingsphere.apache.org/elasticjob/current/en/features/">
          <i class="collapse" style="display:inline; font-family:'courier';">
          
              <svg  class="icon icon-down" 
@@ -266,7 +266,7 @@
             </svg>
           
           </i>
-          <b>3. </b>概念 &amp; 功能
+          <b>3. </b>Concepts &amp; Features
           
       </a>
       
@@ -285,10 +285,10 @@
  
   
     
-      <li data-nav-id="/cn/features/schedule-model/" title="调度模型" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/features/schedule-model/">
+      <li data-nav-id="/en/features/schedule-model/" title="Schedule Model" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/features/schedule-model/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        <b>3.1. </b>调度模型
+        <b>3.1. </b>Schedule Model
         
         </a>
     </li>
@@ -305,10 +305,10 @@
  
   
     
-      <li data-nav-id="/cn/features/elastic/" title="弹性调度" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/features/elastic/">
+      <li data-nav-id="/en/features/elastic/" title="Elastic Schedule" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/features/elastic/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        <b>3.2. </b>弹性调度
+        <b>3.2. </b>Elastic Schedule
         
         </a>
     </li>
@@ -325,10 +325,10 @@
  
   
     
-      <li data-nav-id="/cn/features/failover/" title="失效转移" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/features/failover/">
+      <li data-nav-id="/en/features/failover/" title="Failover" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/features/failover/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        <b>3.4. </b>失效转移
+        <b>3.4. </b>Failover
         
         </a>
     </li>
@@ -345,10 +345,10 @@
  
   
     
-      <li data-nav-id="/cn/features/misfire/" title="错过任务重执行" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/features/misfire/">
+      <li data-nav-id="/en/features/misfire/" title="Misfire" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/features/misfire/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        <b>3.5. </b>错过任务重执行
+        <b>3.5. </b>Misfire
         
         </a>
     </li>
@@ -365,10 +365,10 @@
  
   
     
-      <li data-nav-id="/cn/features/job-type/" title="作业开放生态" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/features/job-type/">
+      <li data-nav-id="/en/features/job-type/" title="Job Open Ecosystem" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/features/job-type/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        <b>3.6. </b>作业开放生态
+        <b>3.6. </b>Job Open Ecosystem
         
         </a>
     </li>
@@ -392,13 +392,13 @@
  
   
     
-    <li data-nav-id="/cn/user-manual/" title="用户手册" class="dd-item 
+    <li data-nav-id="/en/user-manual/" title="User Manual" class="dd-item 
         parent
         
         
         ">
             
-      <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/">
+      <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/">
          <i class="collapse" style="display:inline; font-family:'courier';">
          
              <svg  class="icon icon-down" 
@@ -413,7 +413,7 @@
             </svg>
           
           </i>
-          <b>4. </b>用户手册
+          <b>4. </b>User Manual
           
       </a>
       
@@ -434,55 +434,13 @@
  
   
     
-    <li data-nav-id="/cn/user-manual/usage/" title="使用手册" class="dd-item 
-        parent
-        
-        
-        ">
-            
-      <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/usage/">
-         <i class="collapse" style="display:inline; font-family:'courier';">
-         
-             <svg  class="icon icon-down" 
-              style="display: inline-block;"
-              viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"   width="20" height="20" fill="#777">
-              <path d="M500.8 604.778667L267.306667 371.392l-45.226667 45.269333 278.741333 278.613334 278.485334-278.613334-45.248-45.248z" p-id="5376" ></path>
-            </svg>
-            <svg  class="icon icon-right" 
-              style="display: none;"
-              viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"  width="20" height="20" fill="#777">
-              <path d="M593.450667 512.128L360.064 278.613333l45.290667-45.226666 278.613333 278.762666L405.333333 790.613333l-45.226666-45.269333z" p-id="5605" ></path>
-            </svg>
-          
-          </i>
-          <b>4.1.1 </b>使用手册
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
- 
-  
-    
-    <li data-nav-id="/cn/user-manual/usage/job-api/" title="作业 API" class="dd-item 
+    <li data-nav-id="/en/user-manual/usage/" title="Usage" class="dd-item 
         
         
         
         ">
             
-      <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/usage/job-api/">
+      <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/usage/">
          <i class="collapse" style="display:inline; font-family:'courier';">
          
              <svg  class="icon icon-down" 
@@ -497,7 +455,49 @@
             </svg>
           
           </i>
-          作业 API
+          <b>4.1.1 </b>Usage
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/en/user-manual/usage/job-api/" title="Job API" class="dd-item 
+        
+        
+        
+        ">
+            
+      <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/usage/job-api/">
+         <i class="collapse" style="display:inline; font-family:'courier';">
+         
+             <svg  class="icon icon-down" 
+              style="display: none;"
+              viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"   width="20" height="20" fill="#777">
+              <path d="M500.8 604.778667L267.306667 371.392l-45.226667 45.269333 278.741333 278.613334 278.485334-278.613334-45.248-45.248z" p-id="5376" ></path>
+            </svg>
+            <svg  class="icon icon-right" 
+              style="display: inline-block;"
+              viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"  width="20" height="20" fill="#777">
+              <path d="M593.450667 512.128L360.064 278.613333l45.290667-45.226666 278.613333 278.762666L405.333333 790.613333l-45.226666-45.269333z" p-id="5605" ></path>
+            </svg>
+          
+          </i>
+          Job API
           
       </a>
       
@@ -516,10 +516,10 @@
  
   
     
-      <li data-nav-id="/cn/user-manual/usage/job-api/job-interface/" title="作业开发" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/usage/job-api/job-interface/">
+      <li data-nav-id="/en/user-manual/usage/job-api/job-interface/" title="Job Development" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/usage/job-api/job-interface/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        作业开发
+        Job Development
         
         </a>
     </li>
@@ -536,10 +536,10 @@
  
   
     
-      <li data-nav-id="/cn/user-manual/usage/job-api/java-api/" title="使用 Java API" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/usage/job-api/java-api/">
+      <li data-nav-id="/en/user-manual/usage/job-api/java-api/" title="Use Java API" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/usage/job-api/java-api/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        使用 Java API
+        Use Java API
         
         </a>
     </li>
@@ -556,10 +556,10 @@
  
   
     
-      <li data-nav-id="/cn/user-manual/usage/job-api/spring-boot-starter/" title="使用 Spring Boot Starter" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/usage/job-api/spring-boot-starter/">
+      <li data-nav-id="/en/user-manual/usage/job-api/spring-boot-starter/" title="Use Spring Boot Starter" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/usage/job-api/spring-boot-starter/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        使用 Spring Boot Starter
+        Use Spring Boot Starter
         
         </a>
     </li>
@@ -576,10 +576,10 @@
  
   
     
-      <li data-nav-id="/cn/user-manual/usage/job-api/spring-namespace/" title="使用 Spring 命名空间" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/usage/job-api/spring-namespace/">
+      <li data-nav-id="/en/user-manual/usage/job-api/spring-namespace/" title="Use Spring Namespace" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/usage/job-api/spring-namespace/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        使用 Spring 命名空间
+        Use Spring Namespace
         
         </a>
     </li>
@@ -605,13 +605,13 @@
  
   
     
-    <li data-nav-id="/cn/user-manual/usage/job-listener/" title="作业监听器" class="dd-item 
+    <li data-nav-id="/en/user-manual/usage/job-listener/" title="Job Listener" class="dd-item 
         
         
         
         ">
             
-      <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/usage/job-listener/">
+      <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/usage/job-listener/">
          <i class="collapse" style="display:inline; font-family:'courier';">
          
              <svg  class="icon icon-down" 
@@ -626,7 +626,7 @@
             </svg>
           
           </i>
-          作业监听器
+          Job Listener
           
       </a>
       
@@ -645,10 +645,10 @@
  
   
     
-      <li data-nav-id="/cn/user-manual/usage/job-listener/listener-interface/" title="监听器开发" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/usage/job-listener/listener-interface/">
+      <li data-nav-id="/en/user-manual/usage/job-listener/listener-interface/" title="Listener Development" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/usage/job-listener/listener-interface/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        监听器开发
+        Listener Development
         
         </a>
     </li>
@@ -665,10 +665,10 @@
  
   
     
-      <li data-nav-id="/cn/user-manual/usage/job-listener/java-api/" title="使用 Java API" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/usage/job-listener/java-api/">
+      <li data-nav-id="/en/user-manual/usage/job-listener/java-api/" title="Use Java API" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/usage/job-listener/java-api/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        使用 Java API
+        Use Java API
         
         </a>
     </li>
@@ -685,10 +685,10 @@
  
   
     
-      <li data-nav-id="/cn/user-manual/usage/job-listener/spring-namespace/" title="使用 Spring 命名空间" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/usage/job-listener/spring-namespace/">
+      <li data-nav-id="/en/user-manual/usage/job-listener/spring-namespace/" title="Use Spring Namespace" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/usage/job-listener/spring-namespace/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        使用 Spring 命名空间
+        Use Spring Namespace
         
         </a>
     </li>
@@ -714,28 +714,28 @@
  
   
     
-    <li data-nav-id="/cn/user-manual/usage/tracing/" title="事件追踪" class="dd-item 
-        parent
+    <li data-nav-id="/en/user-manual/usage/tracing/" title="Tracing" class="dd-item 
+        
         
         
         ">
             
-      <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/usage/tracing/">
+      <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/usage/tracing/">
          <i class="collapse" style="display:inline; font-family:'courier';">
          
              <svg  class="icon icon-down" 
-              style="display: inline-block;"
+              style="display: none;"
               viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"   width="20" height="20" fill="#777">
               <path d="M500.8 604.778667L267.306667 371.392l-45.226667 45.269333 278.741333 278.613334 278.485334-278.613334-45.248-45.248z" p-id="5376" ></path>
             </svg>
             <svg  class="icon icon-right" 
-              style="display: none;"
+              style="display: inline-block;"
               viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"  width="20" height="20" fill="#777">
               <path d="M593.450667 512.128L360.064 278.613333l45.290667-45.226666 278.613333 278.762666L405.333333 790.613333l-45.226666-45.269333z" p-id="5605" ></path>
             </svg>
           
           </i>
-          事件追踪
+          Tracing
           
       </a>
       
@@ -754,10 +754,10 @@
  
   
     
-      <li data-nav-id="/cn/user-manual/usage/tracing/java-api/" title="使用 Java API" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/usage/tracing/java-api/">
+      <li data-nav-id="/en/user-manual/usage/tracing/java-api/" title="Use Java API" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/usage/tracing/java-api/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        使用 Java API
+        Use Java API
         
         </a>
     </li>
@@ -774,10 +774,10 @@
  
   
     
-      <li data-nav-id="/cn/user-manual/usage/tracing/spring-boot-starter/" title="使用 Spring Boot Starter" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/usage/tracing/spring-boot-starter/">
+      <li data-nav-id="/en/user-manual/usage/tracing/spring-boot-starter/" title="Use Spring Boot Starter" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/usage/tracing/spring-boot-starter/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        使用 Spring Boot Starter
+        Use Spring Boot Starter
         
         </a>
     </li>
@@ -794,10 +794,10 @@
  
   
     
-      <li data-nav-id="/cn/user-manual/usage/tracing/spring-namespace/" title="使用 Spring 命名空间" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/usage/tracing/spring-namespace/">
+      <li data-nav-id="/en/user-manual/usage/tracing/spring-namespace/" title="Use Spring Namespace" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/usage/tracing/spring-namespace/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        使用 Spring 命名空间
+        Use Spring Namespace
         
         </a>
     </li>
@@ -814,10 +814,10 @@
  
   
     
-      <li data-nav-id="/cn/user-manual/usage/tracing/table-structure/" title="表结构说明" class="dd-item active">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/usage/tracing/table-structure/">
+      <li data-nav-id="/en/user-manual/usage/tracing/table-structure/" title="Table Structure" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/usage/tracing/table-structure/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        表结构说明
+        Table Structure
         
         </a>
     </li>
@@ -843,19 +843,19 @@
  
   
     
-    <li data-nav-id="/cn/user-manual/usage/operation-api/" title="操作 API" class="dd-item 
+    <li data-nav-id="/en/user-manual/usage/operation-api/" title="Operation API" class="dd-item 
         
         
         
         ">
             
-      <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/usage/operation-api/">
+      <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/usage/operation-api/">
          <i class="collapse" style="display:inline; font-family:'courier';">
          
             <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
           
           </i>
-          操作 API
+          Operation API
           
       </a>
       
@@ -882,28 +882,28 @@
  
   
     
-    <li data-nav-id="/cn/user-manual/configuration/" title="配置手册" class="dd-item 
-        
+    <li data-nav-id="/en/user-manual/configuration/" title="Configuration" class="dd-item 
+        parent
         
         
         ">
             
-      <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/configuration/">
+      <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/configuration/">
          <i class="collapse" style="display:inline; font-family:'courier';">
          
              <svg  class="icon icon-down" 
-              style="display: none;"
+              style="display: inline-block;"
               viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"   width="20" height="20" fill="#777">
               <path d="M500.8 604.778667L267.306667 371.392l-45.226667 45.269333 278.741333 278.613334 278.485334-278.613334-45.248-45.248z" p-id="5376" ></path>
             </svg>
             <svg  class="icon icon-right" 
-              style="display: inline-block;"
+              style="display: none;"
               viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg"  width="20" height="20" fill="#777">
               <path d="M593.450667 512.128L360.064 278.613333l45.290667-45.226666 278.613333 278.762666L405.333333 790.613333l-45.226666-45.269333z" p-id="5605" ></path>
             </svg>
           
           </i>
-          <b>4.1.2 </b>配置手册
+          <b>4.1.2 </b>Configuration
           
       </a>
       
@@ -924,8 +924,8 @@
  
   
     
-      <li data-nav-id="/cn/user-manual/configuration/java-api/" title="Java API" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/configuration/java-api/">
+      <li data-nav-id="/en/user-manual/configuration/java-api/" title="Java API" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/configuration/java-api/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
         Java API
         
@@ -944,8 +944,8 @@
  
   
     
-      <li data-nav-id="/cn/user-manual/configuration/spring-boot-starter/" title="Spring Boot Starter" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/configuration/spring-boot-starter/">
+      <li data-nav-id="/en/user-manual/configuration/spring-boot-starter/" title="Spring Boot Starter" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/configuration/spring-boot-starter/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
         Spring Boot Starter
         
@@ -964,10 +964,10 @@
  
   
     
-      <li data-nav-id="/cn/user-manual/configuration/spring-namespace/" title="Spring 命名空间" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/configuration/spring-namespace/">
+      <li data-nav-id="/en/user-manual/configuration/spring-namespace/" title="Spring Namespace" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/configuration/spring-namespace/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        Spring 命名空间
+        Spring Namespace
         
         </a>
     </li>
@@ -984,13 +984,13 @@
  
   
     
-    <li data-nav-id="/cn/user-manual/configuration/built-in-strategy/" title="内置策略" class="dd-item 
+    <li data-nav-id="/en/user-manual/configuration/built-in-strategy/" title="Built-in Strategy" class="dd-item 
         
         
         
         ">
             
-      <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/configuration/built-in-strategy/">
+      <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/configuration/built-in-strategy/">
          <i class="collapse" style="display:inline; font-family:'courier';">
          
              <svg  class="icon icon-down" 
@@ -1005,7 +1005,7 @@
             </svg>
           
           </i>
-          内置策略
+          Built-in Strategy
           
       </a>
       
@@ -1024,10 +1024,10 @@
  
   
     
-      <li data-nav-id="/cn/user-manual/configuration/built-in-strategy/sharding/" title="作业分片策略" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/configuration/built-in-strategy/sharding/">
+      <li data-nav-id="/en/user-manual/configuration/built-in-strategy/sharding/" title="Job Sharding Strategy" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/configuration/built-in-strategy/sharding/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        作业分片策略
+        Job Sharding Strategy
         
         </a>
     </li>
@@ -1044,10 +1044,10 @@
  
   
     
-      <li data-nav-id="/cn/user-manual/configuration/built-in-strategy/thread-pool/" title="线程池策略" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/configuration/built-in-strategy/thread-pool/">
+      <li data-nav-id="/en/user-manual/configuration/built-in-strategy/thread-pool/" title="Thread Pool Strategy" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/configuration/built-in-strategy/thread-pool/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        线程池策略
+        Thread Pool Strategy
         
         </a>
     </li>
@@ -1064,10 +1064,10 @@
  
   
     
-      <li data-nav-id="/cn/user-manual/configuration/built-in-strategy/error-handler/" title="错误处理策略" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/configuration/built-in-strategy/error-handler/">
+      <li data-nav-id="/en/user-manual/configuration/built-in-strategy/error-handler/" title="Error Handler Strategy" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/configuration/built-in-strategy/error-handler/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        错误处理策略
+        Error Handler Strategy
         
         </a>
     </li>
@@ -1093,10 +1093,10 @@
  
   
     
-      <li data-nav-id="/cn/user-manual/configuration/props/" title="作业属性配置" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/configuration/props/">
+      <li data-nav-id="/en/user-manual/configuration/props/" title="Job Properties" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/configuration/props/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        作业属性配置
+        Job Properties
         
         </a>
     </li>
@@ -1113,8 +1113,8 @@
  
   
     
-      <li data-nav-id="/cn/user-manual/configuration/graalvm-native-image/" title="GraalVM Native Image" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/configuration/graalvm-native-image/">
+      <li data-nav-id="/en/user-manual/configuration/graalvm-native-image/" title="GraalVM Native Image" class="dd-item active">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/configuration/graalvm-native-image/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
         GraalVM Native Image
         
@@ -1142,13 +1142,13 @@
  
   
     
-    <li data-nav-id="/cn/user-manual/operation/" title="运维手册" class="dd-item 
+    <li data-nav-id="/en/user-manual/operation/" title="Operation" class="dd-item 
         
         
         
         ">
             
-      <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/operation/">
+      <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/operation/">
          <i class="collapse" style="display:inline; font-family:'courier';">
          
              <svg  class="icon icon-down" 
@@ -1163,7 +1163,7 @@
             </svg>
           
           </i>
-          <b>4.1.3 </b>运维手册
+          <b>4.1.3 </b>Operation
           
       </a>
       
@@ -1182,10 +1182,10 @@
  
   
     
-      <li data-nav-id="/cn/user-manual/operation/deploy-guide/" title="部署指南" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/operation/deploy-guide/">
+      <li data-nav-id="/en/user-manual/operation/deploy-guide/" title="Deploy Guide" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/operation/deploy-guide/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        部署指南
+        Deploy Guide
         
         </a>
     </li>
@@ -1202,10 +1202,10 @@
  
   
     
-      <li data-nav-id="/cn/user-manual/operation/dump/" title="导出作业信息" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/operation/dump/">
+      <li data-nav-id="/en/user-manual/operation/dump/" title="Dump Job Information" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/operation/dump/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        导出作业信息
+        Dump Job Information
         
         </a>
     </li>
@@ -1222,10 +1222,10 @@
  
   
     
-      <li data-nav-id="/cn/user-manual/operation/execution-monitor/" title="作业运行状态监控" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/operation/execution-monitor/">
+      <li data-nav-id="/en/user-manual/operation/execution-monitor/" title="Execution Monitor" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/operation/execution-monitor/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        作业运行状态监控
+        Execution Monitor
         
         </a>
     </li>
@@ -1242,10 +1242,10 @@
  
   
     
-      <li data-nav-id="/cn/user-manual/operation/web-console/" title="运维平台" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/operation/web-console/">
+      <li data-nav-id="/en/user-manual/operation/web-console/" title="Console" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/operation/web-console/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        运维平台
+        Console
         
         </a>
     </li>
@@ -1278,13 +1278,13 @@
  
   
     
-    <li data-nav-id="/cn/dev-manual/" title="开发者手册" class="dd-item 
+    <li data-nav-id="/en/dev-manual/" title="Dev Manual" class="dd-item 
         
         
         
         ">
             
-      <a href="https://shardingsphere.apache.org/elasticjob/current/cn/dev-manual/">
+      <a href="https://shardingsphere.apache.org/elasticjob/current/en/dev-manual/">
          <i class="collapse" style="display:inline; font-family:'courier';">
          
              <svg  class="icon icon-down" 
@@ -1299,7 +1299,7 @@
             </svg>
           
           </i>
-          <b>5. </b>开发者手册
+          <b>5. </b>Dev Manual
           
       </a>
       
@@ -1318,10 +1318,10 @@
  
   
     
-      <li data-nav-id="/cn/dev-manual/sharding/" title="作业分片策略" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/dev-manual/sharding/">
+      <li data-nav-id="/en/dev-manual/sharding/" title="Job Sharding Strategy" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/dev-manual/sharding/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        <b>5.1. </b>作业分片策略
+        <b>5.1. </b>Job Sharding Strategy
         
         </a>
     </li>
@@ -1338,10 +1338,10 @@
  
   
     
-      <li data-nav-id="/cn/dev-manual/thread-pool/" title="线程池策略" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/dev-manual/thread-pool/">
+      <li data-nav-id="/en/dev-manual/thread-pool/" title="Thread Pool Strategy" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/dev-manual/thread-pool/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        <b>5.2. </b>线程池策略
+        <b>5.2. </b>Thread Pool Strategy
         
         </a>
     </li>
@@ -1358,10 +1358,10 @@
  
   
     
-      <li data-nav-id="/cn/dev-manual/error-handler/" title="错误处理策略" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/dev-manual/error-handler/">
+      <li data-nav-id="/en/dev-manual/error-handler/" title="Error Handler" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/dev-manual/error-handler/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        <b>5.3. </b>错误处理策略
+        <b>5.3. </b>Error Handler
         
         </a>
     </li>
@@ -1378,10 +1378,10 @@
  
   
     
-      <li data-nav-id="/cn/dev-manual/job-class-provider/" title="作业类名称提供策略" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/dev-manual/job-class-provider/">
+      <li data-nav-id="/en/dev-manual/job-class-provider/" title="Job Class Name Provider" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/dev-manual/job-class-provider/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        <b>5.4. </b>作业类名称提供策略
+        <b>5.4. </b>Job Class Name Provider
         
         </a>
     </li>
@@ -1398,10 +1398,10 @@
  
   
     
-      <li data-nav-id="/cn/dev-manual/roadmap/" title="线路规划" class="dd-item ">
-        <a href="https://shardingsphere.apache.org/elasticjob/current/cn/dev-manual/roadmap/">
+      <li data-nav-id="/en/dev-manual/roadmap/" title="Roadmap" class="dd-item ">
+        <a href="https://shardingsphere.apache.org/elasticjob/current/en/dev-manual/roadmap/">
           <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-        <b>5.5. </b>线路规划
+        <b>5.5. </b>Roadmap
         
         </a>
     </li>
@@ -1425,19 +1425,19 @@
  
   
     
-    <li data-nav-id="/cn/downloads/" title="下载" class="dd-item 
+    <li data-nav-id="/en/downloads/" title="Downloads" class="dd-item 
         
         
         
         ">
             
-      <a href="https://shardingsphere.apache.org/elasticjob/current/cn/downloads/">
+      <a href="https://shardingsphere.apache.org/elasticjob/current/en/downloads/">
          <i class="collapse" style="display:inline; font-family:'courier';">
          
             <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
           
           </i>
-          <b>6. </b>下载
+          <b>6. </b>Downloads
           
       </a>
       
@@ -1453,19 +1453,19 @@
  
   
     
-    <li data-nav-id="/cn/powered-by/" title="采用公司" class="dd-item 
+    <li data-nav-id="/en/powered-by/" title="Powered By" class="dd-item 
         
         
         
         ">
             
-      <a href="https://shardingsphere.apache.org/elasticjob/current/cn/powered-by/">
+      <a href="https://shardingsphere.apache.org/elasticjob/current/en/powered-by/">
          <i class="collapse" style="display:inline; font-family:'courier';">
          
             <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
           
           </i>
-          <b>7. </b>采用公司
+          <b>7. </b>Powered By
           
       </a>
       
@@ -1481,13 +1481,13 @@
  
   
     
-    <li data-nav-id="/cn/faq/" title="FAQ" class="dd-item 
+    <li data-nav-id="/en/faq/" title="FAQ" class="dd-item 
         
         
         
         ">
             
-      <a href="https://shardingsphere.apache.org/elasticjob/current/cn/faq/">
+      <a href="https://shardingsphere.apache.org/elasticjob/current/en/faq/">
          <i class="collapse" style="display:inline; font-family:'courier';">
          
             <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
@@ -1509,19 +1509,19 @@
  
   
     
-    <li data-nav-id="/cn/blog/" title="博客" class="dd-item 
+    <li data-nav-id="/en/blog/" title="Blog" class="dd-item 
         
         
         
         ">
             
-      <a href="https://shardingsphere.apache.org/elasticjob/current/cn/blog/">
+      <a href="https://shardingsphere.apache.org/elasticjob/current/en/blog/">
          <i class="collapse" style="display:inline; font-family:'courier';">
          
             <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
           
           </i>
-          <b>9. </b>博客
+          <b>9. </b>Blog
           
       </a>
       
@@ -1541,9 +1541,9 @@
 
     
     
-      
-      <a class="padding" href="https://shardingsphere.apache.org/pdf/shardingsphere-elasticjob_docs_cn.pdf">
-        <i class="fa fa-fw fa-file-pdf-o" ></i>&nbsp;下载PDF文档&nbsp;&nbsp;
+    
+      <a class="padding" href="https://shardingsphere.apache.org/pdf/shardingsphere-elasticjob_docs_en.pdf">
+        <i class="fa fa-fw fa-file-pdf-o" ></i>&nbsp;Download PDF&nbsp;&nbsp;
     
     </a>
 
@@ -1569,7 +1569,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/apache/shardingsphere-elasticjob/tree/master/docs/content/user-manual/usage/tracing/table-structure.cn.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/apache/shardingsphere-elasticjob/tree/master/docs/content/user-manual/configuration/graalvm-native-image.en.md" target="blank">
                       <i class="fa fa-code-fork"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -1600,13 +1600,7 @@
             
           
           
-            
-            
-          
-          
-            <a href='https://shardingsphere.apache.org/elasticjob/current/cn/'>ElasticJob</a> > <a href='https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/'>用户手册</a> > <a href='https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/usage/'>使用手册</a> > <a href='https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/usage/tracing/'>事件追踪</a> > 表结构说明
-          
-         
+            <a href='https://shardingsphere.apache.org/elasticjob/current/en/'>ElasticJob</a> > <a href='https://shardingsphere.apache.org/elasticjob/current/en/user-manual/'>User Manual</a> > <a href='https://shardingsphere.apache.org/elasticjob/current/en/user-manual/configuration/'>Configuration</a> > GraalVM Native Image
           
          
           
@@ -1633,173 +1627,157 @@
 
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#job_execution_log-字段含义">JOB_EXECUTION_LOG 字段含义</a></li>
-    <li><a href="#job_status_trace_log-字段含义">JOB_STATUS_TRACE_LOG 字段含义</a></li>
+    <li><a href="#background-information">Background information</a></li>
+    <li><a href="#using-elasticjobs-java-api">Using ElasticJob&rsquo;s Java API</a>
+      <ul>
+        <li><a href="#maven-ecosystem">Maven Ecosystem</a></li>
+        <li><a href="#gradle-ecosystem">Gradle Ecosystem</a></li>
+      </ul>
+    </li>
+    <li><a href="#for-build-tools-such-as-sbt-that-are-not-supported-by-graalvm-native-build-tools">For build tools such as sbt that are not supported by GraalVM Native Build Tools</a></li>
+    <li><a href="#usage-restrictions">Usage restrictions</a></li>
+    <li><a href="#contribute-graalvm-reachability-metadata">Contribute GraalVM Reachability Metadata</a></li>
   </ul>
 </nav>
 
-<p>事件追踪的 event_trace_rdb_url 属性对应库自动创建 JOB_EXECUTION_LOG 和 JOB_STATUS_TRACE_LOG 两张表以及若干索引。</p>
-<h2 id="job_execution_log-字段含义">JOB_EXECUTION_LOG 字段含义</h2>
-<table>
-<thead>
-<tr>
-<th>字段名称</th>
-<th align="left">字段类型</th>
-<th align="left">是否必填</th>
-<th align="left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id</td>
-<td align="left">VARCHAR(40)</td>
-<td align="left">是</td>
-<td align="left">主键</td>
-</tr>
-<tr>
-<td>job_name</td>
-<td align="left">VARCHAR(100)</td>
-<td align="left">是</td>
-<td align="left">作业名称</td>
-</tr>
-<tr>
-<td>task_id</td>
-<td align="left">VARCHAR(1000)</td>
-<td align="left">是</td>
-<td align="left">任务名称,每次作业运行生成新任务</td>
-</tr>
-<tr>
-<td>hostname</td>
-<td align="left">VARCHAR(255)</td>
-<td align="left">是</td>
-<td align="left">主机名称</td>
-</tr>
-<tr>
-<td>ip</td>
-<td align="left">VARCHAR(50)</td>
-<td align="left">是</td>
-<td align="left">主机IP</td>
-</tr>
-<tr>
-<td>sharding_item</td>
-<td align="left">INT</td>
-<td align="left">是</td>
-<td align="left">分片项</td>
-</tr>
-<tr>
-<td>execution_source</td>
-<td align="left">VARCHAR(20)</td>
-<td align="left">是</td>
-<td align="left">作业执行来源。可选值为NORMAL_TRIGGER, MISFIRE, FAILOVER</td>
-</tr>
-<tr>
-<td>failure_cause</td>
-<td align="left">VARCHAR(2000)</td>
-<td align="left">否</td>
-<td align="left">执行失败原因</td>
-</tr>
-<tr>
-<td>is_success</td>
-<td align="left">BIT</td>
-<td align="left">是</td>
-<td align="left">是否执行成功</td>
-</tr>
-<tr>
-<td>start_time</td>
-<td align="left">TIMESTAMP</td>
-<td align="left">是</td>
-<td align="left">作业开始执行时间</td>
-</tr>
-<tr>
-<td>complete_time</td>
-<td align="left">TIMESTAMP</td>
-<td align="left">否</td>
-<td align="left">作业结束执行时间</td>
-</tr>
-</tbody>
-</table>
-<p>JOB_EXECUTION_LOG 记录每次作业的执行历史。
-分为两个步骤：</p>
-<ol>
-<li>作业开始执行时向数据库插入数据，除 failure_cause 和 complete_time 外的其他字段均不为空。</li>
-<li>作业完成执行时向数据库更新数据，更新 is_success, complete_time 和 failure_cause(如果作业执行失败)。</li>
-</ol>
-<h2 id="job_status_trace_log-字段含义">JOB_STATUS_TRACE_LOG 字段含义</h2>
-<table>
-<thead>
-<tr>
-<th>字段名称</th>
-<th align="left">字段类型</th>
-<th align="left">是否必填</th>
-<th align="left">描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>id</td>
-<td align="left">VARCHAR(40)</td>
-<td align="left">是</td>
-<td align="left">主键</td>
-</tr>
-<tr>
-<td>job_name</td>
-<td align="left">VARCHAR(100)</td>
-<td align="left">是</td>
-<td align="left">作业名称</td>
-</tr>
-<tr>
-<td>original_task_id</td>
-<td align="left">VARCHAR(1000)</td>
-<td align="left">是</td>
-<td align="left">原任务名称</td>
-</tr>
-<tr>
-<td>task_id</td>
-<td align="left">VARCHAR(1000)</td>
-<td align="left">是</td>
-<td align="left">任务名称</td>
-</tr>
-<tr>
-<td>slave_id</td>
-<td align="left">VARCHAR(1000)</td>
-<td align="left">是</td>
-<td align="left">执行作业服务器的 IP 地址</td>
-</tr>
-<tr>
-<td>execution_type</td>
-<td align="left">VARCHAR(20)</td>
-<td align="left">是</td>
-<td align="left">任务执行类型，可选值为NORMAL_TRIGGER, MISFIRE, FAILOVER</td>
-</tr>
-<tr>
-<td>sharding_item</td>
-<td align="left">VARCHAR(255)</td>
-<td align="left">是</td>
-<td align="left">分片项集合，多个分片项以逗号分隔</td>
-</tr>
-<tr>
-<td>state</td>
-<td align="left">VARCHAR(20)</td>
-<td align="left">是</td>
-<td align="left">任务执行状态，可选值为TASK_STAGING, TASK_RUNNING, TASK_FINISHED, TASK_KILLED, TASK_LOST, TASK_FAILED, TASK_ERROR</td>
-</tr>
-<tr>
-<td>message</td>
-<td align="left">VARCHAR(2000)</td>
-<td align="left">是</td>
-<td align="left">相关信息</td>
-</tr>
-<tr>
-<td>creation_time</td>
-<td align="left">TIMESTAMP</td>
-<td align="left">是</td>
-<td align="left">记录创建时间</td>
-</tr>
-</tbody>
-</table>
-<p>JOB_STATUS_TRACE_LOG 记录作业状态变更痕迹表。
-可通过每次作业运行的 task_id 查询作业状态变化的生命周期和运行轨迹。</p>
+<h2 id="background-information">Background information</h2>
+<p>ElasticJob has been verified for availability under GraalVM Native Image.</p>
+<p>To build a GraalVM Native Image with the Maven dependency <code>org.apache.shardingsphere.elasticjob:elasticjob-bootstrap:${elasticjob.version}</code>,
+you need to use GraalVM Native Build Tools.</p>
+<p>GraalVM Native Build Tools provides Maven Plugin and Gradle Plugin to simplify the long-winded shell commands of GraalVM CE&rsquo;s <code>native-image</code> command line tool.</p>
+<p>ElasticJob requires the following or higher versions of <code>GraalVM CE</code> to build the GraalVM Native Image. Users can quickly switch JDKs through <code>SDKMAN!</code>.
+This also applies to downstream distributions of <code>GraalVM CE</code> such as <a href="https://sdkman.io/jdks#graal,">https://sdkman.io/jdks#graal,</a> <a href="https://sdkman.io/jdks#nik">https://sdkman.io/jdks#nik</a> and <a href="https://sdkman.io/jdks#mandrel">https://sdkman.io/jdks#mandrel</a>.</p>
+<ul>
+<li>GraalVM CE For JDK 22.0.2, corresponding to <code>22.0.2-graalce</code> of SDKMAN!</li>
+</ul>
+<p>Users can still use old versions of GraalVM CE such as <code>21.0.2-graalce</code> on SDKMAN! to build ElasticJob&rsquo;s GraalVM Native Image product.
+ElasticJob does not set CI for GraalVM CE versions that have stopped maintenance.</p>
+<h2 id="using-elasticjobs-java-api">Using ElasticJob&rsquo;s Java API</h2>
+<h3 id="maven-ecosystem">Maven Ecosystem</h3>
+<p>Users need to actively use the GraalVM Reachability Metadata Central Repository.
+The following configuration is for reference. To configure additional Maven Profiles for the project,
+refer to the documentation of GraalVM Native Build Tools.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;project&gt;</span>
+    <span style="color:#f92672">&lt;dependencies&gt;</span>
+        <span style="color:#f92672">&lt;dependency&gt;</span>
+            <span style="color:#f92672">&lt;groupId&gt;</span>org.apache.shardingsphere.elasticjob<span style="color:#f92672">&lt;/groupId&gt;</span>
+            <span style="color:#f92672">&lt;artifactId&gt;</span>elasticjob-bootstrap<span style="color:#f92672">&lt;/artifactId&gt;</span>
+            <span style="color:#f92672">&lt;version&gt;</span>${elasticjob.version}<span style="color:#f92672">&lt;/version&gt;</span>
+            <span style="color:#f92672">&lt;scope&gt;</span>test<span style="color:#f92672">&lt;/scope&gt;</span>
+        <span style="color:#f92672">&lt;/dependency&gt;</span>
+    <span style="color:#f92672">&lt;/dependencies&gt;</span>
+    
+    <span style="color:#f92672">&lt;build&gt;</span>
+        <span style="color:#f92672">&lt;plugins&gt;</span>
+            <span style="color:#f92672">&lt;plugin&gt;</span>
+                <span style="color:#f92672">&lt;groupId&gt;</span>org.graalvm.buildtools<span style="color:#f92672">&lt;/groupId&gt;</span>
+                <span style="color:#f92672">&lt;artifactId&gt;</span>native-maven-plugin<span style="color:#f92672">&lt;/artifactId&gt;</span>
+                <span style="color:#f92672">&lt;version&gt;</span>0.10.2<span style="color:#f92672">&lt;/version&gt;</span>
+                <span style="color:#f92672">&lt;extensions&gt;</span>true<span style="color:#f92672">&lt;/extensions&gt;</span>
+                <span style="color:#f92672">&lt;executions&gt;</span>
+                    <span style="color:#f92672">&lt;execution&gt;</span>
+                        <span style="color:#f92672">&lt;id&gt;</span>build-native<span style="color:#f92672">&lt;/id&gt;</span>
+                        <span style="color:#f92672">&lt;goals&gt;</span>
+                            <span style="color:#f92672">&lt;goal&gt;</span>compile-no-fork<span style="color:#f92672">&lt;/goal&gt;</span>
+                        <span style="color:#f92672">&lt;/goals&gt;</span>
+                        <span style="color:#f92672">&lt;phase&gt;</span>package<span style="color:#f92672">&lt;/phase&gt;</span>
+                    <span style="color:#f92672">&lt;/execution&gt;</span>
+                    <span style="color:#f92672">&lt;execution&gt;</span>
+                        <span style="color:#f92672">&lt;id&gt;</span>test-native<span style="color:#f92672">&lt;/id&gt;</span>
+                        <span style="color:#f92672">&lt;goals&gt;</span>
+                            <span style="color:#f92672">&lt;goal&gt;</span>test<span style="color:#f92672">&lt;/goal&gt;</span>
+                        <span style="color:#f92672">&lt;/goals&gt;</span>
+                        <span style="color:#f92672">&lt;phase&gt;</span>test<span style="color:#f92672">&lt;/phase&gt;</span>
+                    <span style="color:#f92672">&lt;/execution&gt;</span>
+                <span style="color:#f92672">&lt;/executions&gt;</span>
+            <span style="color:#f92672">&lt;/plugin&gt;</span>
+        <span style="color:#f92672">&lt;/plugins&gt;</span>
+    <span style="color:#f92672">&lt;/build&gt;</span>
+<span style="color:#f92672">&lt;/project&gt;</span>
+</code></pre></div><h3 id="gradle-ecosystem">Gradle Ecosystem</h3>
+<p>Users need to actively use the GraalVM Reachability Metadata Central Repository.
+The following configuration is for reference. To configure additional Gradle Tasks for the project, refer to the documentation of GraalVM Native Build Tools.
+Due to the limitations of <a href="https://github.com/gradle/gradle/issues/17559,">https://github.com/gradle/gradle/issues/17559,</a> users need to introduce the Metadata Repository JSON file in the form of Maven dependencies.
+Refer to <a href="https://github.com/graalvm/native-build-tools/issues/572">https://github.com/graalvm/native-build-tools/issues/572</a>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-groovy" data-lang="groovy">plugins <span style="color:#f92672">{</span>
+   id <span style="color:#e6db74">&#39;org.graalvm.buildtools.native&#39;</span> version <span style="color:#e6db74">&#39;0.10.2&#39;</span>
+<span style="color:#f92672">}</span>
 
+dependencies <span style="color:#f92672">{</span>
+   implementation <span style="color:#e6db74">&#39;org.apache.shardingsphere.elasticjob:elasticjob-bootstrap:${elasticjob.version}&#39;</span>
+   implementation<span style="color:#f92672">(</span>group: <span style="color:#e6db74">&#39;org.graalvm.buildtools&#39;</span><span style="color:#f92672">,</span> name: <span style="color:#e6db74">&#39;graalvm-reachability-metadata&#39;</span><span style="color:#f92672">,</span> version: <span style="color:#e6db74">&#39;0.10.2&#39;</span><span style="color:#f92672">,</span> classifier: <span style="color:#e6db74">&#39;repository&#39;</span><span style="color:#f92672">,</span> ext: <span style="color:#e6db74">&#39;zip&#39;</span><span style="color:#f92672">)</span>
+<span style="color:#f92672">}</span>
+
+graalvmNative <span style="color:#f92672">{</span>
+   metadataRepository <span style="color:#f92672">{</span>
+        enabled<span style="color:#f92672">.</span><span style="color:#a6e22e">set</span><span style="color:#f92672">(</span><span style="color:#66d9ef">false</span><span style="color:#f92672">)</span>
+   <span style="color:#f92672">}</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><h2 id="for-build-tools-such-as-sbt-that-are-not-supported-by-graalvm-native-build-tools">For build tools such as sbt that are not supported by GraalVM Native Build Tools</h2>
+<p>Such requirements require opening additional issues at <a href="https://github.com/graalvm/native-build-tools">https://github.com/graalvm/native-build-tools</a> and providing plugin implementations for the corresponding build tools.</p>
+<h2 id="usage-restrictions">Usage restrictions</h2>
+<ol>
+<li>
+<p>Users still need to configure GraalVM Reachability Metadata in separate files in the <code>src/main/resources/META-INF/native-image</code> folder or the <code>src/test/resources/META-INF/native-image</code> folder.
+Users can quickly collect GraalVM Reachability Metadata through the GraalVM Tracing Agent of GraalVM Native Build Tools.</p>
+</li>
+<li>
+<p>For <code>org.apache.shardingsphere.elasticjob.bootstrap.type.ScheduleJobBootstrap</code> with <code>elasticJobType</code> as <code>SCRIPT</code> under Linux,
+if <code>script.command.line</code> is set to the relative path of a <code>.sh</code> file in the private project&rsquo;s classpath under the GraalVM Native Image when building the GraalVM Native Image,
+then the <code>.sh</code> file must at least have the POSIX file permission of <code>rwxr-xr-x</code> set in advance.
+This is because <code>com.oracle.svm.core.jdk.resources.NativeImageResourceFileSystem</code> obviously does not support <code>java.nio.file.attribute.PosixFileAttributeView</code>.</p>
+</li>
+<li>
+<p>The Spring namespace integration module <code>org.apache.shardingsphere.elasticjob:elasticjob-spring-namespace</code> of ElasticJob is not yet available under GraalVM Native Image.</p>
+</li>
+<li>
+<p>The Spring Boot Starter integration module <code>org.apache.shardingsphere.elasticjob:elasticjob-spring-boot-starter</code> for ElasticJob is not yet available under GraalVM Native Image.</p>
+</li>
+</ol>
+<h2 id="contribute-graalvm-reachability-metadata">Contribute GraalVM Reachability Metadata</h2>
+<p>ElasticJob&rsquo;s usability verification under GraalVM Native Image is done by the Maven Plugin subproject of GraalVM Native Build Tools.</p>
+<p>Unit test coverage under GraalVM Native Image is tested by running unit tests under JVM,
+tagging unit tests with <code>junit-platform-unique-ids*</code>, and then building GraalVM Native Image for nativeTest.
+Contributors are requested not to use test libraries such as <code>io.kotest:kotest-runner-junit5-jvm:5.5.4</code> that failed to discover tests in <code>test listener</code> mode.</p>
+<p>ElasticJob defines the <code>elasticjob-test-native</code> Maven Module to provide a small subset of unit tests for native Test,
+which avoids the use of third-party libraries such as Mockito that cannot be used under native Test.</p>
+<p>ElasticJob defines the <code>nativeTestInElasticJob</code> Maven profile to execute nativeTest for the <code>elasticjob-test-native</code> module.</p>
+<p>Assuming the contributor is on a fresh Ubuntu 22.04.4 LTS instance, he can use SDKMAN! to manage JDK and toolchains with the following bash command,
+and execute nativeTest for the <code>elasticjob-test-native</code> submodule.</p>
+<p>Contributors must install Docker Engine to execute the <code>testcontainers-java</code> related unit tests.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo apt install unzip zip curl sed -y
+curl -s <span style="color:#e6db74">&#34;https://get.sdkman.io&#34;</span> | bash
+source <span style="color:#e6db74">&#34;</span>$HOME<span style="color:#e6db74">/.sdkman/bin/sdkman-init.sh&#34;</span>
+sdk install java 22.0.2-graalce
+sdk use java 22.0.2-graalce
+sudo apt-get install build-essential zlib1g-dev -y
+
+git clone git@github.com:apache/shardingsphere-elasticjob.git
+cd ./shardingsphere-elasticjob/
+./mvnw -PnativeTestInElasticJob -T1C -e clean test
+</code></pre></div><p>When contributors find that GraalVM Reachability Metadata for third-party libraries not related to ElasticJob is missing,
+they should open a new issue at <a href="https://github.com/oracle/graalvm-reachability-metadata,">https://github.com/oracle/graalvm-reachability-metadata,</a>
+and submit a PR with missing GraalVM Reachability Metadata for dependent third-party libraries.
+ElasticJob proactively hosts GraalVM Reachability Metadata for some third-party libraries in the <code>elasticjob-reachability-metadata</code> submodule.</p>
+<p>If nativeTest fails, generate preliminary GraalVM Reachability Metadata for unit tests,
+and manually adjust the contents of the <code>META-INF/native-image/org.apache.shardingsphere.elasticjob/elasticjob-reachability-metadata/</code> folder in the classpath of the <code>elasticjob-reachability-metadata</code> submodule to fix nativeTest.
+If necessary,
+use the <code>org.junit.jupiter.api.condition.DisabledInNativeImage</code> annotation or the <code>org.graalvm.nativeimage.imagecode</code> System Property to shield some unit tests from running under the GraalVM Native Image.</p>
+<p>ElasticJob defines the <code>generateMetadata</code> Maven Profile to execute unit tests with the GraalVM Tracing Agent under the GraalVM JIT Compiler,
+and generates or overwrites the existing GraalVM Reachability Metadata file in the <code>META-INF/native-image/org.apache.shardingsphere.elasticjob/generated-reachability-metadata/</code> folder in the classpath of the <code>elasticjob-reachability-metadata</code> submodule.
+This process can be easily handled by the following bash command.
+Contributors may still need to manually adjust specific JSON entries and adjust the filter chain of the Maven Profile and GraalVM Tracing Agent as appropriate.
+For the <code>elasticjob-reachability-metadata</code> submodule,
+manually added, deleted, and modified JSON entries should be located in the <code>META-INF/native-image/org.apache.shardingsphere.elasticjob/elasticjob-reachability-metadata/</code> folder,
+while the entries in <code>META-INF/native-image/org.apache.shardingsphere.elasticjob/generated-reachability-metadata/</code> should only be generated by the <code>generateMetadata</code> Maven Profile.</p>
+<p>The following command is just an example of generating Conditional GraalVM Reachability Metadata for <code>elasticjob-test-native</code>.
+The generated GraalVM Reachability Metadata is located in the <code>elasticjob-reachability-metadata</code> submodule.</p>
+<p>For GraalVM Reachability Metadata used independently by test classes and test files,
+contributors should place it in the classpath of the shardingsphere-test-native submodule under <code>META-INF/native-image/elasticjob-test-native-test-metadata/</code>.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">git clone git@github.com:apache/shardingsphere.git
+cd ./shardingsphere/
+./mvnw -PgenerateMetadata -DskipNativeTests -e -T1C clean test native:metadata-copy
+</code></pre></div>
 
 <footer class=" footline" >
 	
@@ -1986,6 +1964,8 @@
             
                 
                     
+                        
+                        
                     
                 
                 
@@ -2002,8 +1982,149 @@
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
                         
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
                     
                 
                 
@@ -2093,51 +2214,6 @@
                     
 
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
             
         
                     
@@ -2155,112 +2231,6 @@
 
                     
                     
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
                         
                     
                     
@@ -2270,6 +2240,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -2399,6 +2372,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -2406,6 +2380,92 @@
                     
                     
 
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
             
         
@@ -2490,89 +2550,6 @@
             
         
                     
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
                         
             
             
@@ -2663,13 +2640,13 @@
 
 
         
-         
-            <a class="nav nav-prev" href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/usage/tracing/spring-namespace/" title="使用 Spring 命名空间"> <i class="fa fa-long-arrow-left fa-lg"></i> 上一篇</a>
+        
+            <a class="nav nav-prev" href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/configuration/props/" title="Job Properties"> <i class="fa fa-long-arrow-left fa-lg"></i> Previous</a>
         
         
         
-         
-            <a class="nav nav-next" href="https://shardingsphere.apache.org/elasticjob/current/cn/user-manual/usage/operation-api/" title="操作 API" style="margin-right: 0px;">下一篇 <i class="fa fa-long-arrow-right fa-lg"></i></a>
+        
+            <a class="nav nav-next" href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/operation/" title="Operation" style="margin-right: 0px;">Next<i class="fa fa-long-arrow-right fa-lg"></i></a>
         
         
     </div>
