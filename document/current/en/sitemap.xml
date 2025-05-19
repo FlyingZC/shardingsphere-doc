@@ -3321,6 +3321,20 @@
   </url>
   
   <url>
+    <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-jdbc/optional-plugins/firebird/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-jdbc/optional-plugins/firebird/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-jdbc/optional-plugins/firebird/"
+                />
+  </url>
+  
+  <url>
     <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-jdbc/optional-plugins/hiveserver2/</loc>
     <xhtml:link
                 rel="alternate"
