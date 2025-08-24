@@ -177,13 +177,13 @@
   <span style="color:#66d9ef">ds_0</span>:
     <span style="color:#66d9ef">dataSourceClassName</span>: com.zaxxer.hikari.HikariDataSource
     <span style="color:#66d9ef">driverClassName</span>: com.mysql.jdbc.Driver
-    <span style="color:#66d9ef">jdbcUrl</span>: jdbc:mysql://<span style="color:#ae81ff">127.0.0.1</span>:<span style="color:#ae81ff">3306</span>/demo_ds_0?serverTimezone=UTC<span style="color:#75715e">&amp;useSSL=false</span>
+    <span style="color:#66d9ef">standardJdbcUrl</span>: jdbc:mysql://<span style="color:#ae81ff">127.0.0.1</span>:<span style="color:#ae81ff">3306</span>/demo_ds_0?serverTimezone=UTC<span style="color:#75715e">&amp;useSSL=false</span>
     <span style="color:#66d9ef">username</span>: root
     <span style="color:#66d9ef">password</span>:
   <span style="color:#66d9ef">ds_1</span>:
     <span style="color:#66d9ef">dataSourceClassName</span>: com.zaxxer.hikari.HikariDataSource
     <span style="color:#66d9ef">driverClassName</span>: com.mysql.jdbc.Driver
-    <span style="color:#66d9ef">jdbcUrl</span>: jdbc:mysql://<span style="color:#ae81ff">127.0.0.1</span>:<span style="color:#ae81ff">3306</span>/demo_ds_1?serverTimezone=UTC<span style="color:#75715e">&amp;useSSL=false</span>
+    <span style="color:#66d9ef">standardJdbcUrl</span>: jdbc:mysql://<span style="color:#ae81ff">127.0.0.1</span>:<span style="color:#ae81ff">3306</span>/demo_ds_1?serverTimezone=UTC<span style="color:#75715e">&amp;useSSL=false</span>
     <span style="color:#66d9ef">username</span>: root
     <span style="color:#66d9ef">password</span>:
 
@@ -253,14 +253,14 @@
 
     <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;ds_0&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.zaxxer.hikari.HikariDataSource&#34;</span> <span style="color:#a6e22e">destroy-method=</span><span style="color:#e6db74">&#34;close&#34;</span><span style="color:#f92672">&gt;</span>
         <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;driverClassName&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;com.mysql.jdbc.Driver&#34;</span><span style="color:#f92672">/&gt;</span>
-        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;jdbcUrl&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;jdbc:mysql://127.0.0.1:3306/demo_ds_0?serverTimezone=UTC&amp;amp;useSSL=false&amp;amp;useUnicode=true&amp;amp;characterEncoding=UTF-8&#34;</span><span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;standardJdbcUrl&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;jdbc:mysql://127.0.0.1:3306/demo_ds_0?serverTimezone=UTC&amp;amp;useSSL=false&amp;amp;useUnicode=true&amp;amp;characterEncoding=UTF-8&#34;</span><span style="color:#f92672">/&gt;</span>
         <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;username&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;root&#34;</span><span style="color:#f92672">/&gt;</span>
         <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">/&gt;</span>
     <span style="color:#f92672">&lt;/bean&gt;</span>
     
     <span style="color:#f92672">&lt;bean</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;ds_1&#34;</span> <span style="color:#a6e22e">class=</span><span style="color:#e6db74">&#34;com.zaxxer.hikari.HikariDataSource&#34;</span> <span style="color:#a6e22e">destroy-method=</span><span style="color:#e6db74">&#34;close&#34;</span><span style="color:#f92672">&gt;</span>
         <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;driverClassName&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;com.mysql.jdbc.Driver&#34;</span><span style="color:#f92672">/&gt;</span>
-        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;jdbcUrl&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;jdbc:mysql://127.0.0.1:3306/demo_ds_1?serverTimezone=UTC&amp;amp;useSSL=false&amp;amp;useUnicode=true&amp;amp;characterEncoding=UTF-8&#34;</span><span style="color:#f92672">/&gt;</span>
+        <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;standardJdbcUrl&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;jdbc:mysql://127.0.0.1:3306/demo_ds_1?serverTimezone=UTC&amp;amp;useSSL=false&amp;amp;useUnicode=true&amp;amp;characterEncoding=UTF-8&#34;</span><span style="color:#f92672">/&gt;</span>
         <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;username&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;root&#34;</span><span style="color:#f92672">/&gt;</span>
         <span style="color:#f92672">&lt;property</span> <span style="color:#a6e22e">name=</span><span style="color:#e6db74">&#34;password&#34;</span> <span style="color:#a6e22e">value=</span><span style="color:#e6db74">&#34;&#34;</span><span style="color:#f92672">/&gt;</span>
     <span style="color:#f92672">&lt;/bean&gt;</span>
