@@ -380,7 +380,7 @@ At runtime, these constants can be found on the Diagram class.
 	function Start(simpleType) {
 		if(!(this instanceof Start)) return new Start();
 		FakeSVG.call(this, 'path');
-		this.width = 14;
+		this.width = 12;
 		this.up = 8;
 		this.down = 8;
 		this.simpleType = simpleType;
@@ -388,14 +388,15 @@ At runtime, these constants can be found on the Diagram class.
 	subclassOf(Start, FakeSVG);
 	Start.prototype.format = function(x,y) {
 		this.attrs['stroke-linecap'] = 'round';
-		this.attrs.d = 'M '+x+' '+y+' h '+this.width;
+		// single vertical bar + short connector
+		this.attrs.d = 'M '+(x+2)+' '+(y-8)+' v 16 m 0 -8 h 10';
 		return this;
 	}
 
 	function End(simpleType) {
 		if(!(this instanceof End)) return new End();
 		FakeSVG.call(this, 'path');
-		this.width = 14;
+		this.width = 12;
 		this.up = 8;
 		this.down = 8;
 		this.simpleType = simpleType;
@@ -403,7 +404,8 @@ At runtime, these constants can be found on the Diagram class.
 	subclassOf(End, FakeSVG);
 	End.prototype.format = function(x,y) {
 		this.attrs['stroke-linecap'] = 'round';
-		this.attrs.d = 'M '+x+' '+y+' h '+this.width;
+		// short connector then single vertical bar
+		this.attrs.d = 'M '+x+' '+y+' h 10 m 0 -8 v 16';
 		return this;
 	}
 
