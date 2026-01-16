@@ -913,6 +913,20 @@
   </url>
   
   <url>
+    <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-agent/usage/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-agent/usage/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-agent/usage/"
+                />
+  </url>
+  
+  <url>
     <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/startup/bin/</loc>
     <xhtml:link
                 rel="alternate"
@@ -1189,6 +1203,20 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/circuit-breaker/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-agent/configuration/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-agent/configuration/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-agent/configuration/"
                 />
   </url>
   
@@ -2089,6 +2117,20 @@
   </url>
   
   <url>
+    <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-agent/metrics/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-agent/metrics/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-agent/metrics/"
+                />
+  </url>
+  
+  <url>
     <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/migration/</loc>
     <xhtml:link
                 rel="alternate"
@@ -2677,6 +2719,20 @@
   </url>
   
   <url>
+    <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-agent/plugins/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-agent/plugins/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-agent/plugins/"
+                />
+  </url>
+  
+  <url>
     <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/rdl/rule-definition/readwrite-splitting/</loc>
     <xhtml:link
                 rel="alternate"
@@ -2953,6 +3009,20 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://shardingsphere.apache.org/document/current/en/dev-manual/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-agent/usage/docker/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-agent/usage/docker/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-agent/usage/docker/"
                 />
   </url>
   
@@ -3573,6 +3643,20 @@
   </url>
   
   <url>
+    <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-agent/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-agent/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-agent/"
+                />
+  </url>
+  
+  <url>
     <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/show-compute-node-mode/</loc>
     <xhtml:link
                 rel="alternate"
@@ -3737,20 +3821,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://shardingsphere.apache.org/document/current/en/reference/encrypt/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-jdbc/observability/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-jdbc/observability/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-jdbc/observability/"
                 />
   </url>
   
