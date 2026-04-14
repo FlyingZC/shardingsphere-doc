@@ -12,22 +12,22 @@
     <title>数据分片 :: ShardingSphere</title>
 
     
-    <link href="https://shardingsphere.apache.org/document/current/css/nucleus.css?1775993395" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/fontawesome-all.min.css?1775993395" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/hybrid.css?1775993395" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/featherlight.min.css?1775993395" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/perfect-scrollbar.min.css?1775993395" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/auto-complete.css?1775993395" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/atom-one-dark-reasonable.css?1775993395" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/theme.css?1775993395" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/tabs.css?1775993395" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/hugo-theme.css?1775993395" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/nucleus.css?1776165544" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/fontawesome-all.min.css?1776165544" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/hybrid.css?1776165544" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/featherlight.min.css?1776165544" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/perfect-scrollbar.min.css?1776165544" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/auto-complete.css?1776165544" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/atom-one-dark-reasonable.css?1776165544" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/theme.css?1776165544" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/tabs.css?1776165544" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/hugo-theme.css?1776165544" rel="stylesheet">
     
-    <link href="https://shardingsphere.apache.org/document/current/css/theme-white.css?1775993395" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/theme-white.css?1776165544" rel="stylesheet">
     
     
 
-    <script src="https://shardingsphere.apache.org/document/current/js/jquery-3.3.1.min.js?1775993395"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/jquery-3.3.1.min.js?1776165544"></script>
       
     <script src="https://shardingsphere.apache.org/js/kapa-widget.js"></script>
     <style>
@@ -301,14 +301,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/lunr.min.js?1775993395"></script>
-<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/auto-complete.js?1775993395"></script>
+<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/lunr.min.js?1776165544"></script>
+<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/auto-complete.js?1776165544"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/shardingsphere.apache.org\/document\/current\/\/cn";
     
 </script>
-<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/search.js?1775993395"></script>
+<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/search.js?1776165544"></script>
 
       
     </div>
@@ -10136,9 +10136,6 @@
           <span style="color:#66d9ef">shardingAlgorithmName</span>: <span style="color:#75715e"># 分片算法名称</span>
         <span style="color:#66d9ef">none</span>: <span style="color:#75715e"># 不分片</span>
       <span style="color:#66d9ef">tableStrategy</span>: <span style="color:#75715e"># 分表策略，同分库策略</span>
-      <span style="color:#66d9ef">keyGenerateStrategy</span>: <span style="color:#75715e"># 分布式序列策略</span>
-        <span style="color:#66d9ef">column</span>: <span style="color:#75715e"># 自增列名称，缺省表示不使用自增主键生成器</span>
-        <span style="color:#66d9ef">keyGeneratorName</span>: <span style="color:#75715e"># 分布式序列算法名称</span>
       <span style="color:#66d9ef">auditStrategy</span>: <span style="color:#75715e"># 分片审计策略</span>
         <span style="color:#66d9ef">auditorNames</span>: <span style="color:#75715e"># 分片审计算法名称</span>
           - &lt;auditor_name<span style="color:#e6db74">&gt;
@@ -10158,6 +10155,13 @@
   <span style="color:#66d9ef">defaultTableStrategy</span>: <span style="color:#75715e"># 默认表分片策略</span>
   <span style="color:#66d9ef">defaultKeyGenerateStrategy</span>: <span style="color:#75715e"># 默认的分布式序列策略</span>
   <span style="color:#66d9ef">defaultShardingColumn</span>: <span style="color:#75715e"># 默认分片列名称</span>
+  <span style="color:#66d9ef">keyGenerateStrategies</span>:
+    <span style="color:#66d9ef">&lt;key_generate_strategy_name&gt; (+)</span>: <span style="color:#75715e"># 分布式序列策略名称</span>
+      <span style="color:#66d9ef">keyGenerateType</span>: <span style="color:#75715e"># 分布式序列策略类型</span>
+      <span style="color:#66d9ef">keyGeneratorName</span>: <span style="color:#75715e"># 分布式序列算法名称</span>
+      <span style="color:#66d9ef">logicTable</span>: <span style="color:#75715e"># 逻辑表名称，keyGenerateType 为 column 时需要配置</span>
+      <span style="color:#66d9ef">keyGenerateColumn</span>: <span style="color:#75715e"># 自增列名称，keyGenerateType 为 column 时需要配置</span>
+      <span style="color:#66d9ef">keyGenerateSequence</span>: <span style="color:#75715e"># 序列名称，keyGenerateType 为 sequence 时需要配置</span>
   
   <span style="color:#75715e"># 分片算法配置</span>
   <span style="color:#66d9ef">shardingAlgorithms</span>:
@@ -10213,9 +10217,6 @@
         <span style="color:#66d9ef">standard</span>:
           <span style="color:#66d9ef">shardingColumn</span>: order_id
           <span style="color:#66d9ef">shardingAlgorithmName</span>: t_order_inline
-      <span style="color:#66d9ef">keyGenerateStrategy</span>:
-        <span style="color:#66d9ef">column</span>: order_id
-        <span style="color:#66d9ef">keyGeneratorName</span>: snowflake
       <span style="color:#66d9ef">auditStrategy</span>:
         <span style="color:#66d9ef">auditorNames</span>:
           - sharding_key_required_auditor
@@ -10226,17 +10227,11 @@
         <span style="color:#66d9ef">standard</span>:
           <span style="color:#66d9ef">shardingColumn</span>: order_id
           <span style="color:#66d9ef">shardingAlgorithmName</span>: t_order_item_inline
-      <span style="color:#66d9ef">keyGenerateStrategy</span>:
-        <span style="color:#66d9ef">column</span>: order_item_id
-        <span style="color:#66d9ef">keyGeneratorName</span>: snowflake
     <span style="color:#66d9ef">t_account</span>:
       <span style="color:#66d9ef">actualDataNodes</span>: ds_${<span style="color:#ae81ff">0</span>..<span style="color:#ae81ff">1</span>}.t_account_${<span style="color:#ae81ff">0</span>..<span style="color:#ae81ff">1</span>}
       <span style="color:#66d9ef">tableStrategy</span>:
         <span style="color:#66d9ef">standard</span>:
           <span style="color:#66d9ef">shardingAlgorithmName</span>: t_account_inline
-      <span style="color:#66d9ef">keyGenerateStrategy</span>:
-        <span style="color:#66d9ef">column</span>: account_id
-        <span style="color:#66d9ef">keyGeneratorName</span>: snowflake
   <span style="color:#66d9ef">defaultShardingColumn</span>: account_id
   <span style="color:#66d9ef">bindingTables</span>:
     - t_order,t_order_item
@@ -10246,6 +10241,22 @@
       <span style="color:#66d9ef">shardingAlgorithmName</span>: database_inline
   <span style="color:#66d9ef">defaultTableStrategy</span>:
     <span style="color:#66d9ef">none</span>:
+  <span style="color:#66d9ef">keyGenerateStrategies</span>:
+    <span style="color:#66d9ef">t_order_order_id</span>:
+      <span style="color:#66d9ef">keyGenerateType</span>: column
+      <span style="color:#66d9ef">keyGeneratorName</span>: snowflake
+      <span style="color:#66d9ef">logicTable</span>: t_order
+      <span style="color:#66d9ef">keyGenerateColumn</span>: order_id
+    <span style="color:#66d9ef">t_order_item_order_item_id</span>:
+      <span style="color:#66d9ef">keyGenerateType</span>: column
+      <span style="color:#66d9ef">keyGeneratorName</span>: snowflake
+      <span style="color:#66d9ef">logicTable</span>: t_order_item
+      <span style="color:#66d9ef">keyGenerateColumn</span>: order_item_id
+    <span style="color:#66d9ef">t_account_account_id</span>:
+      <span style="color:#66d9ef">keyGenerateType</span>: column
+      <span style="color:#66d9ef">keyGeneratorName</span>: snowflake
+      <span style="color:#66d9ef">logicTable</span>: t_account
+      <span style="color:#66d9ef">keyGenerateColumn</span>: account_id
   
   <span style="color:#66d9ef">shardingAlgorithms</span>:
     <span style="color:#66d9ef">database_inline</span>:
@@ -16121,19 +16132,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="https://shardingsphere.apache.org/document/current/js/clipboard.min.js?1775993395"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/perfect-scrollbar.min.js?1775993395"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/perfect-scrollbar.jquery.min.js?1775993395"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/jquery.sticky.js?1775993395"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/featherlight.min.js?1775993395"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/highlight.pack.js?1775993395"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/clipboard.min.js?1776165545"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/perfect-scrollbar.min.js?1776165545"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/perfect-scrollbar.jquery.min.js?1776165545"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/jquery.sticky.js?1776165545"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/featherlight.min.js?1776165545"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/highlight.pack.js?1776165545"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="https://shardingsphere.apache.org/document/current/js/modernizr.custom-3.6.0.js?1775993395"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/learn.js?1775993395"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/hugo-learn.js?1775993395"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/modernizr.custom-3.6.0.js?1776165545"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/learn.js?1776165545"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/hugo-learn.js?1776165545"></script>
     
         
-            <script src="https://shardingsphere.apache.org/document/current/mermaid/mermaid.js?1775993395"></script>
+            <script src="https://shardingsphere.apache.org/document/current/mermaid/mermaid.js?1776165545"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
