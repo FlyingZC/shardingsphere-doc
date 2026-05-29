@@ -12,22 +12,22 @@
     <title>能力清单 :: ShardingSphere</title>
 
     
-    <link href="https://shardingsphere.apache.org/document/current/css/nucleus.css?1780065975" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/fontawesome-all.min.css?1780065975" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/hybrid.css?1780065975" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/featherlight.min.css?1780065975" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/perfect-scrollbar.min.css?1780065975" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/auto-complete.css?1780065975" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/atom-one-dark-reasonable.css?1780065975" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/theme.css?1780065975" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/tabs.css?1780065975" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/hugo-theme.css?1780065975" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/nucleus.css?1780077491" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/fontawesome-all.min.css?1780077491" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/hybrid.css?1780077491" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/featherlight.min.css?1780077491" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/perfect-scrollbar.min.css?1780077491" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/auto-complete.css?1780077491" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/atom-one-dark-reasonable.css?1780077491" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/theme.css?1780077491" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/tabs.css?1780077491" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/hugo-theme.css?1780077491" rel="stylesheet">
     
-    <link href="https://shardingsphere.apache.org/document/current/css/theme-white.css?1780065975" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/theme-white.css?1780077491" rel="stylesheet">
     
     
 
-    <script src="https://shardingsphere.apache.org/document/current/js/jquery-3.3.1.min.js?1780065975"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/jquery-3.3.1.min.js?1780077491"></script>
       
     <script src="https://shardingsphere.apache.org/js/kapa-widget.js"></script>
     <style>
@@ -301,14 +301,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/lunr.min.js?1780065975"></script>
-<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/auto-complete.js?1780065975"></script>
+<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/lunr.min.js?1780077491"></script>
+<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/auto-complete.js?1780077491"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/shardingsphere.apache.org\/document\/current\/\/cn";
     
 </script>
-<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/search.js?1780065975"></script>
+<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/search.js?1780077491"></script>
 
       
     </div>
@@ -9018,10 +9018,10 @@
    
     
       
-        <li data-nav-id="/cn/user-manual/shardingsphere-mcp/workflow/" title="工作流" class="dd-item ">
+        <li data-nav-id="/cn/user-manual/shardingsphere-mcp/workflow/" title="插件工作流" class="dd-item ">
           <a href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/workflow/">
             <svg  viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="5375" width="20" height="20"></svg>
-          工作流
+          插件工作流
           
           </a>
       </li>
@@ -10508,8 +10508,12 @@
 
 <nav id="TableOfContents">
   <ul>
-    <li><a href="#能力发现">能力发现</a></li>
-    <li><a href="#能力可用性说明">能力可用性说明</a></li>
+    <li><a href="#能力发现">能力发现</a>
+      <ul>
+        <li><a href="#连接-shardingsphere-proxy">连接 ShardingSphere-Proxy</a></li>
+        <li><a href="#直接连接数据库">直接连接数据库</a></li>
+      </ul>
+    </li>
     <li><a href="#资源">资源</a></li>
     <li><a href="#工具">工具</a></li>
     <li><a href="#提示">提示</a></li>
@@ -10526,8 +10530,9 @@
 文档用于解释能力语义；客户端应通过 MCP 列表方法和 <code>shardingsphere://capabilities</code> 读取当前 MCP Server 实际暴露的内容。</p>
 <h2 id="能力发现">能力发现</h2>
 <p>下面列出的是 MCP 协议方法和 ShardingSphere-MCP 资源 URI。
-MCP 协议方法不使用 <code>shardingsphere://</code> 前缀；这个前缀只用于 ShardingSphere-MCP 资源 URI。
-工具和提示使用名称调用，也不是资源 URI。</p>
+<code>tools/list</code>、<code>resources/list</code>、<code>resources/read</code>、<code>prompts/list</code> 和 <code>completion/complete</code> 是 MCP JSON-RPC 方法名。
+<code>shardingsphere://...</code> 是 ShardingSphere-MCP 资源 URI 前缀。
+方法名、工具名和提示名不加 URI 前缀；只有资源 URI 和资源模板使用该前缀。</p>
 <table>
 <thead>
 <tr>
@@ -10543,24 +10548,34 @@ MCP 协议方法不使用 <code>shardingsphere://</code> 前缀；这个前缀�
 <td>列出可调用工具。</td>
 </tr>
 <tr>
+<td><code>tools/call</code></td>
+<td>MCP 协议方法</td>
+<td>按工具名调用一个工具。</td>
+</tr>
+<tr>
 <td><code>resources/list</code></td>
 <td>MCP 协议方法</td>
-<td>列出不需要参数即可读取的资源。</td>
+<td>列出不需要参数即可读取的资源描述；它不返回资源内容。</td>
 </tr>
 <tr>
 <td><code>resources/templates/list</code></td>
 <td>MCP 协议方法</td>
-<td>列出带参数的资源 URI 模板；客户端需要先填充模板，再通过 <code>resources/read</code> 读取。</td>
+<td>列出带参数的资源 URI 模板；客户端需要先填充模板。</td>
 </tr>
 <tr>
 <td><code>resources/read</code></td>
 <td>MCP 协议方法</td>
-<td>读取一个具体资源 URI；读取 <code>shardingsphere://capabilities</code> 可获得 ShardingSphere 领域能力目录。</td>
+<td>读取一个具体资源 URI 的内容；读取 <code>shardingsphere://capabilities</code> 可获得 ShardingSphere 领域能力目录。</td>
 </tr>
 <tr>
 <td><code>prompts/list</code></td>
 <td>MCP 协议方法</td>
 <td>列出可用提示。</td>
+</tr>
+<tr>
+<td><code>prompts/get</code></td>
+<td>MCP 协议方法</td>
+<td>读取一个提示内容，并按提示参数生成消息。</td>
 </tr>
 <tr>
 <td><code>completion/complete</code></td>
@@ -10574,14 +10589,29 @@ MCP 协议方法不使用 <code>shardingsphere://</code> 前缀；这个前缀�
 </tr>
 </tbody>
 </table>
-<h2 id="能力可用性说明">能力可用性说明</h2>
-<p>ShardingSphere-MCP 的协议表面是统一的，但运行时可用性取决于 <code>runtimeDatabases</code> 的连接目标。</p>
+<p>能力发现返回的是当前 MCP Server 的协议表面；实际能否使用某项能力，还取决于 <code>runtimeDatabases</code> 连接的是 ShardingSphere-Proxy 还是普通数据库。
+客户端应先读取 <code>shardingsphere://runtime</code> 和 <code>shardingsphere://databases/{database}/capabilities</code>，再决定要读取哪些资源或调用哪些工具。</p>
+<h3 id="连接-shardingsphere-proxy">连接 ShardingSphere-Proxy</h3>
+<p>适合让模型理解 ShardingSphere 逻辑库结构、读取治理规则状态、执行受控 SQL，或通过功能插件生成可审查的治理变更计划。
+此模式下，逻辑元数据、逻辑 SQL、DistSQL、规则状态、算法插件和插件工作流可以被 MCP 能力使用。</p>
+<p>使用限制：</p>
 <ul>
-<li>连接 ShardingSphere-Proxy 时，逻辑元数据、逻辑 SQL、DistSQL、加密或脱敏规则以及算法插件能力可用，但物理元数据以 Proxy 暴露结果为准。</li>
-<li>连接真实数据库时，通用 JDBC 元数据和 SQL 执行能力可用；ShardingSphere 规则、算法插件和依赖 DistSQL 的工作流不适用。</li>
-<li>客户端应优先读取 <code>shardingsphere://runtime</code> 和 <code>shardingsphere://databases/{database}/capabilities</code> 判断当前数据库能力，不应假设所有资源和工具在所有连接目标下等价。</li>
+<li>物理元数据以 Proxy 暴露结果为准，不能等同于每个底层物理库的完整元数据。</li>
+<li>依赖 ShardingSphere 规则、算法或 DistSQL 的功能只适用于 Proxy 连接。</li>
+<li>规划类能力生成的是可审查计划，执行前仍需确认业务影响。</li>
+</ul>
+<h3 id="直接连接数据库">直接连接数据库</h3>
+<p>适合把 MCP Server 作为普通数据库的受控访问通路，用于读取 JDBC 元数据、搜索对象、辅助生成查询，或执行受限 SQL。
+此模式下，通用数据库元数据和 SQL 工具可用。</p>
+<p>使用限制：</p>
+<ul>
+<li>ShardingSphere 规则、算法插件和依赖 DistSQL 的插件工作流不适用。</li>
+<li>返回的是数据库自身元数据，不包含 ShardingSphere 逻辑规则视图。</li>
+<li>客户端不能假设直接连接数据库和连接 Proxy 时暴露的资源、工具行为完全一致。</li>
 </ul>
 <h2 id="资源">资源</h2>
+<p>资源用于给模型提供上下文，例如运行时状态、数据库列表、表结构、列信息或工作流计划。
+客户端或模型通过 <code>resources/read</code> 读取具体资源 URI；资源模板需要先填充参数，再读取。</p>
 <table>
 <thead>
 <tr>
@@ -10693,8 +10723,10 @@ MCP 协议方法不使用 <code>shardingsphere://</code> 前缀；这个前缀�
 </tr>
 </tbody>
 </table>
-<p>功能插件提供的资源在对应插件页面说明。</p>
+<p>插件提供的资源、工具、提示和补全目标在对应插件页面说明。</p>
 <h2 id="工具">工具</h2>
+<p>工具用于执行动作，例如搜索元数据、执行 SQL，或处理插件工作流阶段。
+模型通过 <code>tools/call</code> 调用工具；有副作用的工具需要显式执行模式，并应先预览或审查。</p>
 <table>
 <thead>
 <tr>
@@ -10721,27 +10753,20 @@ MCP 协议方法不使用 <code>shardingsphere://</code> 前缀；这个前缀�
 </tr>
 <tr>
 <td><code>database_gateway_apply_workflow</code></td>
-<td>预览、执行或导出已规划工作流的人工执行包。</td>
+<td>插件规划返回 <code>plan_id</code> 后，预览、执行或导出人工执行包。</td>
 <td>取决于 <code>execution_mode</code>；<code>preview</code> 和 <code>manual-only</code> 不修改运行时状态。</td>
 </tr>
 <tr>
 <td><code>database_gateway_validate_workflow</code></td>
-<td>根据可见元数据和生成产物校验计划或执行结果。</td>
+<td>插件工作流执行后，根据可见元数据和生成产物校验结果。</td>
 <td>无。</td>
-</tr>
-<tr>
-<td><code>database_gateway_plan_encrypt_rule</code></td>
-<td>规划 Proxy 逻辑库的数据加密规则变更，生成可审查的 DDL、DistSQL、索引计划和校验步骤。</td>
-<td>无；只生成计划。</td>
-</tr>
-<tr>
-<td><code>database_gateway_plan_mask_rule</code></td>
-<td>规划 Proxy 逻辑库的数据脱敏规则变更，生成可审查的 DistSQL 和校验步骤。</td>
-<td>无；只生成计划。</td>
 </tr>
 </tbody>
 </table>
+<p>插件工具在对应插件页面说明。</p>
 <h2 id="提示">提示</h2>
+<p>提示用于给模型提供任务引导，例如先读取哪些资源、如何选择工具、如何处理失败恢复。
+客户端通过 <code>prompts/get</code> 取得提示内容后，将其交给模型参与推理；提示不是需要用户手工执行的命令。</p>
 <table>
 <thead>
 <tr>
@@ -10760,19 +10785,14 @@ MCP 协议方法不使用 <code>shardingsphere://</code> 前缀；这个前缀�
 </tr>
 <tr>
 <td><code>recover_workflow</code></td>
-<td>引导模型在工作流失败或 <code>plan_id</code> 不可用时恢复或重新规划。</td>
-</tr>
-<tr>
-<td><code>plan_encrypt_rule</code></td>
-<td>引导模型在规划数据加密规则前读取逻辑元数据、可用算法和已有规则。</td>
-</tr>
-<tr>
-<td><code>plan_mask_rule</code></td>
-<td>引导模型在规划数据脱敏规则前读取逻辑元数据、可用算法和已有规则。</td>
+<td>引导模型在插件工作流失败或 <code>plan_id</code> 不可用时恢复或重新规划。</td>
 </tr>
 </tbody>
 </table>
+<p>插件提示在对应插件页面说明。</p>
 <h2 id="补全目标">补全目标</h2>
+<p>补全目标用于帮助客户端或模型填写资源 URI、提示参数或工具参数。
+例如用户只输入部分数据库、schema、表或列名时，客户端可以通过 <code>completion/complete</code> 获取候选值。</p>
 <h3 id="资源补全目标">资源补全目标</h3>
 <table>
 <thead>
@@ -10853,16 +10873,9 @@ MCP 协议方法不使用 <code>shardingsphere://</code> 前缀；这个前缀�
 <td><code>recover_workflow</code></td>
 <td><code>plan_id</code></td>
 </tr>
-<tr>
-<td><code>plan_encrypt_rule</code></td>
-<td><code>database</code>、<code>schema</code>、<code>table</code>、<code>column</code>、<code>algorithm_type</code>、<code>assisted_query_algorithm_type</code>、<code>like_query_algorithm_type</code>、<code>plan_id</code></td>
-</tr>
-<tr>
-<td><code>plan_mask_rule</code></td>
-<td><code>database</code>、<code>schema</code>、<code>table</code>、<code>column</code>、<code>algorithm_type</code>、<code>plan_id</code></td>
-</tr>
 </tbody>
 </table>
+<p>插件提示补全目标在对应插件页面说明。</p>
 
 
 <footer class="footline">
@@ -16943,19 +16956,19 @@ MCP 协议方法不使用 <code>shardingsphere://</code> 前缀；这个前缀�
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="https://shardingsphere.apache.org/document/current/js/clipboard.min.js?1780065975"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/perfect-scrollbar.min.js?1780065975"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/perfect-scrollbar.jquery.min.js?1780065975"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/jquery.sticky.js?1780065975"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/featherlight.min.js?1780065975"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/highlight.pack.js?1780065975"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/clipboard.min.js?1780077491"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/perfect-scrollbar.min.js?1780077491"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/perfect-scrollbar.jquery.min.js?1780077491"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/jquery.sticky.js?1780077491"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/featherlight.min.js?1780077491"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/highlight.pack.js?1780077491"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="https://shardingsphere.apache.org/document/current/js/modernizr.custom-3.6.0.js?1780065975"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/learn.js?1780065975"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/hugo-learn.js?1780065975"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/modernizr.custom-3.6.0.js?1780077491"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/learn.js?1780077491"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/hugo-learn.js?1780077491"></script>
     
         
-            <script src="https://shardingsphere.apache.org/document/current/mermaid/mermaid.js?1780065975"></script>
+            <script src="https://shardingsphere.apache.org/document/current/mermaid/mermaid.js?1780077491"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

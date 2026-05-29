@@ -1,607 +1,755 @@
-commit d6fdf6e11d7f080614e0bf29ab27dacf8b9750dd
+commit 984df9a7a1e325f5b215ba4ca0112434cbe4c805
 Author: Liang Zhang <zhangliang@apache.org>
-Date:   Fri May 29 21:27:34 2026 +0800
+Date:   Sat May 30 00:54:42 2026 +0800
 
-    Refine ShardingSphere MCP user manual (#38755)
+    Refine ShardingSphere MCP usage documentation (#38759)
     
-    Refine the ShardingSphere MCP documentation in both English and Chinese.
+    * Clarify ShardingSphere MCP access path
     
-    - Clarify capability discovery, resource URI, tool, prompt, and completion boundaries
-    - Simplify quick start and configuration descriptions
-    - Move plugin-specific resource details out of the core capability catalog
-    - Explain client integration scenarios and transport selection
-    - Clarify workflow usage as the shared mechanism for feature plugin governance tasks
+    - Describe ShardingSphere-MCP as a controlled access path for models and agents
+    - Clarify that models call MCP capabilities instead of connecting to databases directly
+    - Split product positioning on the MCP overview from client integration guidance
+    
+    * Refine ShardingSphere MCP usage documentation
+    
+    Refine the ShardingSphere MCP documentation to clarify capability discovery,
+    client integration, plugin workflows, and encryption plugin usage.
+    
+    - Clarify capability availability for ShardingSphere-Proxy and direct database connections
+    - Explain how resources, tools, prompts, and completion targets are used
+    - Rework client integration guidance for MCP clients and agent platforms
+    - Rename workflow documentation concept to plugin workflows
+    - Restructure encryption plugin planning, execution, validation, and limitations
+    - Keep Chinese and English documentation aligned
 
+diff --git a/docs/document/content/user-manual/shardingsphere-mcp/_index.cn.md b/docs/document/content/user-manual/shardingsphere-mcp/_index.cn.md
+index e18ca4d5064..d5e518b4804 100644
+--- a/docs/document/content/user-manual/shardingsphere-mcp/_index.cn.md
++++ b/docs/document/content/user-manual/shardingsphere-mcp/_index.cn.md
+@@ -17,7 +17,7 @@ ShardingSphere-MCP 的配置以数据库为核心：先配置 MCP Server 可以
+ - 功能介绍：说明 MCP Server 对外提供的资源、工具、提示、补全和工作流能力。
+ - 配置说明：说明传输方式、`runtimeDatabases`、插件目录和启动参数。
+ - 客户端集成：说明 HTTP、STDIO、会话响应头和能力发现调用方式。
+-- 工作流：说明插件工作流共享的规划、执行和校验机制。
++- 插件工作流：说明功能插件共享的规划、执行和校验阶段。
+ - 功能插件：说明官方 MCP 功能插件能力。
+ - 部署说明：说明发行包、OCI 镜像和安全部署建议。
+ - 常见问题：排查 MCP Server、传输方式、会话和 SQL 工具的通用问题。
+diff --git a/docs/document/content/user-manual/shardingsphere-mcp/_index.en.md b/docs/document/content/user-manual/shardingsphere-mcp/_index.en.md
+index 1dc0b4f0cfc..41d2876cf75 100644
+--- a/docs/document/content/user-manual/shardingsphere-mcp/_index.en.md
++++ b/docs/document/content/user-manual/shardingsphere-mcp/_index.en.md
+@@ -17,7 +17,7 @@ ShardingSphere-MCP configuration starts from databases: configure the ShardingSp
+ - Capabilities: understand the resources, tools, prompts, completions, and workflows exposed by the MCP Server.
+ - Configuration: configure transport, `runtimeDatabases`, plugin directories, and launch parameters.
+ - Client Integration: use HTTP, STDIO, session response headers, and capability discovery calls.
+-- Workflows: understand the shared planning, apply, and validation flow used by feature plugins.
++- Plugin Workflows: understand the shared planning, apply, and validation phases used by feature plugins.
+ - Feature Plugins: use official MCP feature plugins.
+ - Deployment: deploy the binary distribution and OCI image safely.
+ - Troubleshooting: diagnose common MCP Server, transport, session, and SQL tool issues.
 diff --git a/docs/document/content/user-manual/shardingsphere-mcp/capabilities.cn.md b/docs/document/content/user-manual/shardingsphere-mcp/capabilities.cn.md
-index a475850683c..1ee5d481ad3 100644
+index 662a1959911..e836fdbe3a6 100644
 --- a/docs/document/content/user-manual/shardingsphere-mcp/capabilities.cn.md
 +++ b/docs/document/content/user-manual/shardingsphere-mcp/capabilities.cn.md
-@@ -1,21 +1,26 @@
- +++
--title = "功能介绍"
-+title = "能力清单"
- weight = 2
- +++
+@@ -25,16 +25,36 @@ weight = 2
+ | `completion/complete` | MCP 协议方法 | 获取资源、提示或参数的补全候选。 |
+ | `shardingsphere://capabilities` | ShardingSphere-MCP 资源 URI | 读取 ShardingSphere 领域能力目录。 |
  
--本页列出 ShardingSphere-MCP 对外暴露的协议能力。
--运行时实际可用能力以 `shardingsphere://capabilities` 以及 MCP 官方列表方法返回值为准。
-+本页说明 ShardingSphere-MCP 的核心能力，以及协议方法、资源 URI、工具和提示之间的关系。
-+文档用于解释能力语义；客户端应通过 MCP 列表方法和 `shardingsphere://capabilities` 读取当前 MCP Server 实际暴露的内容。
+-## 能力可用性说明
++能力发现返回的是当前 MCP Server 的协议表面；实际能否使用某项能力，还取决于 `runtimeDatabases` 连接的是 ShardingSphere-Proxy 还是普通数据库。
++客户端应先读取 `shardingsphere://runtime` 和 `shardingsphere://databases/{database}/capabilities`，再决定要读取哪些资源或调用哪些工具。
  
--## 发现入口
-+## 能力发现
+-ShardingSphere-MCP 的协议表面是统一的，但运行时可用性取决于 `runtimeDatabases` 的连接目标。
++### 连接 ShardingSphere-Proxy
  
--| 协议能力 | 用途 |
--| --- | --- |
--| `tools/list` | 发现可调用工具。 |
--| `resources/list` | 发现可直接读取的资源。 |
--| `resources/templates/list` | 发现带参数的资源模板。 |
--| `prompts/list` | 发现可用提示。 |
--| `completion/complete` | 获取资源、提示或参数的补全候选。 |
--| `resources/read` 读取 `shardingsphere://capabilities` | 读取 ShardingSphere 领域能力目录。 |
-+下面列出的是 MCP 协议方法和 ShardingSphere-MCP 资源 URI。
-+MCP 协议方法不使用 `shardingsphere://` 前缀；这个前缀只用于 ShardingSphere-MCP 资源 URI。
-+工具和提示使用名称调用，也不是资源 URI。
+-- 连接 ShardingSphere-Proxy 时，逻辑元数据、逻辑 SQL、DistSQL、加密或脱敏规则以及算法插件能力可用，但物理元数据以 Proxy 暴露结果为准。
+-- 连接真实数据库时，通用 JDBC 元数据和 SQL 执行能力可用；ShardingSphere 规则、算法插件和依赖 DistSQL 的工作流不适用。
+-- 客户端应优先读取 `shardingsphere://runtime` 和 `shardingsphere://databases/{database}/capabilities` 判断当前数据库能力，不应假设所有资源和工具在所有连接目标下等价。
++适合让模型理解 ShardingSphere 逻辑库结构、读取治理规则状态、执行受控 SQL，或通过功能插件生成可审查的治理变更计划。
++此模式下，逻辑元数据、逻辑 SQL、DistSQL、规则状态、算法插件和插件工作流可以被 MCP 能力使用。
 +
-+| 方法或资源 | 类型 | 用途 |
-+| --- | --- | --- |
-+| `tools/list` | MCP 协议方法 | 列出可调用工具。 |
-+| `resources/list` | MCP 协议方法 | 列出不需要参数即可读取的资源。 |
-+| `resources/templates/list` | MCP 协议方法 | 列出带参数的资源 URI 模板；客户端需要先填充模板，再通过 `resources/read` 读取。 |
-+| `resources/read` | MCP 协议方法 | 读取一个具体资源 URI；读取 `shardingsphere://capabilities` 可获得 ShardingSphere 领域能力目录。 |
-+| `prompts/list` | MCP 协议方法 | 列出可用提示。 |
-+| `completion/complete` | MCP 协议方法 | 获取资源、提示或参数的补全候选。 |
-+| `shardingsphere://capabilities` | ShardingSphere-MCP 资源 URI | 读取 ShardingSphere 领域能力目录。 |
- 
- ## 能力可用性说明
- 
-@@ -25,41 +30,32 @@ ShardingSphere-MCP 的协议表面是统一的，但运行时可用性取决于
- - 连接真实数据库时，通用 JDBC 元数据和 SQL 执行能力可用；ShardingSphere 规则、算法插件和依赖 DistSQL 的工作流不适用。
- - 客户端应优先读取 `shardingsphere://runtime` 和 `shardingsphere://databases/{database}/capabilities` 判断当前数据库能力，不应假设所有资源和工具在所有连接目标下等价。
- 
--## 静态资源
--
--| 资源 | 用途 |
--| --- | --- |
--| `shardingsphere://capabilities` | 查看资源、资源模板、工具、提示、补全、工作流关系和副作用提示。 |
--| `shardingsphere://runtime` | 查看当前传输方式、运行状态和已配置运行时数据库摘要。 |
--| `shardingsphere://databases` | 列出当前 MCP Server 可以访问的运行时数据库；连接 Proxy 时对应 ShardingSphere 逻辑库。 |
--| `shardingsphere://features/encrypt/algorithms` | 列出当前 ShardingSphere-Proxy 可见的数据加密算法插件。 |
--| `shardingsphere://features/mask/algorithms` | 列出当前 ShardingSphere-Proxy 可见的数据脱敏算法插件。 |
--
--## 资源模板
-+## 资源
- 
--| 资源模板 | 用途 |
--| --- | --- |
--| `shardingsphere://databases/{database}` | 读取一个运行时数据库的详情和元数据摘要。 |
--| `shardingsphere://databases/{database}/capabilities` | 读取一个运行时数据库的 SQL、事务、schema 和元数据对象能力。 |
--| `shardingsphere://databases/{database}/schemas` | 列出一个运行时数据库中的 schema 或 namespace。 |
--| `shardingsphere://databases/{database}/schemas/{schema}` | 读取一个 schema 或 namespace 的详情。 |
--| `shardingsphere://databases/{database}/schemas/{schema}/sequences` | 列出一个 schema 中的 sequence。 |
--| `shardingsphere://databases/{database}/schemas/{schema}/sequences/{sequence}` | 读取一个 sequence 的详情。 |
--| `shardingsphere://databases/{database}/schemas/{schema}/tables` | 列出一个 schema 中的表。 |
--| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}` | 读取一个表的详情。 |
--| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/columns` | 列出一个表的列。 |
--| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/columns/{column}` | 读取一个表列的详情。 |
--| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/indexes` | 列出一个表的索引。 |
--| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/indexes/{index}` | 读取一个表索引的详情。 |
--| `shardingsphere://databases/{database}/schemas/{schema}/views` | 列出一个 schema 中的视图。 |
--| `shardingsphere://databases/{database}/schemas/{schema}/views/{view}` | 读取一个视图的详情。 |
--| `shardingsphere://databases/{database}/schemas/{schema}/views/{view}/columns` | 列出一个视图的列。 |
--| `shardingsphere://databases/{database}/schemas/{schema}/views/{view}/columns/{column}` | 读取一个视图列的详情。 |
--| `shardingsphere://workflows/{plan_id}` | 读取当前会话中的工作流计划、补问信息、变更产物和下一步动作。 |
--| `shardingsphere://features/encrypt/databases/{database}/rules` | 列出一个逻辑库中的数据加密规则。 |
--| `shardingsphere://features/encrypt/databases/{database}/tables/{table}/rules` | 读取一个逻辑表的数据加密规则。 |
--| `shardingsphere://features/mask/databases/{database}/rules` | 列出一个逻辑库中的数据脱敏规则。 |
--| `shardingsphere://features/mask/databases/{database}/tables/{table}/rules` | 读取一个逻辑表的数据脱敏规则。 |
-+| 资源 URI 或模板 | 类型 | 用途 |
-+| --- | --- | --- |
-+| `shardingsphere://capabilities` | 资源 URI | 查看资源 URI、资源模板、工具、提示、补全、工作流关系和副作用提示。 |
-+| `shardingsphere://runtime` | 资源 URI | 查看当前传输方式、运行状态和已配置运行时数据库摘要。 |
-+| `shardingsphere://databases` | 资源 URI | 列出当前 MCP Server 可以访问的运行时数据库；连接 Proxy 时对应 ShardingSphere 逻辑库。 |
-+| `shardingsphere://databases/{database}` | 资源模板 | 读取一个运行时数据库的详情和元数据摘要。 |
-+| `shardingsphere://databases/{database}/capabilities` | 资源模板 | 读取一个运行时数据库的 SQL、事务、schema 和元数据对象能力。 |
-+| `shardingsphere://databases/{database}/schemas` | 资源模板 | 列出一个运行时数据库中的 schema 或 namespace。 |
-+| `shardingsphere://databases/{database}/schemas/{schema}` | 资源模板 | 读取一个 schema 或 namespace 的详情。 |
-+| `shardingsphere://databases/{database}/schemas/{schema}/sequences` | 资源模板 | 列出一个 schema 中的 sequence。 |
-+| `shardingsphere://databases/{database}/schemas/{schema}/sequences/{sequence}` | 资源模板 | 读取一个 sequence 的详情。 |
-+| `shardingsphere://databases/{database}/schemas/{schema}/tables` | 资源模板 | 列出一个 schema 中的表。 |
-+| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}` | 资源模板 | 读取一个表的详情。 |
-+| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/columns` | 资源模板 | 列出一个表的列。 |
-+| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/columns/{column}` | 资源模板 | 读取一个表列的详情。 |
-+| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/indexes` | 资源模板 | 列出一个表的索引。 |
-+| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/indexes/{index}` | 资源模板 | 读取一个表索引的详情。 |
-+| `shardingsphere://databases/{database}/schemas/{schema}/views` | 资源模板 | 列出一个 schema 中的视图。 |
-+| `shardingsphere://databases/{database}/schemas/{schema}/views/{view}` | 资源模板 | 读取一个视图的详情。 |
-+| `shardingsphere://databases/{database}/schemas/{schema}/views/{view}/columns` | 资源模板 | 列出一个视图的列。 |
-+| `shardingsphere://databases/{database}/schemas/{schema}/views/{view}/columns/{column}` | 资源模板 | 读取一个视图列的详情。 |
-+| `shardingsphere://workflows/{plan_id}` | 资源模板 | 读取当前会话中的工作流计划、补问信息、变更产物和下一步动作。 |
++使用限制：
 +
-+功能插件提供的资源在对应插件页面说明。
++- 物理元数据以 Proxy 暴露结果为准，不能等同于每个底层物理库的完整元数据。
++- 依赖 ShardingSphere 规则、算法或 DistSQL 的功能只适用于 Proxy 连接。
++- 规划类能力生成的是可审查计划，执行前仍需确认业务影响。
++
++### 直接连接数据库
++
++适合把 MCP Server 作为普通数据库的受控访问通路，用于读取 JDBC 元数据、搜索对象、辅助生成查询，或执行受限 SQL。
++此模式下，通用数据库元数据和 SQL 工具可用。
++
++使用限制：
++
++- ShardingSphere 规则、算法插件和依赖 DistSQL 的插件工作流不适用。
++- 返回的是数据库自身元数据，不包含 ShardingSphere 逻辑规则视图。
++- 客户端不能假设直接连接数据库和连接 Proxy 时暴露的资源、工具行为完全一致。
+ 
+ ## 资源
+ 
++资源用于给模型提供上下文，例如运行时状态、数据库列表、表结构、列信息或工作流计划。
++客户端或模型通过 `resources/read` 读取具体资源 URI；资源模板需要先填充参数，再读取。
++
+ | 资源 URI 或模板 | 类型 | 用途 |
+ | --- | --- | --- |
+ | `shardingsphere://capabilities` | 资源 URI | 查看资源 URI、资源模板、工具、提示、补全、工作流关系和副作用提示。 |
+@@ -58,32 +78,41 @@ ShardingSphere-MCP 的协议表面是统一的，但运行时可用性取决于
+ | `shardingsphere://databases/{database}/schemas/{schema}/views/{view}/columns/{column}` | 资源模板 | 读取一个视图列的详情。 |
+ | `shardingsphere://workflows/{plan_id}` | 资源模板 | 读取当前会话中的工作流计划、补问信息、变更产物和下一步动作。 |
+ 
+-功能插件提供的资源、工具、提示和补全目标在对应插件页面说明。
++插件提供的资源、工具、提示和补全目标在对应插件页面说明。
  
  ## 工具
  
-@@ -85,24 +81,29 @@ ShardingSphere-MCP 的协议表面是统一的，但运行时可用性取决于
++工具用于执行动作，例如搜索元数据、执行 SQL，或处理插件工作流阶段。
++模型通过 `tools/call` 调用工具；有副作用的工具需要显式执行模式，并应先预览或审查。
++
+ | 工具 | 用途 | 副作用 |
+ | --- | --- | --- |
+ | `database_gateway_search_metadata` | 按名称片段和对象类型搜索运行时数据库元数据，并返回后续资源读取提示。 | 无。 |
+ | `database_gateway_execute_query` | 执行一个已判定为查询类的 `SELECT` 或 `EXPLAIN ANALYZE`。 | 无；拒绝 DML、DDL、DCL、事务控制、savepoint 和其他有副作用 SQL。 |
+ | `database_gateway_execute_update` | 预览或执行一个可能修改数据、元数据、规则或事务状态的 SQL。 | 有；必须显式传入 `execution_mode=preview` 或 `execution_mode=execute`。 |
+-| `database_gateway_apply_workflow` | 预览、执行或导出已规划工作流的人工执行包。 | 取决于 `execution_mode`；`preview` 和 `manual-only` 不修改运行时状态。 |
+-| `database_gateway_validate_workflow` | 根据可见元数据和生成产物校验计划或执行结果。 | 无。 |
++| `database_gateway_apply_workflow` | 插件规划返回 `plan_id` 后，预览、执行或导出人工执行包。 | 取决于 `execution_mode`；`preview` 和 `manual-only` 不修改运行时状态。 |
++| `database_gateway_validate_workflow` | 插件工作流执行后，根据可见元数据和生成产物校验结果。 | 无。 |
+ 
+-数据加密、数据脱敏等功能插件工具在对应插件页面说明。
++插件工具在对应插件页面说明。
+ 
+ ## 提示
+ 
++提示用于给模型提供任务引导，例如先读取哪些资源、如何选择工具、如何处理失败恢复。
++客户端通过 `prompts/get` 取得提示内容后，将其交给模型参与推理；提示不是需要用户手工执行的命令。
++
+ | 提示 | 用途 |
+ | --- | --- |
+ | `inspect_metadata` | 引导模型读取数据库元数据，再选择搜索工具或详情资源。 |
+ | `safe_sql_execution` | 引导模型区分只读查询和有副作用 SQL，并选择正确 SQL 工具。 |
+-| `recover_workflow` | 引导模型在工作流失败或 `plan_id` 不可用时恢复或重新规划。 |
++| `recover_workflow` | 引导模型在插件工作流失败或 `plan_id` 不可用时恢复或重新规划。 |
+ 
+-数据加密、数据脱敏等功能插件提示在对应插件页面说明。
++插件提示在对应插件页面说明。
  
  ## 补全目标
  
--| 目标类型 | 目标 | 补全参数 |
--| --- | --- | --- |
--| resource | `shardingsphere://databases/{database}` | `database` |
--| resource | `shardingsphere://databases/{database}/schemas` | `database` |
--| resource | `shardingsphere://databases/{database}/schemas/{schema}` | `database`、`schema` |
--| resource | `shardingsphere://databases/{database}/schemas/{schema}/tables` | `database`、`schema` |
--| resource | `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}` | `database`、`schema`、`table` |
--| resource | `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/columns` | `database`、`schema`、`table` |
--| resource | `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/columns/{column}` | `database`、`schema`、`table`、`column` |
--| resource | `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/indexes` | `database`、`schema`、`table` |
--| resource | `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/indexes/{index}` | `database`、`schema`、`table`、`index` |
--| resource | `shardingsphere://databases/{database}/schemas/{schema}/sequences` | `database`、`schema` |
--| resource | `shardingsphere://databases/{database}/schemas/{schema}/sequences/{sequence}` | `database`、`schema`、`sequence` |
--| resource | `shardingsphere://workflows/{plan_id}` | `plan_id` |
--| resource | `shardingsphere://features/encrypt/algorithms` | `algorithm_type`、`assisted_query_algorithm_type`、`like_query_algorithm_type` |
--| resource | `shardingsphere://features/mask/algorithms` | `algorithm_type` |
--| prompt | `inspect_metadata` | `database`、`schema` |
--| prompt | `safe_sql_execution` | `database`、`schema` |
--| prompt | `recover_workflow` | `plan_id` |
--| prompt | `plan_encrypt_rule` | `database`、`schema`、`table`、`column`、`algorithm_type`、`assisted_query_algorithm_type`、`like_query_algorithm_type`、`plan_id` |
--| prompt | `plan_mask_rule` | `database`、`schema`、`table`、`column`、`algorithm_type`、`plan_id` |
-+### 资源补全目标
++补全目标用于帮助客户端或模型填写资源 URI、提示参数或工具参数。
++例如用户只输入部分数据库、schema、表或列名时，客户端可以通过 `completion/complete` 获取候选值。
 +
-+| 目标 | 补全参数 |
-+| --- | --- |
-+| `shardingsphere://databases/{database}` | `database` |
-+| `shardingsphere://databases/{database}/schemas` | `database` |
-+| `shardingsphere://databases/{database}/schemas/{schema}` | `database`、`schema` |
-+| `shardingsphere://databases/{database}/schemas/{schema}/tables` | `database`、`schema` |
-+| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}` | `database`、`schema`、`table` |
-+| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/columns` | `database`、`schema`、`table` |
-+| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/columns/{column}` | `database`、`schema`、`table`、`column` |
-+| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/indexes` | `database`、`schema`、`table` |
-+| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/indexes/{index}` | `database`、`schema`、`table`、`index` |
-+| `shardingsphere://databases/{database}/schemas/{schema}/sequences` | `database`、`schema` |
-+| `shardingsphere://databases/{database}/schemas/{schema}/sequences/{sequence}` | `database`、`schema`、`sequence` |
-+| `shardingsphere://workflows/{plan_id}` | `plan_id` |
-+
-+### 提示补全目标
-+
-+| 目标 | 补全参数 |
-+| --- | --- |
-+| `inspect_metadata` | `database`、`schema` |
-+| `safe_sql_execution` | `database`、`schema` |
-+| `recover_workflow` | `plan_id` |
-+| `plan_encrypt_rule` | `database`、`schema`、`table`、`column`、`algorithm_type`、`assisted_query_algorithm_type`、`like_query_algorithm_type`、`plan_id` |
-+| `plan_mask_rule` | `database`、`schema`、`table`、`column`、`algorithm_type`、`plan_id` |
+ ### 资源补全目标
+ 
+ | 目标 | 补全参数 |
+@@ -109,4 +138,4 @@ ShardingSphere-MCP 的协议表面是统一的，但运行时可用性取决于
+ | `safe_sql_execution` | `database`、`schema` |
+ | `recover_workflow` | `plan_id` |
+ 
+-功能插件的提示补全目标在对应插件页面说明。
++插件提示补全目标在对应插件页面说明。
 diff --git a/docs/document/content/user-manual/shardingsphere-mcp/capabilities.en.md b/docs/document/content/user-manual/shardingsphere-mcp/capabilities.en.md
-index b3447eb7748..512fab9fdab 100644
+index bd14de3538e..63040b47b83 100644
 --- a/docs/document/content/user-manual/shardingsphere-mcp/capabilities.en.md
 +++ b/docs/document/content/user-manual/shardingsphere-mcp/capabilities.en.md
-@@ -1,21 +1,26 @@
- +++
--title = "Capabilities"
-+title = "Capability Catalog"
- weight = 2
- +++
+@@ -25,16 +25,36 @@ Method names, tool names, and prompt names do not use a URI prefix. Only resourc
+ | `completion/complete` | MCP protocol method | Gets completion candidates for resources, prompts, or arguments. |
+ | `shardingsphere://capabilities` | ShardingSphere-MCP resource URI | Reads the ShardingSphere domain capability catalog. |
  
--This page lists the protocol capabilities exposed by ShardingSphere-MCP.
--The runtime source of truth is `shardingsphere://capabilities` plus the official MCP list methods.
-+This page explains the core capabilities of ShardingSphere-MCP and how protocol methods, resource URIs, tools, and prompts relate to each other.
-+The documentation explains capability semantics. Clients should use MCP list methods and `shardingsphere://capabilities` to read what the current MCP Server actually exposes.
+-## Capability Availability
++Capability discovery returns the protocol surface of the current MCP Server. Whether a capability is actually useful still depends on whether `runtimeDatabases` connects to ShardingSphere-Proxy or to a regular database.
++Clients should read `shardingsphere://runtime` and `shardingsphere://databases/{database}/capabilities` before deciding which resources to read or which tools to call.
  
--## Discovery entry points
-+## Capability discovery
+-ShardingSphere-MCP exposes one protocol surface, but runtime availability depends on the target configured in `runtimeDatabases`.
++### Connecting to ShardingSphere-Proxy
  
--| Protocol capability | Purpose |
--| --- | --- |
--| `tools/list` | Discover callable tools. |
--| `resources/list` | Discover directly readable resources. |
--| `resources/templates/list` | Discover parameterized resource templates. |
--| `prompts/list` | Discover available prompts. |
--| `completion/complete` | Get completion candidates for resources, prompts, or arguments. |
--| `resources/read` with `shardingsphere://capabilities` | Read the ShardingSphere domain capability catalog. |
-+The following entries include MCP protocol methods and ShardingSphere-MCP resource URIs.
-+MCP protocol methods do not use the `shardingsphere://` prefix. That prefix is used only for ShardingSphere-MCP resource URIs.
-+Tools and prompts are invoked by name and are not resource URIs.
+-- When connected to ShardingSphere-Proxy, logical metadata, logical SQL, DistSQL, encryption or masking rules, and algorithm plugin capabilities are available. Physical metadata still follows what Proxy exposes.
+-- When connected to a physical database, general JDBC metadata and SQL execution capabilities are available. ShardingSphere rules, algorithm plugins, and workflows that depend on DistSQL do not apply.
+-- Clients should read `shardingsphere://runtime` and `shardingsphere://databases/{database}/capabilities` before assuming that every resource or tool behaves the same for every connection target.
++Use this mode when a model needs to understand ShardingSphere logical database structure, read governance rule state, execute controlled SQL, or create reviewable governance change plans through feature plugins.
++In this mode, logical metadata, logical SQL, DistSQL, rule state, algorithm plugins, and plugin workflows can be used through MCP capabilities.
 +
-+| Method or resource | Type | Purpose |
-+| --- | --- | --- |
-+| `tools/list` | MCP protocol method | Lists callable tools. |
-+| `resources/list` | MCP protocol method | Lists resources that can be read without template arguments. |
-+| `resources/templates/list` | MCP protocol method | Lists parameterized resource URI templates. Clients fill the template before reading it through `resources/read`. |
-+| `resources/read` | MCP protocol method | Reads one concrete resource URI. Reading `shardingsphere://capabilities` returns the ShardingSphere domain capability catalog. |
-+| `prompts/list` | MCP protocol method | Lists available prompts. |
-+| `completion/complete` | MCP protocol method | Gets completion candidates for resources, prompts, or arguments. |
-+| `shardingsphere://capabilities` | ShardingSphere-MCP resource URI | Reads the ShardingSphere domain capability catalog. |
- 
- ## Capability Availability
- 
-@@ -25,41 +30,32 @@ ShardingSphere-MCP exposes one protocol surface, but runtime availability depend
- - When connected to a physical database, general JDBC metadata and SQL execution capabilities are available. ShardingSphere rules, algorithm plugins, and workflows that depend on DistSQL do not apply.
- - Clients should read `shardingsphere://runtime` and `shardingsphere://databases/{database}/capabilities` before assuming that every resource or tool behaves the same for every connection target.
- 
--## Static resources
--
--| Resource | Purpose |
--| --- | --- |
--| `shardingsphere://capabilities` | Read resources, resource templates, tools, prompts, completions, workflow relationships, and side-effect notes. |
--| `shardingsphere://runtime` | Read the current transport, runtime status, and configured runtime database summary. |
--| `shardingsphere://databases` | List runtime databases reachable by the current MCP Server. When connected to Proxy, they correspond to ShardingSphere logical databases. |
--| `shardingsphere://features/encrypt/algorithms` | List data encryption algorithm plugins visible from the current ShardingSphere-Proxy runtime. |
--| `shardingsphere://features/mask/algorithms` | List data masking algorithm plugins visible from the current ShardingSphere-Proxy runtime. |
--
--## Resource templates
-+## Resources
- 
--| Resource template | Purpose |
--| --- | --- |
--| `shardingsphere://databases/{database}` | Read one runtime database and its metadata summary. |
--| `shardingsphere://databases/{database}/capabilities` | Read SQL, transaction, schema, and metadata-object capabilities for one runtime database. |
--| `shardingsphere://databases/{database}/schemas` | List schemas or namespaces inside one runtime database. |
--| `shardingsphere://databases/{database}/schemas/{schema}` | Read one schema or namespace. |
--| `shardingsphere://databases/{database}/schemas/{schema}/sequences` | List sequences in one schema. |
--| `shardingsphere://databases/{database}/schemas/{schema}/sequences/{sequence}` | Read one sequence. |
--| `shardingsphere://databases/{database}/schemas/{schema}/tables` | List tables in one schema. |
--| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}` | Read one table. |
--| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/columns` | List columns for one table. |
--| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/columns/{column}` | Read one table column. |
--| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/indexes` | List indexes for one table. |
--| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/indexes/{index}` | Read one table index. |
--| `shardingsphere://databases/{database}/schemas/{schema}/views` | List views in one schema. |
--| `shardingsphere://databases/{database}/schemas/{schema}/views/{view}` | Read one view. |
--| `shardingsphere://databases/{database}/schemas/{schema}/views/{view}/columns` | List columns for one view. |
--| `shardingsphere://databases/{database}/schemas/{schema}/views/{view}/columns/{column}` | Read one view column. |
--| `shardingsphere://workflows/{plan_id}` | Read a current-session workflow plan, clarification questions, artifacts, and next actions. |
--| `shardingsphere://features/encrypt/databases/{database}/rules` | List data encryption rules in one logical database. |
--| `shardingsphere://features/encrypt/databases/{database}/tables/{table}/rules` | Read data encryption rules for one logical table. |
--| `shardingsphere://features/mask/databases/{database}/rules` | List data masking rules in one logical database. |
--| `shardingsphere://features/mask/databases/{database}/tables/{table}/rules` | Read data masking rules for one logical table. |
-+| Resource URI or template | Type | Purpose |
-+| --- | --- | --- |
-+| `shardingsphere://capabilities` | Resource URI | Reads resource URIs, resource templates, tools, prompts, completions, workflow relationships, and side-effect notes. |
-+| `shardingsphere://runtime` | Resource URI | Reads the current transport, runtime status, and configured runtime database summary. |
-+| `shardingsphere://databases` | Resource URI | Lists runtime databases reachable by the current MCP Server. When connected to Proxy, they correspond to ShardingSphere logical databases. |
-+| `shardingsphere://databases/{database}` | Resource template | Reads one runtime database and its metadata summary. |
-+| `shardingsphere://databases/{database}/capabilities` | Resource template | Reads SQL, transaction, schema, and metadata-object capabilities for one runtime database. |
-+| `shardingsphere://databases/{database}/schemas` | Resource template | Lists schemas or namespaces inside one runtime database. |
-+| `shardingsphere://databases/{database}/schemas/{schema}` | Resource template | Reads one schema or namespace. |
-+| `shardingsphere://databases/{database}/schemas/{schema}/sequences` | Resource template | Lists sequences in one schema. |
-+| `shardingsphere://databases/{database}/schemas/{schema}/sequences/{sequence}` | Resource template | Reads one sequence. |
-+| `shardingsphere://databases/{database}/schemas/{schema}/tables` | Resource template | Lists tables in one schema. |
-+| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}` | Resource template | Reads one table. |
-+| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/columns` | Resource template | Lists columns for one table. |
-+| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/columns/{column}` | Resource template | Reads one table column. |
-+| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/indexes` | Resource template | Lists indexes for one table. |
-+| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/indexes/{index}` | Resource template | Reads one table index. |
-+| `shardingsphere://databases/{database}/schemas/{schema}/views` | Resource template | Lists views in one schema. |
-+| `shardingsphere://databases/{database}/schemas/{schema}/views/{view}` | Resource template | Reads one view. |
-+| `shardingsphere://databases/{database}/schemas/{schema}/views/{view}/columns` | Resource template | Lists columns for one view. |
-+| `shardingsphere://databases/{database}/schemas/{schema}/views/{view}/columns/{column}` | Resource template | Reads one view column. |
-+| `shardingsphere://workflows/{plan_id}` | Resource template | Reads a current-session workflow plan, clarification questions, artifacts, and next actions. |
++Usage limits:
 +
-+Feature plugin resources are documented on the corresponding plugin pages.
++- Physical metadata follows what Proxy exposes and should not be treated as the complete catalog of every underlying physical database.
++- Capabilities that depend on ShardingSphere rules, algorithms, or DistSQL apply only to Proxy connections.
++- Planning capabilities create reviewable plans. Business impact still needs to be reviewed before execution.
++
++### Connecting directly to a database
++
++Use this mode when the MCP Server should act as a controlled access path to a regular database for reading JDBC metadata, searching objects, assisting query generation, or executing restricted SQL.
++In this mode, general database metadata and SQL tools are available.
++
++Usage limits:
++
++- ShardingSphere rules, algorithm plugins, and plugin workflows that depend on DistSQL do not apply.
++- Returned metadata is database-native metadata and does not include ShardingSphere logical rule views.
++- Clients must not assume that resources and tools behave exactly the same for direct database connections and Proxy connections.
+ 
+ ## Resources
+ 
++Resources provide context to the model, such as runtime status, database lists, table structure, column information, or workflow plans.
++Clients or models read concrete resource URIs through `resources/read`; resource templates must be filled before they are read.
++
+ | Resource URI or template | Type | Purpose |
+ | --- | --- | --- |
+ | `shardingsphere://capabilities` | Resource URI | Reads resource URIs, resource templates, tools, prompts, completions, workflow relationships, and side-effect notes. |
+@@ -58,32 +78,41 @@ ShardingSphere-MCP exposes one protocol surface, but runtime availability depend
+ | `shardingsphere://databases/{database}/schemas/{schema}/views/{view}/columns/{column}` | Resource template | Reads one view column. |
+ | `shardingsphere://workflows/{plan_id}` | Resource template | Reads a current-session workflow plan, clarification questions, artifacts, and next actions. |
+ 
+-Feature plugin resources, tools, prompts, and completion targets are documented on the corresponding plugin pages.
++Plugin resources, tools, prompts, and completion targets are documented on the corresponding plugin pages.
  
  ## Tools
  
-@@ -85,24 +81,29 @@ ShardingSphere-MCP exposes one protocol surface, but runtime availability depend
++Tools execute actions, such as searching metadata, executing SQL, or handling plugin workflow phases.
++Models call tools through `tools/call`. Tools with side effects require an explicit execution mode and should be previewed or reviewed first.
++
+ | Tool | Purpose | Side effects |
+ | --- | --- | --- |
+ | `database_gateway_search_metadata` | Search runtime database metadata by name fragment and object type, and return resource hints for follow-up reads. | None. |
+ | `database_gateway_execute_query` | Execute exactly one classifier-approved `SELECT` or `EXPLAIN ANALYZE` statement. | None; rejects DML, DDL, DCL, transaction control, savepoints, and other side-effecting SQL. |
+ | `database_gateway_execute_update` | Preview or execute one SQL statement that may mutate data, metadata, rules, or transaction state. | Yes; requires explicit `execution_mode=preview` or `execution_mode=execute`. |
+-| `database_gateway_apply_workflow` | Preview, execute, or export a manual package for a planned workflow. | Depends on `execution_mode`; `preview` and `manual-only` do not change runtime state. |
+-| `database_gateway_validate_workflow` | Validate a planned or applied workflow against visible metadata and generated artifacts. | None. |
++| `database_gateway_apply_workflow` | After plugin planning returns `plan_id`, preview, execute, or export a manual package. | Depends on `execution_mode`; `preview` and `manual-only` do not change runtime state. |
++| `database_gateway_validate_workflow` | After plugin workflow execution, validate the result against visible metadata and generated artifacts. | None. |
+ 
+-Data Encryption, Data Masking, and other feature plugin tools are documented on the corresponding plugin pages.
++Plugin tools are documented on the corresponding plugin pages.
+ 
+ ## Prompts
+ 
++Prompts guide the model through a task, such as which resources to read first, which tool to choose, or how to recover from failure.
++Clients fetch prompt content through `prompts/get` and provide it to the model for reasoning. Prompts are not commands that users need to run manually.
++
+ | Prompt | Purpose |
+ | --- | --- |
+ | `inspect_metadata` | Guide the model to read database metadata before choosing a search tool or detail resource. |
+ | `safe_sql_execution` | Guide the model to choose the correct SQL tool for read-only queries or side-effecting SQL. |
+-| `recover_workflow` | Guide the model to recover or re-plan after workflow failure or unavailable `plan_id`. |
++| `recover_workflow` | Guide the model to recover or re-plan after plugin workflow failure or unavailable `plan_id`. |
+ 
+-Data Encryption, Data Masking, and other feature plugin prompts are documented on the corresponding plugin pages.
++Plugin prompts are documented on the corresponding plugin pages.
  
  ## Completion targets
  
--| Target type | Target | Completed arguments |
--| --- | --- | --- |
--| resource | `shardingsphere://databases/{database}` | `database` |
--| resource | `shardingsphere://databases/{database}/schemas` | `database` |
--| resource | `shardingsphere://databases/{database}/schemas/{schema}` | `database`, `schema` |
--| resource | `shardingsphere://databases/{database}/schemas/{schema}/tables` | `database`, `schema` |
--| resource | `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}` | `database`, `schema`, `table` |
--| resource | `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/columns` | `database`, `schema`, `table` |
--| resource | `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/columns/{column}` | `database`, `schema`, `table`, `column` |
--| resource | `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/indexes` | `database`, `schema`, `table` |
--| resource | `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/indexes/{index}` | `database`, `schema`, `table`, `index` |
--| resource | `shardingsphere://databases/{database}/schemas/{schema}/sequences` | `database`, `schema` |
--| resource | `shardingsphere://databases/{database}/schemas/{schema}/sequences/{sequence}` | `database`, `schema`, `sequence` |
--| resource | `shardingsphere://workflows/{plan_id}` | `plan_id` |
--| resource | `shardingsphere://features/encrypt/algorithms` | `algorithm_type`, `assisted_query_algorithm_type`, `like_query_algorithm_type` |
--| resource | `shardingsphere://features/mask/algorithms` | `algorithm_type` |
--| prompt | `inspect_metadata` | `database`, `schema` |
--| prompt | `safe_sql_execution` | `database`, `schema` |
--| prompt | `recover_workflow` | `plan_id` |
--| prompt | `plan_encrypt_rule` | `database`, `schema`, `table`, `column`, `algorithm_type`, `assisted_query_algorithm_type`, `like_query_algorithm_type`, `plan_id` |
--| prompt | `plan_mask_rule` | `database`, `schema`, `table`, `column`, `algorithm_type`, `plan_id` |
-+### Resource completion targets
++Completion targets help clients or models fill resource URIs, prompt arguments, or tool arguments.
++For example, when a user provides only part of a database, schema, table, or column name, the client can request candidates through `completion/complete`.
 +
-+| Target | Completed arguments |
-+| --- | --- |
-+| `shardingsphere://databases/{database}` | `database` |
-+| `shardingsphere://databases/{database}/schemas` | `database` |
-+| `shardingsphere://databases/{database}/schemas/{schema}` | `database`, `schema` |
-+| `shardingsphere://databases/{database}/schemas/{schema}/tables` | `database`, `schema` |
-+| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}` | `database`, `schema`, `table` |
-+| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/columns` | `database`, `schema`, `table` |
-+| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/columns/{column}` | `database`, `schema`, `table`, `column` |
-+| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/indexes` | `database`, `schema`, `table` |
-+| `shardingsphere://databases/{database}/schemas/{schema}/tables/{table}/indexes/{index}` | `database`, `schema`, `table`, `index` |
-+| `shardingsphere://databases/{database}/schemas/{schema}/sequences` | `database`, `schema` |
-+| `shardingsphere://databases/{database}/schemas/{schema}/sequences/{sequence}` | `database`, `schema`, `sequence` |
-+| `shardingsphere://workflows/{plan_id}` | `plan_id` |
-+
-+### Prompt completion targets
-+
-+| Target | Completed arguments |
-+| --- | --- |
-+| `inspect_metadata` | `database`, `schema` |
-+| `safe_sql_execution` | `database`, `schema` |
-+| `recover_workflow` | `plan_id` |
-+| `plan_encrypt_rule` | `database`, `schema`, `table`, `column`, `algorithm_type`, `assisted_query_algorithm_type`, `like_query_algorithm_type`, `plan_id` |
-+| `plan_mask_rule` | `database`, `schema`, `table`, `column`, `algorithm_type`, `plan_id` |
+ ### Resource completion targets
+ 
+ | Target | Completed arguments |
+@@ -109,4 +138,4 @@ Data Encryption, Data Masking, and other feature plugin prompts are documented o
+ | `safe_sql_execution` | `database`, `schema` |
+ | `recover_workflow` | `plan_id` |
+ 
+-Feature plugin prompt completion targets are documented on the corresponding plugin pages.
++Plugin prompt completion targets are documented on the corresponding plugin pages.
 diff --git a/docs/document/content/user-manual/shardingsphere-mcp/client-integration.cn.md b/docs/document/content/user-manual/shardingsphere-mcp/client-integration.cn.md
-index fe05a12a1f8..f06453ff9f1 100644
+index 7efdf2a3282..11692d6bbc0 100644
 --- a/docs/document/content/user-manual/shardingsphere-mcp/client-integration.cn.md
 +++ b/docs/document/content/user-manual/shardingsphere-mcp/client-integration.cn.md
-@@ -3,8 +3,23 @@ title = "客户端集成"
- weight = 4
- +++
+@@ -11,12 +11,12 @@ weight = 4
  
--MCP 客户端可以通过 Streamable HTTP 或 STDIO 连接 ShardingSphere-MCP。
--客户端应优先使用 MCP 官方能力发现方法获取工具、资源、提示和补全列表，再按任务发起调用。
-+客户端集成面向把 ShardingSphere-MCP 接入桌面客户端、IDE 插件、Agent 平台或自研 LLM 应用的场景。
-+它不是快速开始中 curl 手工验证流程的替代说明。
-+它的价值是让客户端负责连接配置、会话头、能力发现、补全和调用编排，用户只关注要完成的元数据或数据库治理任务。
-+
-+适合使用客户端集成的场景：
-+
-+- 已有 MCP 客户端，需要把 ShardingSphere 元数据和治理工具暴露给模型。
-+- 需要长期复用同一个 MCP Server 配置，而不是每次手写 curl 请求。
-+- 需要客户端保存 HTTP 会话头，或通过 STDIO 管理本地 MCP Server 子进程。
-+- 需要按任务发现工具、资源、提示和补全目标，避免在客户端硬编码完整能力清单。
-+
-+如果只是验证 MCP Server 是否可用，使用快速开始中的 curl 示例即可。
-+
-+## 选择传输方式
-+
-+- HTTP 适合 MCP Server 独立启动，客户端通过固定端点访问的场景。客户端需要完成会话初始化，并在后续请求中携带会话响应头。
-+- STDIO 适合本地 MCP 客户端拉起 ShardingSphere-MCP 子进程的场景。客户端负责进程生命周期，stdout 只传输 MCP 协议帧。
+ 适合使用客户端集成的场景：
  
- ## HTTP 配置
+-- 已有 MCP 客户端，需要把 ShardingSphere 元数据和治理工具暴露给模型。
+-- 需要长期复用同一个 MCP Server 配置，而不是每次手写 curl 请求。
+-- 需要客户端保存 HTTP 会话头，或通过 STDIO 管理本地 MCP Server 子进程。
+-- 需要按任务发现工具、资源、提示和补全目标，避免在客户端硬编码完整能力清单。
++- 在支持 MCP 的模型客户端、IDE 插件或 Agent 平台中接入 ShardingSphere。
++- 让模型基于 ShardingSphere 元数据完成查询辅助、结构理解、问题诊断或治理规划。
++- 为团队提供受控数据库访问通路，而不是把数据库连接信息直接交给模型。
++- 为自研 Agent 平台集成 ShardingSphere 元数据、安全 SQL 和治理插件能力。
  
-@@ -51,7 +66,7 @@ STDIO 模式下：
+-如果只是验证 MCP Server 是否可用，使用快速开始中的 curl 示例即可。
++完整的资源、工具、提示和补全说明见[能力清单](../capabilities/)。
  
- ## 能力发现
+ ## 选择传输方式
  
--MCP 官方列表方法用于发现协议层能力；`shardingsphere://capabilities` 用于理解 ShardingSphere 领域能力。
-+MCP 列表方法用于发现协议层能力；`shardingsphere://capabilities` 用于理解 ShardingSphere 领域能力。
- 客户端不需要固定调用顺序，可以按任务需要选择。
+@@ -73,15 +73,11 @@ STDIO 模式下：
+ - 诊断日志写到 stderr 或 `logs/mcp.log`。
+ - 客户端配置中的 `command` 和 `args` 应指向发行包内的启动脚本和 STDIO 配置文件。
  
- | 能力 | 作用 |
-@@ -80,11 +95,35 @@ MCP 官方列表方法用于发现协议层能力；`shardingsphere://capabiliti
- 搜索元数据：
+-## 能力清单
++## 协议调用示例
  
- ```json
--{"jsonrpc":"2.0","id":"search-1","method":"tools/call","params":{"name":"database_gateway_search_metadata","arguments":{"database":"<logic-database>","query":"<metadata-keyword>","object_types":["table"]}}}
-+{
-+  "jsonrpc": "2.0",
-+  "id": "search-1",
-+  "method": "tools/call",
-+  "params": {
-+    "name": "database_gateway_search_metadata",
-+    "arguments": {
-+      "database": "<logic-database>",
-+      "query": "<metadata-keyword>",
-+      "object_types": ["table"]
-+    }
-+  }
-+}
- ```
+-能力清单和方法语义见[能力清单](../capabilities/)。
+-客户端集成页只说明客户端侧如何配置 MCP Server，以及调用示例应放在哪里使用。
+-
+-## JSON-RPC 调用示例
+-
+-下面的 JSON 是 MCP 客户端或自研 LLM 应用在会话初始化后发送的请求示例。
+-普通用户通常不需要直接发送这些请求；它们主要用于自研客户端、调试或排查客户端集成问题。
++使用现成 MCP 客户端或 Agent 平台时，用户通常通过自然语言提出任务，例如“查看逻辑库有哪些表”或“查询订单表的字段”。
++客户端会根据模型选择自动发送 MCP 协议请求，用户不需要把下面的 JSON 粘贴到模型对话框。
++下面的示例用于说明客户端背后发送的协议消息，适合客户端开发、集成调试或排查问题。
  
- 执行只读 SQL：
+ 读取服务状态：
  
- ```json
--{"jsonrpc":"2.0","id":"query-1","method":"tools/call","params":{"name":"database_gateway_execute_query","arguments":{"database":"<logic-database>","sql":"SELECT * FROM <table-name> LIMIT 100","max_rows":100}}}
-+{
-+  "jsonrpc": "2.0",
-+  "id": "query-1",
-+  "method": "tools/call",
-+  "params": {
-+    "name": "database_gateway_execute_query",
-+    "arguments": {
-+      "database": "<logic-database>",
-+      "sql": "SELECT * FROM <table-name> LIMIT 100",
-+      "max_rows": 100
-+    }
-+  }
-+}
- ```
 diff --git a/docs/document/content/user-manual/shardingsphere-mcp/client-integration.en.md b/docs/document/content/user-manual/shardingsphere-mcp/client-integration.en.md
-index b9610365813..755244bba47 100644
+index ba03c888897..e35c74092a8 100644
 --- a/docs/document/content/user-manual/shardingsphere-mcp/client-integration.en.md
 +++ b/docs/document/content/user-manual/shardingsphere-mcp/client-integration.en.md
-@@ -3,8 +3,23 @@ title = "Client Integration"
- weight = 4
+@@ -11,12 +11,12 @@ Users only need to describe the metadata lookup, read-only SQL query, or databas
+ 
+ Use client integration when:
+ 
+-- An MCP client needs to expose ShardingSphere metadata and governance tools to a model.
+-- The same MCP Server configuration should be reused instead of hand-writing curl requests.
+-- The client needs to keep HTTP session headers or manage a local ShardingSphere-MCP child process through STDIO.
+-- The client needs to discover tools, resources, prompts, and completion targets per task instead of hardcoding the full capability catalog.
++- A model client, IDE extension, or agent platform that supports MCP needs to connect to ShardingSphere.
++- A model should use ShardingSphere metadata for query assistance, structure understanding, diagnostics, or governance planning.
++- A team needs a controlled database access path instead of handing database connection information directly to a model.
++- A custom agent platform needs ShardingSphere metadata, safe SQL, and governance plugin capabilities.
+ 
+-If you only need to verify that the MCP Server is available, use the curl examples in Quick Start.
++See [Capability Catalog](../capabilities/) for the full list of resources, tools, prompts, and completion targets.
+ 
+ ## Choose a transport
+ 
+@@ -73,15 +73,11 @@ In STDIO mode:
+ - Diagnostics are written to stderr or `logs/mcp.log`.
+ - `command` and `args` in the client configuration should point to the packaged startup script and STDIO config file.
+ 
+-## Capability catalog
++## Protocol call examples
+ 
+-See [Capability Catalog](../capabilities/) for the capability catalog and method semantics.
+-This page only explains how to configure the MCP Server on the client side and where the call examples are used.
+-
+-## JSON-RPC call examples
+-
+-The following JSON snippets are request examples sent by an MCP client or custom LLM application after session initialization.
+-Regular users usually do not send them directly. They are mainly useful for custom clients, debugging, or troubleshooting client integration.
++When using an existing MCP client or agent platform, users usually describe tasks in natural language, such as "show tables in the logical database" or "inspect columns in the orders table".
++The client sends MCP protocol requests automatically based on the model's choices. Users do not paste the following JSON into a model chat.
++The examples below show protocol messages sent behind the scenes, and are useful for client development, integration debugging, or troubleshooting.
+ 
+ Read runtime status:
+ 
+diff --git a/docs/document/content/user-manual/shardingsphere-mcp/features/_index.cn.md b/docs/document/content/user-manual/shardingsphere-mcp/features/_index.cn.md
+index e1ce6f082db..3921194edbe 100644
+--- a/docs/document/content/user-manual/shardingsphere-mcp/features/_index.cn.md
++++ b/docs/document/content/user-manual/shardingsphere-mcp/features/_index.cn.md
+@@ -5,6 +5,7 @@ chapter = true
  +++
  
--MCP clients can connect to ShardingSphere-MCP through Streamable HTTP or STDIO.
--Clients should use official MCP capability discovery methods first, then call tools, resources, prompts, or completions for the target task.
-+Client integration is for desktop clients, IDE extensions, agent platforms, or custom LLM applications that connect to ShardingSphere-MCP.
-+It is not a replacement for the curl-based smoke test in Quick Start.
-+Its value is letting the client manage connection configuration, session headers, capability discovery, completion, and call orchestration while users focus on metadata or database governance tasks.
-+
-+Use client integration when:
-+
-+- An MCP client needs to expose ShardingSphere metadata and governance tools to a model.
-+- The same MCP Server configuration should be reused instead of hand-writing curl requests.
-+- The client needs to keep HTTP session headers or manage a local ShardingSphere-MCP child process through STDIO.
-+- The client needs to discover tools, resources, prompts, and completion targets per task instead of hardcoding the full capability catalog.
-+
-+If you only need to verify that the MCP Server is available, use the curl examples in Quick Start.
-+
-+## Choose a transport
-+
-+- HTTP is suitable when the MCP Server is started independently and clients use a fixed endpoint. The client must initialize the session and keep session response headers.
-+- STDIO is suitable when a local MCP client starts ShardingSphere-MCP as a child process. The client owns the process lifecycle, and stdout carries only MCP protocol frames.
+ ShardingSphere-MCP 通过功能插件扩展领域能力。
++功能插件如果需要多步骤治理变更，会使用[插件工作流](../workflow/)完成规划、预览、执行和校验阶段。
  
- ## HTTP configuration
+ 发行包默认包含以下官方 MCP 功能插件：
  
-@@ -51,7 +66,7 @@ In STDIO mode:
+diff --git a/docs/document/content/user-manual/shardingsphere-mcp/features/_index.en.md b/docs/document/content/user-manual/shardingsphere-mcp/features/_index.en.md
+index adefd72604c..c61f6b549d2 100644
+--- a/docs/document/content/user-manual/shardingsphere-mcp/features/_index.en.md
++++ b/docs/document/content/user-manual/shardingsphere-mcp/features/_index.en.md
+@@ -5,6 +5,7 @@ chapter = true
+ +++
  
- ## Capability discovery
+ ShardingSphere-MCP extends domain capabilities through feature plugins.
++When a feature plugin needs a multi-step governance change, it uses [Plugin Workflows](../workflow/) for planning, preview, apply, and validation phases.
  
--Official MCP list methods discover protocol-level capabilities. `shardingsphere://capabilities` explains ShardingSphere domain capabilities.
-+MCP list methods discover protocol-level capabilities. `shardingsphere://capabilities` explains ShardingSphere domain capabilities.
- Clients do not need a fixed discovery order; call the method or resource that matches the task.
+ The packaged distribution includes these official MCP feature plugins:
  
- | Capability | Purpose |
-@@ -80,11 +95,35 @@ Read the capability catalog:
- Search metadata:
+diff --git a/docs/document/content/user-manual/shardingsphere-mcp/features/encrypt.cn.md b/docs/document/content/user-manual/shardingsphere-mcp/features/encrypt.cn.md
+index 83fee60f364..9c89a2947b5 100644
+--- a/docs/document/content/user-manual/shardingsphere-mcp/features/encrypt.cn.md
++++ b/docs/document/content/user-manual/shardingsphere-mcp/features/encrypt.cn.md
+@@ -15,20 +15,26 @@ weight = 1
+ 
+ ## 可调用能力
+ 
+-| 能力 | 怎么调用 | 什么时候用 |
+-| --- | --- | --- |
+-| `database_gateway_plan_encrypt_rule` | 通过 `tools/call` 调用。 | 用户提出创建、调整或删除加密规则需求时，用它生成 `plan_id`、DistSQL、校验步骤，以及适用场景下的 DDL 或索引建议。 |
+-| `database_gateway_apply_workflow` | 通过 `tools/call` 调用，并传入规划阶段返回的 `plan_id`。 | 先预览计划，再在审查后执行，或导出人工执行包。 |
+-| `database_gateway_validate_workflow` | 通过 `tools/call` 调用，并传入同一个 `plan_id`。 | 自动执行或人工执行完成后，校验规则状态、逻辑元数据和 SQL 可执行性。 |
+-| `shardingsphere://features/encrypt/algorithms` | 通过 `resources/read` 读取。 | 规划前查看 Proxy 当前可见的加密算法类型和参数要求。 |
+-| `shardingsphere://features/encrypt/databases/{database}/rules` | 填充 `{database}` 后通过 `resources/read` 读取。 | 规划修改前查看逻辑库已有加密规则。 |
+-| `shardingsphere://features/encrypt/databases/{database}/tables/{table}/rules` | 填充 `{database}` 和 `{table}` 后通过 `resources/read` 读取。 | 只关心单表加密规则，或需要保留同表其他列规则时读取。 |
+-| `plan_encrypt_rule` | 通过 `prompts/get` 获取提示。 | 客户端希望先引导模型读取表结构、算法和已有规则，再调用规划工具时使用。 |
+-| `plan_encrypt_rule` 补全 | 通过 `completion/complete` 获取候选值。 | 为 `database`、`schema`、`table`、`column`、`algorithm_type`、`assisted_query_algorithm_type`、`like_query_algorithm_type` 或 `plan_id` 补全。 |
++| MCP 能力 | 类型 | 调用入口 | 适用阶段 | 结果 |
++| --- | --- | --- | --- | --- |
++| `database_gateway_plan_encrypt_rule` | 工具 | `tools/call` | 规划创建、修改或删除加密规则。 | 返回 `plan_id`、规划状态、DistSQL、校验步骤，以及适用场景下的 DDL、派生列和索引建议。 |
++| `database_gateway_apply_workflow` | 阶段工具 | `tools/call`，传入 `plan_id`。 | 规划完成后预览、执行或导出人工执行包。 | 返回预览产物、执行结果或人工执行包。 |
++| `database_gateway_validate_workflow` | 阶段工具 | `tools/call`，传入同一个 `plan_id`。 | 自动执行或人工执行完成后校验结果。 | 返回规则状态、逻辑元数据和 SQL 可执行性校验结果。 |
++| `shardingsphere://features/encrypt/algorithms` | 资源 | `resources/read` | 规划前查看 Proxy 当前可见的加密算法。 | 返回算法类型和参数要求。 |
++| `shardingsphere://features/encrypt/databases/{database}/rules` | 资源模板 | 填充 `{database}` 后通过 `resources/read` 读取。 | 规划修改前查看逻辑库已有加密规则。 | 返回逻辑库级加密规则。 |
++| `shardingsphere://features/encrypt/databases/{database}/tables/{table}/rules` | 资源模板 | 填充 `{database}` 和 `{table}` 后通过 `resources/read` 读取。 | 只关心单表规则，或需要保留同表其他列规则时读取。 | 返回表级加密规则。 |
++| `plan_encrypt_rule` | 提示 | `prompts/get` | 客户端希望引导模型先读取表结构、算法和已有规则时使用。 | 返回规划加密规则的模型提示。 |
++| `plan_encrypt_rule` 补全 | 补全目标 | `completion/complete` | 客户端填写规划参数时使用。 | 返回 `database`、`schema`、`table`、`column`、算法类型或 `plan_id` 候选值。 |
++
++## 规则规划
+ 
+-## 最小输入
++规则规划是加密插件的第一阶段。
++模型通常先读取算法和已有规则资源，再调用 `database_gateway_plan_encrypt_rule` 生成可审查计划。
++规划工具不会直接修改数据库；后续预览、执行和校验由插件工作流阶段工具完成。
+ 
+-创建或修改加密规则时，规划工具主要使用以下输入：
++### 规划输入
++
++规划工具的公共输入如下：
+ 
+ | 参数 | 是否必填 | 作用 |
+ | --- | --- | --- |
+@@ -37,22 +43,20 @@ weight = 1
+ | `column` | 必填 | 要配置加密规则的逻辑列。 |
+ | `schema` | 可选 | schema 或 namespace；多 schema 逻辑库建议填写。 |
+ | `natural_language_intent` | 推荐 | 描述是否需要可逆加密、等值查询或模糊查询；当未显式填写规则细节时，MCP 会用它推断规划意图。 |
+-| `operation_type` | 可选 | 规则操作类型；支持 `create`、`alter` 和 `drop`。不填写时由 MCP 根据自然语言和现有规则推断。 |
++| `operation_type` | 可选 | 规则操作类型；支持 `create`、`alter` 和 `drop`。不填写时由 MCP 根据自然语言和已有规则推断。 |
+ | `algorithm_type` | 可选 | 主加密算法类型；如果希望 MCP 基于可用算法给出建议，可以先不填。 |
+ | `primary_algorithm_properties` | 按算法必填 | 主加密算法参数，例如 AES 密钥。具体参数以算法资源返回值为准。 |
+ | `allow_index_ddl` | 可选 | 是否允许为辅助查询列生成物理索引计划。 |
+ 
+-删除加密规则时，至少提供：
+-
+-- `database`
+-- `table`
+-- `column`
+-- `operation_type=drop`
++不同操作的输入重点如下：
+ 
+-## 规划加密规则
++| 操作 | 输入重点 | 规划结果 |
++| --- | --- | --- |
++| `create` | 提供目标列、加密意图、算法类型和算法参数；如果希望 MCP 推荐算法，可以先只提供自然语言意图。 | 生成新增规则 DistSQL，并在需要时生成物理派生列 DDL 和索引建议。 |
++| `alter` | 提供目标列和要调整的算法、查询能力或算法参数。 | 生成保留同表其他列规则的修改规则 DistSQL，并按需更新 DDL 或索引建议。 |
++| `drop` | 至少提供 `database`、`table`、`column` 和 `operation_type=drop`。 | 如果同表还有其他加密列，生成保留其他列的 `ALTER ENCRYPT RULE`；如果目标表不再保留任何加密列，生成 `DROP ENCRYPT RULE`。 |
+ 
+-规划加密规则就是调用 `database_gateway_plan_encrypt_rule`。
+-它只生成可审查的计划，不直接修改数据库。
++### 调用示例
  
  ```json
--{"jsonrpc":"2.0","id":"search-1","method":"tools/call","params":{"name":"database_gateway_search_metadata","arguments":{"database":"<logic-database>","query":"<metadata-keyword>","object_types":["table"]}}}
-+{
-+  "jsonrpc": "2.0",
-+  "id": "search-1",
-+  "method": "tools/call",
-+  "params": {
-+    "name": "database_gateway_search_metadata",
-+    "arguments": {
-+      "database": "<logic-database>",
-+      "query": "<metadata-keyword>",
-+      "object_types": ["table"]
-+    }
-+  }
-+}
- ```
+ {
+@@ -87,17 +91,20 @@ weight = 1
+ 如果返回 `clarifying`，继续使用同一个 `plan_id` 补齐缺失字段。
+ 敏感字段不会明文回显，应通过密钥管理系统、受保护环境变量或运维控制通道取得后再继续。
  
- Execute read-only SQL:
+-## 派生列规则
++## 派生列与索引计划
++
++加密规则可能需要物理派生列来保存密文或支持查询。
++MCP 会根据逻辑列、用户意图和已有规则生成派生列建议，并把最终命名写入 `derived_column_plan`。
+ 
+ - `*_cipher` 用于保存密文，是加密规则的默认派生列。
+ - 如果需要等值查询，会生成 `*_assisted_query`，并在允许索引 DDL 时生成相应索引计划。
+ - 如果需要模糊查询，会生成 `*_like_query`，用于支持 LIKE 查询场景。
+ - 如果默认列名冲突，系统会追加数字后缀，并把最终命名写回 `derived_column_plan`。
+-- 校验阶段只检查规则、逻辑元数据和生成产物，不替代人工审查真实物理表结构。
+ 
+ ## 执行与校验
+ 
+-规划工具返回 `plan_id` 后，再使用通用工作流工具处理执行和校验。
++规划工具返回 `plan_id` 后，再使用插件工作流阶段工具处理执行和校验。
++建议先预览，确认 DistSQL、DDL、索引计划和副作用范围后再执行。
+ 
+ 执行前先预览：
+ 
+@@ -141,33 +148,21 @@ weight = 1
+ - `logical_metadata_validation`
+ - `sql_executability_validation`
+ 
+-## 删除加密规则
++## 限制
+ 
+-```json
+-{
+-  "jsonrpc": "2.0",
+-  "id": "encrypt-drop-1",
+-  "method": "tools/call",
+-  "params": {
+-    "name": "database_gateway_plan_encrypt_rule",
+-    "arguments": {
+-      "database": "<logic-database>",
+-      "table": "orders",
+-      "column": "status",
+-      "operation_type": "drop"
+-    }
+-  }
+-}
+-```
++### 支持范围
+ 
+-如果同一个表上还有其他加密列，MCP 会生成 `ALTER ENCRYPT RULE` 并保留这些同表规则。
+-只有目标表不再保留任何加密列时，MCP 才会生成 `DROP ENCRYPT RULE`。
+-删除加密规则只移除规则本身，不会恢复历史明文数据；不再需要的物理派生列或索引仍需人工清理。
++- 仅支持 ShardingSphere-Proxy 逻辑库。
++- 直连真实数据库时，本功能不适用。
+ 
+-## 限制
++### 规则变更边界
+ 
+-- 仅支持 ShardingSphere-Proxy 逻辑库。
+-- MCP 根据 Proxy 暴露的逻辑元数据生成派生列、索引和列类型建议；它不会直接检查每个物理库。执行前应结合真实物理库表结构审查生成的 DDL。
++- MCP 根据 Proxy 暴露的逻辑元数据生成派生列、索引和列类型建议；它不会直接检查每个物理库。
++- 执行前应结合真实物理库表结构审查生成的 DDL。
+ - 不处理已有数据迁移或回填。
+ - 不提供自动回滚。
++- 删除加密规则只移除规则本身，不会恢复历史明文数据；不再需要的物理派生列或索引仍需人工清理。
++
++### 规划器输入限制
++
+ - 规划器只接受普通未加引号的逻辑库、schema、表和列名，用于降低自动生成 SQL 的歧义；这不是 ShardingSphere SQL 能力限制。
+diff --git a/docs/document/content/user-manual/shardingsphere-mcp/features/encrypt.en.md b/docs/document/content/user-manual/shardingsphere-mcp/features/encrypt.en.md
+index 56a5929ccbc..804964cd32e 100644
+--- a/docs/document/content/user-manual/shardingsphere-mcp/features/encrypt.en.md
++++ b/docs/document/content/user-manual/shardingsphere-mcp/features/encrypt.en.md
+@@ -15,20 +15,26 @@ It does not implement encryption algorithms inside the MCP Server. It generates
+ 
+ ## Public Surface
+ 
+-| Capability | How to call | When to use |
+-| --- | --- | --- |
+-| `database_gateway_plan_encrypt_rule` | Call through `tools/call`. | When a user asks to create, adjust, or drop an encryption rule. It creates `plan_id`, DistSQL, validation steps, and DDL or index suggestions when applicable. |
+-| `database_gateway_apply_workflow` | Call through `tools/call` with the `plan_id` returned by planning. | Preview the plan, execute reviewed artifacts, or export a manual package. |
+-| `database_gateway_validate_workflow` | Call through `tools/call` with the same `plan_id`. | After automatic or manual execution, validate rule state, logical metadata, and SQL executability. |
+-| `shardingsphere://features/encrypt/algorithms` | Read through `resources/read`. | Before planning, inspect encryption algorithm types and required properties visible through Proxy. |
+-| `shardingsphere://features/encrypt/databases/{database}/rules` | Fill `{database}` and read through `resources/read`. | Before altering rules, inspect existing encryption rules in the logical database. |
+-| `shardingsphere://features/encrypt/databases/{database}/tables/{table}/rules` | Fill `{database}` and `{table}`, then read through `resources/read`. | Inspect one table's encryption rules or keep sibling column rules on the same table. |
+-| `plan_encrypt_rule` | Get through `prompts/get`. | When a client wants to guide the model to read table metadata, algorithms, and existing rules before calling the planning tool. |
+-| `plan_encrypt_rule` completion | Get candidates through `completion/complete`. | Completes `database`, `schema`, `table`, `column`, `algorithm_type`, `assisted_query_algorithm_type`, `like_query_algorithm_type`, or `plan_id`. |
++| MCP capability | Type | Call entry | Phase | Result |
++| --- | --- | --- | --- | --- |
++| `database_gateway_plan_encrypt_rule` | Tool | `tools/call` | Plan creation, alteration, or deletion of encryption rules. | Returns `plan_id`, planning status, DistSQL, validation steps, and DDL, derived column, or index suggestions when applicable. |
++| `database_gateway_apply_workflow` | Phase tool | `tools/call` with `plan_id`. | Preview, execute, or export a manual package after planning completes. | Returns preview artifacts, execution result, or manual execution package. |
++| `database_gateway_validate_workflow` | Phase tool | `tools/call` with the same `plan_id`. | Validate results after automatic or manual execution. | Returns rule state, logical metadata, and SQL executability validation results. |
++| `shardingsphere://features/encrypt/algorithms` | Resource | `resources/read` | Inspect encryption algorithms visible through Proxy before planning. | Returns algorithm types and required properties. |
++| `shardingsphere://features/encrypt/databases/{database}/rules` | Resource template | Fill `{database}` and read through `resources/read`. | Inspect existing encryption rules before altering a logical database. | Returns logical database-level encryption rules. |
++| `shardingsphere://features/encrypt/databases/{database}/tables/{table}/rules` | Resource template | Fill `{database}` and `{table}`, then read through `resources/read`. | Inspect one table's rules or keep sibling column rules on the same table. | Returns table-level encryption rules. |
++| `plan_encrypt_rule` | Prompt | `prompts/get` | Guide the model to read table metadata, algorithms, and existing rules before planning. | Returns the model prompt for encryption rule planning. |
++| `plan_encrypt_rule` completion | Completion target | `completion/complete` | Fill planning arguments in a client. | Returns candidates for `database`, `schema`, `table`, `column`, algorithm types, or `plan_id`. |
++
++## Rule planning
+ 
+-## Minimum input
++Rule planning is the first phase of the encryption plugin.
++The model usually reads algorithm and existing-rule resources first, then calls `database_gateway_plan_encrypt_rule` to create a reviewable plan.
++The planning tool does not modify the database directly. Preview, apply, and validation are handled by plugin workflow phase tools.
+ 
+-For creating or altering an encryption rule, the planning tool mainly uses these inputs:
++### Planning input
++
++The planning tool uses these common inputs:
+ 
+ | Argument | Required | Purpose |
+ | --- | --- | --- |
+@@ -42,17 +48,15 @@ For creating or altering an encryption rule, the planning tool mainly uses these
+ | `primary_algorithm_properties` | Required by algorithm | Primary encryption algorithm properties, such as an AES key. The required properties come from the algorithm resource. |
+ | `allow_index_ddl` | Optional | Whether physical index plans may be generated for assisted-query columns. |
+ 
+-For dropping an encryption rule, provide at least:
+-
+-- `database`
+-- `table`
+-- `column`
+-- `operation_type=drop`
++Different operations focus on different inputs:
+ 
+-## Plan an encryption rule
++| Operation | Input focus | Planning result |
++| --- | --- | --- |
++| `create` | Provide the target column, encryption intent, algorithm type, and algorithm properties. If you want MCP to recommend an algorithm, start with natural-language intent. | Generates DistSQL for adding the rule, and physical derived-column DDL or index suggestions when needed. |
++| `alter` | Provide the target column and the algorithm, query capability, or algorithm properties to change. | Generates DistSQL that preserves sibling column rules on the same table, and updates DDL or index suggestions when needed. |
++| `drop` | Provide at least `database`, `table`, `column`, and `operation_type=drop`. | Generates `ALTER ENCRYPT RULE` when sibling encryption columns remain on the same table, or `DROP ENCRYPT RULE` when no encryption column remains on the target table. |
+ 
+-Planning an encryption rule means calling `database_gateway_plan_encrypt_rule`.
+-It creates a reviewable plan only and does not modify the database directly.
++### Call example
  
  ```json
--{"jsonrpc":"2.0","id":"query-1","method":"tools/call","params":{"name":"database_gateway_execute_query","arguments":{"database":"<logic-database>","sql":"SELECT * FROM <table-name> LIMIT 100","max_rows":100}}}
-+{
-+  "jsonrpc": "2.0",
-+  "id": "query-1",
-+  "method": "tools/call",
-+  "params": {
-+    "name": "database_gateway_execute_query",
-+    "arguments": {
-+      "database": "<logic-database>",
-+      "sql": "SELECT * FROM <table-name> LIMIT 100",
-+      "max_rows": 100
-+    }
-+  }
-+}
- ```
-diff --git a/docs/document/content/user-manual/shardingsphere-mcp/configuration.cn.md b/docs/document/content/user-manual/shardingsphere-mcp/configuration.cn.md
-index 98ebd510e01..b678bf67d88 100644
---- a/docs/document/content/user-manual/shardingsphere-mcp/configuration.cn.md
-+++ b/docs/document/content/user-manual/shardingsphere-mcp/configuration.cn.md
-@@ -32,15 +32,10 @@ transport:
- | --- | --- |
- | `transport.type` | 传输方式，支持 `STREAMABLE_HTTP` 和 `STDIO`。 |
- | `transport.http` | HTTP 传输配置，只在 `transport.type` 为 `STREAMABLE_HTTP` 时生效。 |
--| `transport.http.bindHost` | HTTP 监听地址，默认值为 `127.0.0.1`。 |
-+| `transport.http.bindHost` | HTTP 监听地址，默认值为 `127.0.0.1`。`127.0.0.1`、`localhost`、`::1` 只允许本机访问；`0.0.0.0` 或指定内网 IP 允许对应网络接口访问。 |
- | `transport.http.port` | HTTP 监听端口，默认值为 `18088`。 |
- | `transport.http.endpointPath` | HTTP 端点路径，默认值为 `/mcp`。 |
+ {
+@@ -87,17 +91,20 @@ Typical result:
+ If the response returns `clarifying`, continue with the same `plan_id`.
+ Secret fields are not echoed in plain text. Obtain them through a secret manager, protected environment variable, or controlled operations channel before continuing.
  
--| 监听地址 | 说明 |
--| --- | --- |
--| `127.0.0.1`、`localhost`、`::1` | 只允许本机访问。 |
--| `0.0.0.0` 或指定内网 IP | 允许对应网络接口访问。 |
--
- ## 数据库配置
+-## Derived column rules
++## Derived columns and index plans
++
++Encryption rules may need physical derived columns to store ciphertext or support queries.
++MCP creates derived-column suggestions from the logical column, user intent, and existing rules, and writes the final names to `derived_column_plan`.
  
- `runtimeDatabases` 定义 MCP Server 可以连接并对外暴露的数据库。
-diff --git a/docs/document/content/user-manual/shardingsphere-mcp/configuration.en.md b/docs/document/content/user-manual/shardingsphere-mcp/configuration.en.md
-index ec765581a9d..a11854e2622 100644
---- a/docs/document/content/user-manual/shardingsphere-mcp/configuration.en.md
-+++ b/docs/document/content/user-manual/shardingsphere-mcp/configuration.en.md
-@@ -32,15 +32,10 @@ transport:
- | --- | --- |
- | `transport.type` | Transport type. Supported values are `STREAMABLE_HTTP` and `STDIO`. |
- | `transport.http` | HTTP transport configuration, used only when `transport.type` is `STREAMABLE_HTTP`. |
--| `transport.http.bindHost` | HTTP bind host. The default value is `127.0.0.1`. |
-+| `transport.http.bindHost` | HTTP bind host. Defaults to `127.0.0.1`. Loopback values allow local access only. `0.0.0.0` or an intranet IP allows access through that interface. |
- | `transport.http.port` | HTTP bind port. The default value is `18088`. |
- | `transport.http.endpointPath` | HTTP endpoint path. The default value is `/mcp`. |
+ - `*_cipher` stores ciphertext and is the default derived column for encryption rules.
+ - If equality query is required, `*_assisted_query` is generated. Its index plan is generated when index DDL is allowed.
+ - If LIKE query is required, `*_like_query` is generated for LIKE query scenarios.
+ - If a default column name conflicts, the system appends a numeric suffix and returns the final name in `derived_column_plan`.
+-- Validation checks rules, logical metadata, and generated artifacts. It does not replace human review of the real physical table structure.
  
--| Bind address | Description |
--| --- | --- |
--| `127.0.0.1`, `localhost`, `::1` | Allows local access only. |
--| `0.0.0.0` or a specific intranet IP | Allows access through the matching network interface. |
--
- ## Database configuration
+ ## Apply and validate
  
- `runtimeDatabases` defines the databases that the MCP Server can connect to and expose through MCP.
-diff --git a/docs/document/content/user-manual/shardingsphere-mcp/quick-start.cn.md b/docs/document/content/user-manual/shardingsphere-mcp/quick-start.cn.md
-index cfc68dd0046..6f2aa62e31e 100644
---- a/docs/document/content/user-manual/shardingsphere-mcp/quick-start.cn.md
-+++ b/docs/document/content/user-manual/shardingsphere-mcp/quick-start.cn.md
-@@ -52,8 +52,7 @@ runtimeDatabases:
- Unix-like 系统：
+-After the planning tool returns `plan_id`, use the common workflow tools for apply and validation.
++After the planning tool returns `plan_id`, use plugin workflow phase tools for apply and validation.
++Preview first, then review DistSQL, DDL, index plans, and side-effect scope before execution.
  
- ```bash
--bin/start.sh > logs/mcp-http.log 2>&1 &
--MCP_PID=$!
-+bin/start.sh > logs/mcp-http.log 2>&1 & MCP_PID=$!
- ```
+ Preview first:
  
- Windows：
-diff --git a/docs/document/content/user-manual/shardingsphere-mcp/quick-start.en.md b/docs/document/content/user-manual/shardingsphere-mcp/quick-start.en.md
-index e162f6d7c28..7d592dfc267 100644
---- a/docs/document/content/user-manual/shardingsphere-mcp/quick-start.en.md
-+++ b/docs/document/content/user-manual/shardingsphere-mcp/quick-start.en.md
-@@ -52,8 +52,7 @@ If the target database driver is not packaged, copy the corresponding JDBC drive
- Unix-like systems:
+@@ -141,33 +148,21 @@ Validation focuses on:
+ - `logical_metadata_validation`
+ - `sql_executability_validation`
  
- ```bash
--bin/start.sh > logs/mcp-http.log 2>&1 &
--MCP_PID=$!
-+bin/start.sh > logs/mcp-http.log 2>&1 & MCP_PID=$!
- ```
+-## Drop an encryption rule
++## Limitations
  
- Windows:
+-```json
+-{
+-  "jsonrpc": "2.0",
+-  "id": "encrypt-drop-1",
+-  "method": "tools/call",
+-  "params": {
+-    "name": "database_gateway_plan_encrypt_rule",
+-    "arguments": {
+-      "database": "<logic-database>",
+-      "table": "orders",
+-      "column": "status",
+-      "operation_type": "drop"
+-    }
+-  }
+-}
+-```
++### Supported scope
+ 
+-If sibling encryption columns still exist on the same table, MCP generates `ALTER ENCRYPT RULE` and keeps the sibling rules.
+-It generates `DROP ENCRYPT RULE` only when no encryption column remains on the target table.
+-Dropping an encryption rule removes the rule only. It does not restore historical plaintext data, and physical derived columns or indexes still require manual cleanup when they are no longer needed.
++- Supports ShardingSphere-Proxy logical databases only.
++- This feature does not apply to direct physical database connections.
+ 
+-## Limitations
++### Rule change boundaries
++
++- MCP generates derived-column, index, and column-type suggestions from logical metadata exposed by Proxy. It does not inspect every physical database directly.
++- Review generated DDL against the real physical table structure before applying it.
++- Existing data migration or backfill is not handled.
++- Automatic rollback is not provided.
++- Dropping an encryption rule removes the rule only. It does not restore historical plaintext data, and physical derived columns or indexes still require manual cleanup when they are no longer needed.
++
++### Planner input limits
+ 
+-- Supports ShardingSphere-Proxy logical databases only.
+-- MCP generates derived column, index, and column type suggestions from logical metadata exposed by Proxy. It does not inspect every physical database directly. Review generated DDL against the real physical table structure before applying it.
+-- Does not handle existing data migration or backfill.
+-- Does not provide automatic rollback.
+ - The planner accepts ordinary unquoted logical database, schema, table, and column names to reduce ambiguity in generated SQL. This is not a ShardingSphere SQL capability limit.
 diff --git a/docs/document/content/user-manual/shardingsphere-mcp/workflow.cn.md b/docs/document/content/user-manual/shardingsphere-mcp/workflow.cn.md
-index 8c7b67f120a..d918639551d 100644
+index 72bfaa92966..080ef3b4dcd 100644
 --- a/docs/document/content/user-manual/shardingsphere-mcp/workflow.cn.md
 +++ b/docs/document/content/user-manual/shardingsphere-mcp/workflow.cn.md
-@@ -3,11 +3,13 @@ title = "工作流"
+@@ -1,26 +1,26 @@
+ +++
+-title = "工作流"
++title = "插件工作流"
  weight = 5
  +++
  
--ShardingSphere-MCP 的功能插件可以通过共享工作流机制实现复杂治理任务。
--MCP Server 提供通用工作流机制，插件提供具体业务语义。
-+工作流是 ShardingSphere-MCP 处理多步骤治理变更的共享机制。
-+当前它主要由功能插件使用：插件负责理解具体业务、生成 `plan_id` 和变更产物。
-+MCP Server 负责保存当前会话中的计划，并提供通用的预览、执行、导出和校验工具。
+-工作流是 ShardingSphere-MCP 处理多步骤治理变更的共享机制，不是一个独立的业务功能。
+-当前它主要由功能插件使用：插件负责理解具体业务、生成 `plan_id` 和变更产物。
+-MCP Server 负责保存当前会话中的计划，并提供通用的预览、执行、导出和校验工具。
++插件工作流是 ShardingSphere-MCP 处理多步骤治理变更的共享机制，不是一个独立的业务功能。
++功能插件负责理解具体业务、生成 `plan_id` 和变更产物；MCP Server 负责保存当前会话中的计划，并提供统一的预览、执行、导出和校验阶段接口。
  
--工作流适合需要规划、审查、执行和校验的多步骤治理变更，例如规划数据加密规则或数据脱敏规则。
--如果只是读取元数据或执行只读 SQL，通常不需要使用工作流。
-+用户通常不会为了读取元数据、搜索对象或执行只读 SQL 单独使用工作流。
-+只有当插件规划工具返回 `plan_id` 时，才需要继续按照本页完成审查、应用和校验。
-+本页独立说明工作流，是因为不同插件共享同一套状态、执行模式和敏感输入处理方式；具体可规划的业务能力仍以各功能插件页面为准。
+-用户通常不会为了读取元数据、搜索对象或执行只读 SQL 单独使用工作流。
+-只有当插件规划工具返回 `plan_id` 时，才需要继续按照本页完成审查、应用和校验。
+-本页独立说明工作流，是因为不同插件共享同一套状态、执行模式和敏感输入处理方式；具体可规划的业务能力仍以各功能插件页面为准。
++用户不会为了读取元数据、搜索对象或执行只读 SQL 单独使用插件工作流。
++只有当插件规划工具返回 `plan_id` 时，模型或客户端才需要继续按照本页完成审查、应用和校验。
++本页说明插件工作流，是因为这些阶段工具会出现在 MCP 工具列表中，并且不同插件共享同一套状态、执行模式和敏感输入处理方式。
++具体可规划的业务能力仍以各功能插件页面为准。
  
  ## 基本阶段
  
+ 一个典型工作流包含：
+ 
+-1. 调用插件自己的规划工具，生成计划并返回 `plan_id`。
++1. 调用功能插件规划工具，生成计划并返回 `plan_id`。
+ 2. 如果返回 `status = clarifying`，按 `clarification_questions` 补齐缺失输入。
+ 3. 如果返回 `status = planned`，审查生成的变更产物。
+-4. 调用 `database_gateway_apply_workflow` 并先使用 `execution_mode=preview`。
+-5. 审查预览结果后，使用 `execution_mode=review-then-execute` 执行，或使用 `manual-only` 导出人工执行包。
+-6. 调用 `database_gateway_validate_workflow` 校验最终状态。
++4. 模型或客户端调用 `database_gateway_apply_workflow`，并先使用 `execution_mode=preview`。
++5. 用户审查预览结果后，模型或客户端使用 `execution_mode=review-then-execute` 执行，或使用 `manual-only` 导出人工执行包。
++6. 模型或客户端调用 `database_gateway_validate_workflow` 校验最终状态。
+ 
+ ## 会话与 plan_id
+ 
+@@ -82,10 +82,11 @@ ShardingSphere-MCP 不直接读取密钥管理系统。
+ }
+ ```
+ 
+-## 执行与校验工具
++## 阶段工具
+ 
+-`database_gateway_apply_workflow` 和 `database_gateway_validate_workflow` 是通用工作流工具。
+-用户通常不会直接选择它们；模型或客户端在功能插件返回 `plan_id` 后再调用。
++`database_gateway_apply_workflow` 和 `database_gateway_validate_workflow` 会出现在 MCP 工具列表中，因此需要在文档中说明。
++它们不是独立业务功能，而是插件规划返回 `plan_id` 后使用的阶段接口。
++用户通常不需要直接选择它们；模型或客户端会在审查、执行和校验阶段调用。
+ 
+ | 工具 | 实际作用 | 使用时机 |
+ | --- | --- | --- |
 diff --git a/docs/document/content/user-manual/shardingsphere-mcp/workflow.en.md b/docs/document/content/user-manual/shardingsphere-mcp/workflow.en.md
-index eeabe449e10..d7f0ac4f91b 100644
+index fa396949eaa..5ce37b4d418 100644
 --- a/docs/document/content/user-manual/shardingsphere-mcp/workflow.en.md
 +++ b/docs/document/content/user-manual/shardingsphere-mcp/workflow.en.md
-@@ -3,11 +3,15 @@ title = "Workflows"
+@@ -1,28 +1,26 @@
+ +++
+-title = "Workflows"
++title = "Plugin Workflows"
  weight = 5
  +++
  
--ShardingSphere-MCP feature plugins can use the shared workflow mechanism to implement complex governance tasks.
--The MCP Server provides the common workflow mechanism, while each plugin provides its own business semantics.
--
--Workflows are useful for multi-step governance changes that need planning, review, execution, and validation, such as planning data encryption or data masking rules.
--For metadata reads or read-only SQL, workflows are usually unnecessary.
-+Workflows are the shared mechanism that ShardingSphere-MCP uses for multi-step governance changes.
-+They are mainly used by feature plugins today.
-+A plugin understands the concrete business semantics and creates `plan_id` plus change artifacts.
-+The MCP Server stores the current-session plan and provides common preview, apply, export, and validation tools.
-+
-+Users usually do not use workflows just to read metadata, search objects, or run read-only SQL.
-+Follow this page only after a plugin planning tool returns `plan_id`, then review, apply, and validate that plan.
-+This page is separate because multiple plugins share the same state model, execution modes, and sensitive-input handling.
-+The concrete planning capabilities are still documented on the corresponding feature plugin pages.
+-Workflows are the shared mechanism that ShardingSphere-MCP uses for multi-step governance changes. They are not standalone business features.
+-They are mainly used by feature plugins today.
+-A plugin understands the concrete business semantics and creates `plan_id` plus change artifacts.
+-The MCP Server stores the current-session plan and provides common preview, apply, export, and validation tools.
++Plugin workflows are the shared mechanism that ShardingSphere-MCP uses for multi-step governance changes. They are not standalone business features.
++Feature plugins understand concrete business semantics and create `plan_id` plus change artifacts. The MCP Server stores the current-session plan and provides shared phase interfaces for preview, apply, export, and validation.
+ 
+-Users usually do not use workflows just to read metadata, search objects, or run read-only SQL.
+-Follow this page only after a plugin planning tool returns `plan_id`, then review, apply, and validate that plan.
+-This page is separate because multiple plugins share the same state model, execution modes, and sensitive-input handling.
++Users do not use plugin workflows just to read metadata, search objects, or run read-only SQL.
++Follow this page only after a plugin planning tool returns `plan_id`; then the model or client can review, apply, and validate that plan.
++This page explains plugin workflows because these phase tools appear in the MCP tool list, and multiple plugins share the same state model, execution modes, and sensitive-input handling.
+ The concrete planning capabilities are still documented on the corresponding feature plugin pages.
  
  ## Basic phases
  
+ A typical workflow contains:
+ 
+-1. Call the plugin planning tool to create a plan and return `plan_id`.
++1. Call the feature plugin planning tool to create a plan and return `plan_id`.
+ 2. If the response returns `status = clarifying`, provide the missing inputs from `clarification_questions`.
+ 3. If the response returns `status = planned`, review the generated change artifacts.
+-4. Call `database_gateway_apply_workflow` with `execution_mode=preview` first.
+-5. After reviewing the preview, call with `execution_mode=review-then-execute`, or use `manual-only` to export a manual execution package.
+-6. Call `database_gateway_validate_workflow` to validate the final state.
++4. The model or client calls `database_gateway_apply_workflow` with `execution_mode=preview` first.
++5. After the user reviews the preview, the model or client calls with `execution_mode=review-then-execute`, or uses `manual-only` to export a manual execution package.
++6. The model or client calls `database_gateway_validate_workflow` to validate the final state.
+ 
+ ## Session and plan_id
+ 
+@@ -84,10 +82,11 @@ Example:
+ }
+ ```
+ 
+-## Apply and validation tools
++## Phase tools
+ 
+-`database_gateway_apply_workflow` and `database_gateway_validate_workflow` are common workflow tools.
+-Users usually do not choose them directly. A model or client calls them after a feature plugin returns `plan_id`.
++`database_gateway_apply_workflow` and `database_gateway_validate_workflow` appear in the MCP tool list, so they need to be documented.
++They are not standalone business features. They are phase interfaces used after plugin planning returns `plan_id`.
++Users usually do not choose them directly. A model or client calls them during review, apply, and validation phases.
+ 
+ | Tool | Actual role | When to use |
+ | --- | --- | --- |
