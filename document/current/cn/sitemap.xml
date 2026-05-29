@@ -101,20 +101,6 @@
   </url>
   
   <url>
-    <loc>https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/features/encrypt/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-mcp/features/encrypt/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/features/encrypt/"
-                />
-  </url>
-  
-  <url>
     <loc>https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-proxy/distsql/syntax/rdl/rule-definition/single-table/load-single-table/</loc>
     <xhtml:link
                 rel="alternate"
@@ -731,6 +717,20 @@
   </url>
   
   <url>
+    <loc>https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/features/encrypt/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-mcp/features/encrypt/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/features/encrypt/"
+                />
+  </url>
+  
+  <url>
     <loc>https://shardingsphere.apache.org/document/current/cn/features/db-gateway/concept/</loc>
     <xhtml:link
                 rel="alternate"
@@ -1235,20 +1235,6 @@
   </url>
   
   <url>
-    <loc>https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/features/mask/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-mcp/features/mask/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/features/mask/"
-                />
-  </url>
-  
-  <url>
     <loc>https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-proxy/distsql/syntax/rql/</loc>
     <xhtml:link
                 rel="alternate"
@@ -1655,6 +1641,20 @@
   </url>
   
   <url>
+    <loc>https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/capabilities/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-mcp/capabilities/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/capabilities/"
+                />
+  </url>
+  
+  <url>
     <loc>https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-proxy/yaml-config/props/</loc>
     <xhtml:link
                 rel="alternate"
@@ -1795,6 +1795,20 @@
   </url>
   
   <url>
+    <loc>https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/features/mask/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-mcp/features/mask/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/features/mask/"
+                />
+  </url>
+  
+  <url>
     <loc>https://shardingsphere.apache.org/document/current/cn/user-manual/error-code/server-error-code/</loc>
     <xhtml:link
                 rel="alternate"
@@ -1931,20 +1945,6 @@
                 rel="alternate"
                 hreflang="cn"
                 href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-agent/configuration/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/configuration/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-mcp/configuration/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/configuration/"
                 />
   </url>
   
@@ -2299,20 +2299,6 @@
   </url>
   
   <url>
-    <loc>https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/client-integration/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-mcp/client-integration/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/client-integration/"
-                />
-  </url>
-  
-  <url>
     <loc>https://shardingsphere.apache.org/document/current/cn/reference/sharding/rewrite/</loc>
     <xhtml:link
                 rel="alternate"
@@ -2491,6 +2477,20 @@
                 rel="alternate"
                 hreflang="cn"
                 href="https://shardingsphere.apache.org/document/current/cn/user-manual/common-config/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/configuration/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-mcp/configuration/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/configuration/"
                 />
   </url>
   
@@ -2775,16 +2775,16 @@
   </url>
   
   <url>
-    <loc>https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/workflow-basics/</loc>
+    <loc>https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/client-integration/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-mcp/workflow-basics/"
+                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-mcp/client-integration/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/workflow-basics/"
+                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/client-integration/"
                 />
   </url>
   
@@ -3293,6 +3293,20 @@
   </url>
   
   <url>
+    <loc>https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/workflow/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-mcp/workflow/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/workflow/"
+                />
+  </url>
+  
+  <url>
     <loc>https://shardingsphere.apache.org/document/current/cn/dev-manual/</loc>
     <xhtml:link
                 rel="alternate"
@@ -3429,20 +3443,6 @@
                 rel="alternate"
                 hreflang="cn"
                 href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-jdbc/special-api/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/deployment/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-mcp/deployment/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/deployment/"
                 />
   </url>
   
@@ -3741,20 +3741,6 @@
   </url>
   
   <url>
-    <loc>https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/troubleshooting/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-mcp/troubleshooting/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/troubleshooting/"
-                />
-  </url>
-  
-  <url>
     <loc>https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-jdbc/graalvm-native-image/development/</loc>
     <xhtml:link
                 rel="alternate"
@@ -3891,6 +3877,20 @@
                 rel="alternate"
                 hreflang="cn"
                 href="https://shardingsphere.apache.org/document/current/cn/test-manual/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/deployment/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-mcp/deployment/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/deployment/"
                 />
   </url>
   
@@ -4049,16 +4049,16 @@
   </url>
   
   <url>
-    <loc>https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/features/</loc>
+    <loc>https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/troubleshooting/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-mcp/features/"
+                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-mcp/troubleshooting/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/features/"
+                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/troubleshooting/"
                 />
   </url>
   
@@ -4325,6 +4325,20 @@
                 rel="alternate"
                 hreflang="cn"
                 href="https://shardingsphere.apache.org/document/current/cn/user-manual/common-config/builtin-algorithm/audit/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/features/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-mcp/features/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/features/"
                 />
   </url>
   
