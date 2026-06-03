@@ -493,20 +493,6 @@
   </url>
   
   <url>
-    <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-mcp/features/plugin-workflow/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/features/plugin-workflow/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-mcp/features/plugin-workflow/"
-                />
-  </url>
-  
-  <url>
     <loc>https://shardingsphere.apache.org/document/current/en/user-manual/common-config/props/</loc>
     <xhtml:link
                 rel="alternate"
@@ -573,6 +559,20 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/rdl/storage-unit-definition/register-storage-unit/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-mcp/features/plugin-workflow/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/features/plugin-workflow/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-mcp/features/plugin-workflow/"
                 />
   </url>
   
@@ -4451,6 +4451,20 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://shardingsphere.apache.org/document/current/en/user-manual/common-config/builtin-algorithm/mask/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-mcp/developer-appendix/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-mcp/developer-appendix/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-mcp/developer-appendix/"
                 />
   </url>
   
