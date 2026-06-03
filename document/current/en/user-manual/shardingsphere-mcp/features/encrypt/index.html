@@ -12,22 +12,22 @@
     <title>Data Encryption :: ShardingSphere</title>
 
     
-    <link href="https://shardingsphere.apache.org/document/current/css/nucleus.css?1780481495" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/fontawesome-all.min.css?1780481495" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/hybrid.css?1780481495" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/featherlight.min.css?1780481495" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/perfect-scrollbar.min.css?1780481495" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/auto-complete.css?1780481495" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/atom-one-dark-reasonable.css?1780481495" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/theme.css?1780481495" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/tabs.css?1780481495" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/hugo-theme.css?1780481495" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/nucleus.css?1780498939" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/fontawesome-all.min.css?1780498939" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/hybrid.css?1780498939" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/featherlight.min.css?1780498939" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/perfect-scrollbar.min.css?1780498939" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/auto-complete.css?1780498939" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/atom-one-dark-reasonable.css?1780498939" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/theme.css?1780498939" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/tabs.css?1780498939" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/hugo-theme.css?1780498939" rel="stylesheet">
     
-    <link href="https://shardingsphere.apache.org/document/current/css/theme-white.css?1780481495" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/theme-white.css?1780498939" rel="stylesheet">
     
     
 
-    <script src="https://shardingsphere.apache.org/document/current/js/jquery-3.3.1.min.js?1780481495"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/jquery-3.3.1.min.js?1780498939"></script>
       
     <script src="https://shardingsphere.apache.org/js/kapa-widget.js"></script>
     <style>
@@ -301,14 +301,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/lunr.min.js?1780481495"></script>
-<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/auto-complete.js?1780481495"></script>
+<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/lunr.min.js?1780498939"></script>
+<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/auto-complete.js?1780498939"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/shardingsphere.apache.org\/document\/current\/\/en";
     
 </script>
-<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/search.js?1780481495"></script>
+<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/search.js?1780498939"></script>
 
       
     </div>
@@ -10622,7 +10622,7 @@ Actual encryption capability is provided by ShardingSphere-Proxy and its encrypt
 <ul>
 <li>The current version supports logical databases exposed by ShardingSphere-Proxy only.</li>
 <li><code>runtimeDatabases</code> should point to Proxy logical databases, not physical storage databases.</li>
-<li>This feature does not apply to direct physical database connections. A physical database usually does not understand ShardingSphere encryption rule change statements and cannot expose Proxy-visible encryption algorithm plugins or rule state.</li>
+<li>This feature does not apply to direct database connections. The target database usually does not understand ShardingSphere encryption rule change statements and cannot expose Proxy-visible encryption algorithm plugins or rule state.</li>
 <li>The target logical table and column should be discoverable through JDBC metadata exposed by Proxy. This metadata should not be treated as a complete physical database catalog.</li>
 </ul>
 <h2 id="use-through-natural-language">Use through natural language</h2>
@@ -10630,6 +10630,7 @@ Actual encryption capability is provided by ShardingSphere-Proxy and its encrypt
 <p>Examples:</p>
 <ul>
 <li>Check whether <code>&lt;logic-database&gt;.orders.status</code> already has an encryption rule.</li>
+<li>List data encryption algorithms available from the current Proxy.</li>
 <li>Plan reversible encryption for <code>&lt;logic-database&gt;.orders.status</code> with equality query support, and preview it without execution.</li>
 <li>Continue the previous plan with the AES algorithm and provide the key through a protected channel.</li>
 <li>Confirm and execute the previous encryption rule plan, then validate the result.</li>
@@ -10668,8 +10669,8 @@ Actual encryption capability is provided by ShardingSphere-Proxy and its encrypt
 </tr>
 <tr>
 <td>Algorithm preference</td>
-<td>Specify an algorithm, or let MCP recommend one from available algorithms.</td>
-<td>&ldquo;Prefer AES.&rdquo;</td>
+<td>Specify an algorithm, or let MCP recommend one from algorithms available from Proxy.</td>
+<td>&ldquo;List data encryption algorithms available from the current Proxy.&rdquo; or &ldquo;Prefer AES.&rdquo;</td>
 </tr>
 <tr>
 <td>Algorithm properties</td>
@@ -10766,7 +10767,7 @@ When a plan contains derived columns or index suggestions, users should confirm 
 <h3 id="supported-scope">Supported scope</h3>
 <ul>
 <li>Supports ShardingSphere-Proxy logical databases only.</li>
-<li>This feature does not apply to direct physical database connections.</li>
+<li>This feature does not apply to direct database connections.</li>
 </ul>
 <h3 id="capability-boundaries">Capability boundaries</h3>
 <ul>
@@ -16919,19 +16920,19 @@ When a plan contains derived columns or index suggestions, users should confirm 
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="https://shardingsphere.apache.org/document/current/js/clipboard.min.js?1780481495"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/perfect-scrollbar.min.js?1780481495"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/perfect-scrollbar.jquery.min.js?1780481495"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/jquery.sticky.js?1780481495"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/featherlight.min.js?1780481495"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/highlight.pack.js?1780481495"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/clipboard.min.js?1780498939"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/perfect-scrollbar.min.js?1780498939"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/perfect-scrollbar.jquery.min.js?1780498939"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/jquery.sticky.js?1780498939"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/featherlight.min.js?1780498939"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/highlight.pack.js?1780498939"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="https://shardingsphere.apache.org/document/current/js/modernizr.custom-3.6.0.js?1780481495"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/learn.js?1780481495"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/hugo-learn.js?1780481495"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/modernizr.custom-3.6.0.js?1780498939"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/learn.js?1780498939"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/hugo-learn.js?1780498939"></script>
     
         
-            <script src="https://shardingsphere.apache.org/document/current/mermaid/mermaid.js?1780481495"></script>
+            <script src="https://shardingsphere.apache.org/document/current/mermaid/mermaid.js?1780498939"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });

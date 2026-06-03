@@ -27,7 +27,7 @@ Prerequisites  JDK 21 available from JAVA_HOME or PATH. A ShardingSphere-Proxy l
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-mcp/capabilities/</guid>
-      <description>This page describes the database tasks that users can complete through natural language, and the usage boundaries when connecting to ShardingSphere-Proxy or a regular database.
+      <description>This page describes the database tasks that users can complete through natural language, and the usage boundaries when connecting to ShardingSphere-Proxy or using a direct database connection.
 Connection Targets Connecting to ShardingSphere-Proxy Use this mode to inspect ShardingSphere logical database structure, read rule state, run controlled SQL, or create reviewable rule change plans.
 Available tasks include:
  Inspecting logical databases, schemas, tables, views, columns, indexes, and sequences. Searching metadata objects such as tables, views, columns, and indexes.</description>
@@ -74,10 +74,10 @@ Troubleshooting Index    Symptom Possible cause Action     MCP Server startup fa
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-mcp/developer-appendix/</guid>
-      <description>This page is for developers who build custom MCP integrations, debug protocol requests, or troubleshoot client adaptation issues. Most users do not need this page. Use Quick Start, Client Integration, and Capability Catalog for normal usage.
+      <description>This page is for developers who build custom MCP integrations, debug protocol requests, or troubleshoot client adaptation issues. For normal usage, see Quick Start, Client Integration, and Capability Catalog.
 Generic Client Configuration Examples If the AI application you use does not have a dedicated page, choose HTTP or STDIO configuration according to that client&amp;rsquo;s own documentation.
 HTTP example:
-{ &amp;#34;mcpServers&amp;#34;: { &amp;#34;shardingsphere-http&amp;#34;: { &amp;#34;url&amp;#34;: &amp;#34;http://127.</description>
+{ &amp;#34;mcpServers&amp;#34;: { &amp;#34;shardingsphere-http&amp;#34;: { &amp;#34;url&amp;#34;: &amp;#34;http://127.0.0.1:18088/mcp&amp;#34; } } } STDIO example:</description>
     </item>
     
   </channel>

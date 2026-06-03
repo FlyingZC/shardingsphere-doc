@@ -12,22 +12,22 @@
     <title>常见问题 :: ShardingSphere</title>
 
     
-    <link href="https://shardingsphere.apache.org/document/current/css/nucleus.css?1780481502" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/fontawesome-all.min.css?1780481502" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/hybrid.css?1780481502" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/featherlight.min.css?1780481502" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/perfect-scrollbar.min.css?1780481502" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/auto-complete.css?1780481502" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/atom-one-dark-reasonable.css?1780481502" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/theme.css?1780481502" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/tabs.css?1780481502" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/document/current/css/hugo-theme.css?1780481502" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/nucleus.css?1780498946" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/fontawesome-all.min.css?1780498946" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/hybrid.css?1780498946" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/featherlight.min.css?1780498946" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/perfect-scrollbar.min.css?1780498946" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/auto-complete.css?1780498946" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/atom-one-dark-reasonable.css?1780498946" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/theme.css?1780498946" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/tabs.css?1780498946" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/hugo-theme.css?1780498946" rel="stylesheet">
     
-    <link href="https://shardingsphere.apache.org/document/current/css/theme-white.css?1780481502" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/document/current/css/theme-white.css?1780498946" rel="stylesheet">
     
     
 
-    <script src="https://shardingsphere.apache.org/document/current/js/jquery-3.3.1.min.js?1780481502"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/jquery-3.3.1.min.js?1780498946"></script>
       
     <script src="https://shardingsphere.apache.org/js/kapa-widget.js"></script>
     <style>
@@ -301,14 +301,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/lunr.min.js?1780481502"></script>
-<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/auto-complete.js?1780481502"></script>
+<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/lunr.min.js?1780498946"></script>
+<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/auto-complete.js?1780498946"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/shardingsphere.apache.org\/document\/current\/\/cn";
     
 </script>
-<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/search.js?1780481502"></script>
+<script type="text/javascript" src="https://shardingsphere.apache.org/document/current/js/search.js?1780498946"></script>
 
       
     </div>
@@ -10599,6 +10599,7 @@
   <ul>
     <li><a href="#排查索引">排查索引</a></li>
     <li><a href="#连接错误分类">连接错误分类</a></li>
+    <li><a href="#运行时保护分类">运行时保护分类</a></li>
     <li><a href="#查询与变更建议">查询与变更建议</a></li>
     <li><a href="#提供给管理员或排障人员的信息">提供给管理员或排障人员的信息</a></li>
   </ul>
@@ -10628,8 +10629,13 @@
 </tr>
 <tr>
 <td>远程访问 HTTP 服务失败</td>
-<td>HTTP 绑定地址、安全策略或网关配置不正确。</td>
+<td>HTTP 绑定地址、安全策略、Origin 请求头或网关配置不正确。</td>
 <td>本机调试用回环地址；远程访问放在受控网关或反向代理后面；详细原因看服务端日志。</td>
+</tr>
+<tr>
+<td>HTTP 请求被拒绝</td>
+<td>请求携带的 Origin 请求头不符合 HTTP 传输安全策略，或同一 MCP 会话中的可信归属请求头不一致。</td>
+<td>检查 <code>bindHost</code>、客户端访问方式、网关请求头转发策略和会话归属配置。</td>
 </tr>
 <tr>
 <td>STDIO 模式没有响应</td>
@@ -10644,7 +10650,7 @@
 <tr>
 <td>查不到表、列或索引</td>
 <td>连接目标不同、模式不正确、账号权限不足，或 Proxy 暴露的逻辑元数据与底层物理库不同。</td>
-<td>先确认连接的是 ShardingSphere-Proxy 还是普通数据库，再检查模式、账号权限和 Proxy 可见元数据。</td>
+<td>先确认连接的是 ShardingSphere-Proxy 还是数据库直连，再检查模式、账号权限和 Proxy 可见元数据。</td>
 </tr>
 <tr>
 <td>JDBC 驱动错误</td>
@@ -10653,8 +10659,18 @@
 </tr>
 <tr>
 <td>只读查询失败</td>
-<td>SQL 语法、目标表名、模式、权限或返回行数限制不正确。</td>
+<td>SQL 语法、目标表名、模式、权限、返回行数或超时限制不正确。</td>
 <td>先让 AI 应用查看表结构，再执行只读查询，并限制返回行数。</td>
+</tr>
+<tr>
+<td>查询结果被截断</td>
+<td>查询结果超过返回行数限制。</td>
+<td>缩小查询条件、减少返回列或降低返回行数。</td>
+</tr>
+<tr>
+<td>当前会话无法继续调用工具</td>
+<td>MCP 会话达到工具调用次数保护限制。</td>
+<td>结束当前会话并重新创建 MCP 会话。</td>
 </tr>
 <tr>
 <td>有副作用 SQL 无法执行</td>
@@ -10681,6 +10697,7 @@
 <p>补充说明：</p>
 <ul>
 <li><code>username</code> 和 <code>driverClassName</code> 必须显式写出且不能为空；无密码账号可以省略 <code>password</code> 或写 <code>&quot;&quot;</code>。</li>
+<li>查询默认最多返回 100 行，单次查询最多可请求 5000 行；查询超时最大可请求 300000 毫秒。</li>
 <li>人工执行包中的密钥占位符应由执行人员在受控环境替换。</li>
 <li>开发者需要排查协议请求时，可参考<a href="../developer-appendix/">自研集成附录</a>。</li>
 </ul>
@@ -10728,6 +10745,21 @@
 </tr>
 </tbody>
 </table>
+<h2 id="运行时保护分类">运行时保护分类</h2>
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>tool_call_limit_exceeded</code></td>
+<td>当前 MCP 会话达到工具调用次数保护限制。</td>
+</tr>
+</tbody>
+</table>
 <h2 id="查询与变更建议">查询与变更建议</h2>
 <table>
 <thead>
@@ -10740,6 +10772,10 @@
 <tr>
 <td>查询数据</td>
 <td>建议限制返回行数。</td>
+</tr>
+<tr>
+<td>查询结果被截断</td>
+<td>缩小查询条件、减少返回列或降低返回行数。</td>
 </tr>
 <tr>
 <td>分析 SQL 执行计划</td>
@@ -16890,19 +16926,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="https://shardingsphere.apache.org/document/current/js/clipboard.min.js?1780481502"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/perfect-scrollbar.min.js?1780481502"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/perfect-scrollbar.jquery.min.js?1780481502"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/jquery.sticky.js?1780481502"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/featherlight.min.js?1780481502"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/highlight.pack.js?1780481502"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/clipboard.min.js?1780498946"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/perfect-scrollbar.min.js?1780498946"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/perfect-scrollbar.jquery.min.js?1780498946"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/jquery.sticky.js?1780498946"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/featherlight.min.js?1780498946"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/highlight.pack.js?1780498946"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="https://shardingsphere.apache.org/document/current/js/modernizr.custom-3.6.0.js?1780481502"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/learn.js?1780481502"></script>
-    <script src="https://shardingsphere.apache.org/document/current/js/hugo-learn.js?1780481502"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/modernizr.custom-3.6.0.js?1780498946"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/learn.js?1780498946"></script>
+    <script src="https://shardingsphere.apache.org/document/current/js/hugo-learn.js?1780498946"></script>
     
         
-            <script src="https://shardingsphere.apache.org/document/current/mermaid/mermaid.js?1780481502"></script>
+            <script src="https://shardingsphere.apache.org/document/current/mermaid/mermaid.js?1780498946"></script>
         
         <script>
             mermaid.initialize({ startOnLoad: true });
