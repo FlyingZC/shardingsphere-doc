@@ -1445,20 +1445,6 @@
   </url>
   
   <url>
-    <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/rul/format-sql/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-proxy/distsql/syntax/rul/format-sql/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/rul/format-sql/"
-                />
-  </url>
-  
-  <url>
     <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-jdbc/java-api/</loc>
     <xhtml:link
                 rel="alternate"
@@ -1809,16 +1795,30 @@
   </url>
   
   <url>
-    <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/rql/rule-query/single-table/show-deafult-single-table-storage-unit/</loc>
+    <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/rql/rule-query/single-table/show-default-single-table-storage-unit/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-proxy/distsql/syntax/rql/rule-query/single-table/show-deafult-single-table-storage-unit/"
+                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-proxy/distsql/syntax/rql/rule-query/single-table/show-default-single-table-storage-unit/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/rql/rule-query/single-table/show-deafult-single-table-storage-unit/"
+                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/rql/rule-query/single-table/show-default-single-table-storage-unit/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/rql/storage-unit-query/show-rules-used-storage-unit/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-proxy/distsql/syntax/rql/storage-unit-query/show-rules-used-storage-unit/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/rql/storage-unit-query/show-rules-used-storage-unit/"
                 />
   </url>
   
@@ -2477,6 +2477,20 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/plugin/show-load-balance-algorithm-plugins/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/rql/storage-unit-query/show-logical-tables/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-proxy/distsql/syntax/rql/storage-unit-query/show-logical-tables/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/rql/storage-unit-query/show-logical-tables/"
                 />
   </url>
   
@@ -3937,20 +3951,6 @@
   </url>
   
   <url>
-    <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/global-rule/show-traffic-rule/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-proxy/distsql/syntax/ral/global-rule/show-traffic-rule/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/global-rule/show-traffic-rule/"
-                />
-  </url>
-  
-  <url>
     <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/rql/rule-query/sharding/show-unused-sharding-key-generators/</loc>
     <xhtml:link
                 rel="alternate"
@@ -4003,20 +4003,6 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-jdbc/unsupported/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/global-rule/alter-traffic-rule/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-proxy/distsql/syntax/ral/global-rule/alter-traffic-rule/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/global-rule/alter-traffic-rule/"
                 />
   </url>
   
@@ -4889,34 +4875,6 @@
   </url>
   
   <url>
-    <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-jdbc/java-api/rules/sharding-cache/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-jdbc/java-api/rules/sharding-cache/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-jdbc/java-api/rules/sharding-cache/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-jdbc/yaml-config/rules/sharding-cache/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-jdbc/yaml-config/rules/sharding-cache/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-jdbc/yaml-config/rules/sharding-cache/"
-                />
-  </url>
-  
-  <url>
     <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/rdl/rule-definition/sharding/drop-sharding-algorithm/</loc>
     <xhtml:link
                 rel="alternate"
@@ -5015,20 +4973,6 @@
   </url>
   
   <url>
-    <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/show-rules-used-storage-unit/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-proxy/distsql/syntax/ral/show-rules-used-storage-unit/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/show-rules-used-storage-unit/"
-                />
-  </url>
-  
-  <url>
     <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/rql/rule-query/sharding/show-sharding-table-rules-used-auditor/</loc>
     <xhtml:link
                 rel="alternate"
@@ -5095,6 +5039,20 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/rdl/rule-definition/sharding/alter-sharding-table-reference-rule/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/migration/drop-migration-check/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-proxy/distsql/syntax/ral/migration/drop-migration-check/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/migration/drop-migration-check/"
                 />
   </url>
   
@@ -5291,6 +5249,20 @@
                 rel="alternate"
                 hreflang="en"
                 href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/lock-cluster-with/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/rdl/rule-definition/sharding/drop-sharding-auditor/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-proxy/distsql/syntax/rdl/rule-definition/sharding/drop-sharding-auditor/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/rdl/rule-definition/sharding/drop-sharding-auditor/"
                 />
   </url>
   
