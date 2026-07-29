@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>RAL Syntax on ShardingSphere</title>
+    <link>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/</link>
+    <description>Recent content in RAL Syntax on ShardingSphere</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>SHOW COMPUTE NODE INFO</title>
+      <link>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/show-compute-node-info/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/show-compute-node-info/</guid>
+      <description>Description The SHOW COMPUTE NODE INFO syntax is used to query current proxy instance information.
+Syntax Grammar Railroad diagram  ShowComputeNodeInfo ::= &amp;#39;SHOW&amp;#39; &amp;#39;COMPUTE&amp;#39; &amp;#39;NODE&amp;#39; &amp;#39;INFO&amp;#39;       Return Value Description    Columns Description     instance_id proxy instance id   host host address   port port number   status proxy instance status   mode_type proxy instance mode   worker_id worker id   version version    Example  Query current proxy instance information  SHOW COMPUTE NODE INFO; mysql&amp;gt; SHOW COMPUTE NODE INFO; +--------------------------------------+-----------+------+--------+-----------+-----------+---------------------------+ | instance_id | host | port | status | mode_type | worker_id | version | +--------------------------------------+-----------+------+--------+-----------+-----------+---------------------------+ | 3e84d33e-cb97-42f2-b6ce-f78fea0ded89 | 127.</description>
+    </item>
+    
+    <item>
+      <title>SHOW COMPUTE NODE MODE</title>
+      <link>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/show-compute-node-mode/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/show-compute-node-mode/</guid>
+      <description>Description The SHOW COMPUTE NODE MODE syntax is used to query current proxy instance mode configuration information.
+Syntax Grammar Railroad diagram  ShowComputeNodeMode ::= &amp;#39;SHOW&amp;#39; &amp;#39;COMPUTE&amp;#39; &amp;#39;NODE&amp;#39; &amp;#39;MODE&amp;#39;       Return Value Description    Columns Description     type type of proxy mode configuration   repository type of persist repository   props properties of persist repository    Example  Query current proxy instance mode configuration information  SHOW COMPUTE NODE MODE; mysql&amp;gt; SHOW COMPUTE NODE MODE; +---------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+ | type | repository | props | +---------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+ | Cluster | ZooKeeper | {&amp;#34;operationTimeoutMilliseconds&amp;#34;:500,&amp;#34;timeToLiveSeconds&amp;#34;:60,&amp;#34;maxRetries&amp;#34;:3,&amp;#34;namespace&amp;#34;:&amp;#34;governance_ds&amp;#34;,&amp;#34;server-lists&amp;#34;:&amp;#34;localhost:2181&amp;#34;,&amp;#34;retryIntervalMilliseconds&amp;#34;:500} | +---------+------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+ 1 row in set (0.</description>
+    </item>
+    
+    <item>
+      <title>SET DIST VARIABLE</title>
+      <link>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/set-dist-variable/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/set-dist-variable/</guid>
+      <description>Description The SET DIST VARIABLE syntax is used to set system variables.
+Syntax Grammar Railroad diagram  SetDistVariable ::= &amp;#39;SET&amp;#39; &amp;#39;DIST&amp;#39; &amp;#39;VARIABLE&amp;#39; variableName &amp;#39;=&amp;#39; variableValue variableName ::= identifier variableValue ::= literal       Supplement   variableName is one of properties configuration of PROXY. Use underscores instead of hyphens in DistSQL variable names.
+  agent_plugins_enabled is used to set the agent plugin status. Its default value is TRUE.</description>
+    </item>
+    
+    <item>
+      <title>SHOW DIST VARIABLE</title>
+      <link>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/show-dist-variable/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/show-dist-variable/</guid>
+      <description>Description The SHOW DIST VARIABLE syntax is used to query PROXY system variables configuration.
+Syntax Grammar Railroad diagram  ShowDistVariable ::= &amp;#39;SHOW&amp;#39; &amp;#39;DIST&amp;#39; (&amp;#39;VARIABLES&amp;#39; (&amp;#39;LIKE&amp;#39; likePattern)?| &amp;#39;VARIABLE&amp;#39; &amp;#39;WHERE&amp;#39; &amp;#39;NAME&amp;#39; &amp;#39;=&amp;#39; variableName) likePattern ::= string variableName ::= identifier       Return Value Description    Columns Description     variable_name system variable name   variable_value system variable value    Supplement  When variableName is not specified, all persistent PROXY system variables and the cached connection count are queried by default.</description>
+    </item>
+    
+    <item>
+      <title>REFRESH TABLE METADATA</title>
+      <link>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/refresh-table-metadata/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/refresh-table-metadata/</guid>
+      <description>Description The REFRESH TABLE METADATA syntax is used to refresh table metadata.
+Syntax Grammar Railroad diagram  RefreshTableMetadata ::= &amp;#39;REFRESH&amp;#39; &amp;#39;TABLE&amp;#39; &amp;#39;METADATA&amp;#39; (tableName | tableName &amp;#39;FROM&amp;#39; &amp;#39;STORAGE&amp;#39; &amp;#39;UNIT&amp;#39; storageUnitName (&amp;#39;SCHEMA&amp;#39; schemaName)?)? tableName ::= distSQLIdentifier storageUnitName ::= distSQLIdentifier schemaName ::= distSQLIdentifier distSQLIdentifier ::= identifier | quotedIdentifier quotedIdentifier ::= &amp;#39;`&amp;#39; identifier &amp;#39;`&amp;#39; | &amp;#39;&amp;#34;&amp;#39; identifier &amp;#39;&amp;#34;&amp;#39;       Supplement   When tableName and storageUnitName is not specified, the default is to refresh all table metadata.</description>
+    </item>
+    
+    <item>
+      <title>REFRESH DATABASE METADATA FROM GOVERNANCE CENTER</title>
+      <link>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/refresh-database-metadata/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/refresh-database-metadata/</guid>
+      <description>Description The REFRESH DATABASE METADATA syntax is used to refresh the metadata of the local logic database.
+Syntax Grammar Railroad diagram  RefreshDatabaseMetadata ::= &amp;#39;FORCE&amp;#39;? &amp;#39;REFRESH&amp;#39; &amp;#39;DATABASE&amp;#39; &amp;#39;METADATA&amp;#39; databaseName? databaseName ::= identifier       Supplement   When databaseName is not specified, the default is to refresh all database metadata.
+  When using FORCE to refresh metadata, the latest metadata will be obtained locally and written to the governance center.</description>
+    </item>
+    
+    <item>
+      <title>SHOW TABLE METADATA</title>
+      <link>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/show-table-metadata/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/show-table-metadata/</guid>
+      <description>Description The SHOW TABLE METADATA syntax is used to query table metadata.
+Syntax Grammar Railroad diagram  ShowTableMetadata ::= &amp;#39;SHOW&amp;#39; &amp;#39;TABLE&amp;#39; &amp;#39;METADATA&amp;#39; tableName (&amp;#39;,&amp;#39; tableName)* (&amp;#39;FROM&amp;#39; databaseName)? tableName ::= distSQLIdentifier databaseName ::= distSQLIdentifier distSQLIdentifier ::= identifier | quotedIdentifier quotedIdentifier ::= &amp;#39;`&amp;#39; identifier &amp;#39;`&amp;#39; | &amp;#39;&amp;#34;&amp;#39; identifier &amp;#39;&amp;#34;&amp;#39;       Return Value Description    Columns Description     database_name database name   table_name table name   type metadata type   name metadata name   value metadata value    Supplement   When databaseName is not specified, the default is the currently used DATABASE.</description>
+    </item>
+    
+    <item>
+      <title>EXPORT DATABASE CONFIGURATION</title>
+      <link>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/export-database-configuration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/export-database-configuration/</guid>
+      <description>Description The EXPORT DATABASE CONFIGURATION syntax is used to export storage units and rule configurations to YAML format.
+Syntax Grammar Railroad diagram  ExportDatabaseConfiguration ::= &amp;#39;EXPORT&amp;#39; &amp;#39;DATABASE&amp;#39; &amp;#39;CONFIGURATION&amp;#39; (&amp;#39;FROM&amp;#39; databaseName)? (&amp;#39;TO&amp;#39; &amp;#39;FILE&amp;#39; filePath)? databaseName ::= identifier filePath ::= string       Supplement  When databaseName is not specified, the currently used logical database will be exported; if no database is used, No database selected will be prompted; When filePath is not specified, the exported information will be output through the result set; When filePath is specified, the file will be automatically created.</description>
+    </item>
+    
+    <item>
+      <title>IMPORT DATABASE CONFIGURATION</title>
+      <link>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/import-database-configuration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/import-database-configuration/</guid>
+      <description>Description The IMPORT DATABASE CONFIGURATION syntax is used to import a database from the configuration in YAML.
+Syntax Grammar Railroad diagram  ImportDatabaseConfiguration ::= &amp;#39;IMPORT&amp;#39; &amp;#39;DATABASE&amp;#39; &amp;#39;CONFIGURATION&amp;#39; &amp;#39;FROM&amp;#39; &amp;#39;FILE&amp;#39; filePath filePath ::= string       Supplement  When a database with the same name already exists in the metadata, it cannot be imported; When databaseName in YAML is empty, it cannot be imported; When dataSources in YAML is empty, only empty database will be imported.</description>
+    </item>
+    
+    <item>
+      <title>CONVERT YAML CONFIGURATION</title>
+      <link>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/convert-yaml-configuration/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/convert-yaml-configuration/</guid>
+      <description>Description The CONVERT YAML CONFIGURATION syntax is used to convert YAML configuration to DistSQL RDL statements.
+Syntax Grammar Railroad diagram  convertYamlConfiguration ::= &amp;#39;CONVERT&amp;#39; &amp;#39;YAML&amp;#39; &amp;#39;CONFIGURATION&amp;#39; &amp;#39;FROM&amp;#39; &amp;#39;FILE&amp;#39; filePath filePath ::= string       Supplement  The CONVERT YAML CONFIGURATION syntax only reads the YAML file and converts the configuration into DistSQL statements without affecting the current metadata; When dataSources in YAML is empty, rules conversion will not be performed.</description>
+    </item>
+    
+    <item>
+      <title>LOCK CLUSTER WITH</title>
+      <link>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/lock-cluster-with/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/lock-cluster-with/</guid>
+      <description>Description The LOCK CLUSTER WITH syntax is utilized to apply a lock with a specific algorithm to the CLUSTER.
+Syntax Grammar Railroad diagram  LockClusterWith ::= &amp;#39;LOCK&amp;#39; &amp;#39;CLUSTER&amp;#39; &amp;#39;WITH&amp;#39; lockStrategy (&amp;#39;TIMEOUT&amp;#39; timeoutMillis)? timeoutMillis ::= long       Supplement  When the CLUSTER is already locked, it is impossible to re-lock it, otherwise an exception will be thrown. Currently, the lockStrategy supports two lock strategies, namely the exclusive lock WRITE and the read-write lock READ_WRITE .</description>
+    </item>
+    
+    <item>
+      <title>UNLOCK CLUSTER</title>
+      <link>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/unlock-cluster/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/unlock-cluster/</guid>
+      <description>Description The UNLOCK CLUSTER syntax is used to release the lock applied to the CLUSTER by the LOCK CLUSTER WITH statement.
+Syntax Grammar Railroad diagram  UnlockCluster ::= &amp;#39;UNLOCK&amp;#39; &amp;#39;CLUSTER&amp;#39; (&amp;#39;TIMEOUT&amp;#39; timeoutMillis)? timeoutMillis ::= long       Supplement  When the CLUSTER is not in a locked state, it is impossible to release the lock; otherwise, an exception will be thrown. timeoutMillis is used to indicate the timeout duration for attempting to unlock, with the unit being milliseconds.</description>
+    </item>
+    
+    <item>
+      <title>EXPORT METADATA</title>
+      <link>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/export-metadata/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/export-metadata/</guid>
+      <description>Description The EXPORT METADATA syntax is used to export cluster metadata in JSON format.
+Syntax Grammar Railroad diagram  ExportMetaData ::= &amp;#39;EXPORT&amp;#39; &amp;#39;METADATA&amp;#39; (&amp;#39;TO&amp;#39; &amp;#39;FILE&amp;#39; filePath)? filePath ::= string       Return Value Description    Columns Description     id current compute node id   create_time export time   cluster_info exported metadata (or success message when TO FILE is set)    Supplement  When filePath is not specified, the cluster_info column returns Base64-encoded metadata; When filePath is specified, metadata is written to file and cluster_info returns a success message; The parent directory of filePath will be created automatically if needed, and existing file content will be overwritten.</description>
+    </item>
+    
+    <item>
+      <title>IMPORT METADATA</title>
+      <link>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/import-metadata/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/import-metadata/</guid>
+      <description>Description The IMPORT METADATA syntax is used to import cluster metadata from file or inline value.
+Syntax Grammar Railroad diagram  ImportMetaData ::= &amp;#39;IMPORT&amp;#39; &amp;#39;METADATA&amp;#39; (metaDataValue | &amp;#39;FROM&amp;#39; &amp;#39;FILE&amp;#39; filePath) metaDataValue ::= string filePath ::= string       Supplement  metaDataValue should be a Base64 string exported by EXPORT METADATA; FROM FILE should point to a JSON file exported by EXPORT METADATA TO FILE; If the imported metadata contains an existing logical database, import will fail; If the metadata file does not exist or content format is invalid, import will fail.</description>
+    </item>
+    
+    <item>
+      <title>EXPORT STORAGE NODES</title>
+      <link>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/export-storage-nodes/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shardingsphere.apache.org/document/current/en/user-manual/shardingsphere-proxy/distsql/syntax/ral/export-storage-nodes/</guid>
+      <description>Description The EXPORT STORAGE NODES syntax is used to export storage node configurations in JSON format.
+Syntax Grammar Railroad diagram  ExportStorageNodes ::= &amp;#39;EXPORT&amp;#39; &amp;#39;STORAGE&amp;#39; &amp;#39;NODES&amp;#39; (&amp;#39;FROM&amp;#39; databaseName)? (&amp;#39;TO&amp;#39; &amp;#39;FILE&amp;#39; filePath)? databaseName ::= identifier filePath ::= string       Return Value Description    Columns Description     id current compute node id   create_time export time   storage_nodes exported storage node JSON (or success message when TO FILE is set)    Supplement  When databaseName is not specified, storage nodes of all logical databases are exported; When databaseName is specified, only storage nodes of the specified logical database are exported; If the specified databaseName does not exist, export will fail; When filePath is specified, the result is written to file and existing file content will be overwritten; Exported JSON contains connection information such as username and password; protect the output properly.</description>
+    </item>
+    
+  </channel>
+</rss>
