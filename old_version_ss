@@ -1,46 +1,58 @@
-commit 1227726d1d2435318c0fc9ffe2dfe66ecd5bff44
+commit 126fcfe4a4080b478271b34fcde36afc76492478
 Author: Liang Zhang <zhangliang@apache.org>
-Date:   Thu Sep 3 13:03:35 2026 +0800
+Date:   Thu Sep 3 18:02:18 2026 +0800
 
-    Remove checker-covered coding standard rules (#39705)
+    Enforce test naming and refine assertion standards (#39713)
 
 diff --git a/docs/community/content/involved/conduct/code.cn.md b/docs/community/content/involved/conduct/code.cn.md
-index a58a43f1ffa..301e2dd73dc 100644
+index 301e2dd73dc..d4231e0a082 100644
 --- a/docs/community/content/involved/conduct/code.cn.md
 +++ b/docs/community/content/involved/conduct/code.cn.md
-@@ -54,7 +54,6 @@ chapter = true
-  - 需要注释解释的代码应提取为小方法，并通过方法名称表达意图。
-  - `equals` 和 `==` 条件表达式中，常量在左，变量在右；大于小于等条件表达式中，变量在左，常量在右。
-  - 除了构造器入参与全局变量名称相同的赋值语句外，避免使用 `this` 修饰符。
-- - 对参数使用 `final` 时，仅用于方法入参、构造器入参以及 `catch` 参数。
-  - 局部变量不应设置为 `final`，包括普通局部变量声明、循环变量、增强 `for` 变量和 try-with-resources 资源变量，Checkstyle 明确要求的情况除外。
-  - Lambda 参数不应标记为 `final`。
-  - 除用于继承的抽象类外，所有类都应声明为 `final`。
-@@ -66,7 +65,6 @@ chapter = true
-  - 方法入参和返回值不允许为 `null`。
-  - 方法入参禁止使用 `Optional`；应传递普通值（必要时允许为 `null`）。
-  - 优先使用 lombok 代替构造器，getter, setter 方法和 log 变量。
-- - 禁止内联全限定类名，必须通过 import 引入。
-  - 优先考虑使用 `LinkedList`，只有在需要通过下标获取集合中元素值时再使用 `ArrayList`。
-  - `ArrayList`，`HashMap` 等可能产生扩容的集合类型必须指定集合初始大小，避免扩容。
-  - 优先使用三目运算符代替 if else 的返回和赋值语句。
+@@ -95,7 +95,6 @@ chapter = true
+    - 正确性测试（Correct）：通过正确的输入，得到预期结果。
+    - 合理性设计（Design）：与生产代码设计相结合，设计高质量的单元测试。
+    - 容错性测试（Error）：通过非法数据、异常流程等错误的输入，得到预期结果。
+- - 使用 `assert` 前缀命名所有的测试用例。
+  - 单元测试必须通过公共 API 验证行为，禁止通过反射调用私有成员。 若测试必须通过反射访问字段，应使用 `Plugins.getMemberAccessor()`，且反射仅限于 `Field` 访问。
+  - 测试修改静态状态时，必须在每个测试结束后恢复其原始状态。
+  - 默认通过项目加载器获取 SPI 实现。 如果被测类实现了 `TypedSPI` 或 `DatabaseTypedSPI`，应通过 `TypedSPILoader` 或 `DatabaseTypedSPILoader` 实例化，禁止使用 `new`。
+@@ -109,9 +108,10 @@ chapter = true
+  - 数据断言规范应遵循：
+     - 布尔类型断言应使用 `assertTrue` 和 `assertFalse`；
+     - 空值断言应使用 `assertNull` 和 `assertNotNull`；
+-    - 其他类型断言应使用 `assertThat(actual, is(expected))` 代替 `assertEquals`；
+-    - 类型断言使用 `assertThat(..., isA(...))` 代替 `instanceOf`；
+-    - 禁用 `assertSame` / `assertNotSame`，使用 `assertThat(actual, is(expected))` 或 `assertThat(actual, not(expected))`；
++    - 非布尔值、非空值的相等断言必须使用 `assertThat(actual, is(expected))`；
++    - 类型断言必须使用 `assertThat(actual, isA(ExpectedType.class))`；
++    - 引用同一性断言必须使用 `assertThat(actual, sameInstance(expected))`；
++    - 引用非同一性断言必须使用 `assertThat(actual, not(sameInstance(expected)))`；
+     - 使用 Hamcrest 匹配器（如 `is()`、`not()`）来进行精确且可读性高的断言。
+  - 测试用例的真实值应名为为 actual XXX，期望值应命名为 expected XXX。
+  - 测试类和 `@Test` 标注的方法无需 JAVADOC。
 diff --git a/docs/community/content/involved/conduct/code.en.md b/docs/community/content/involved/conduct/code.en.md
-index dbc8f9a6b5d..7b71f6a6653 100644
+index 7b71f6a6653..7c3f95f5c72 100644
 --- a/docs/community/content/involved/conduct/code.en.md
 +++ b/docs/community/content/involved/conduct/code.en.md
-@@ -54,7 +54,6 @@ The following code of conduct is based on full compliance with the [Apache Softw
- - Extract code that requires explanatory comments into small methods, and use method names to express the intent.
- - In `equals` and `==` conditional expressions, constants on the left, variables on the right; in conditional expressions like greater than or less than, variables on the left, constants on the right.
- - Avoid using `this` modifier except for assignment statements where constructor parameters have the same name as global variables.
--- For parameters, use `final` only on method parameters, constructor parameters and `catch` parameters.
- - Local variables should not be set as `final`, including ordinary local declarations, loop variables, enhanced `for` variables and try-with-resources resources, unless required by Checkstyle.
- - Lambda parameters should not be marked as `final`.
- - Declare every class `final` unless it is an abstract class intended for inheritance.
-@@ -66,7 +65,6 @@ The following code of conduct is based on full compliance with the [Apache Softw
- - Method parameters and return values are not allowed to be `null`.
- - Method parameters must not use `Optional`; pass plain values (nullable when needed).
- - Prefer using lombok instead of constructors, getter, setter methods and log variables.
--- Do not leave fully-qualified class names inline; add import statements instead.
- - Consider using `LinkedList` first, only use `ArrayList` when you need to get element values from the collection by index.
- - Collection types that may cause expansion like `ArrayList`, `HashMap` must specify initial collection size to avoid expansion.
- - Prefer using ternary operators instead of if else return and assignment statements.
+@@ -95,7 +95,6 @@ The following code of conduct is based on full compliance with the [Apache Softw
+     - Correctness testing: Get expected results through correct inputs.
+     - Reasonable design: Combined with production code design, design high-quality unit tests.
+     - Error tolerance testing: Get expected results through incorrect inputs such as illegal data, exception flows, etc.
+-- Use `assert` prefix for all test method names.
+ - Unit tests must exercise behavior through public APIs only. Reflection-based invocation of private members is forbidden. If tests must access fields via reflection, use `Plugins.getMemberAccessor()` and limit reflection to `Field` access only.
+ - Tests that modify static state must restore the original state after each test.
+ - Obtain SPI implementations through the project loader by default. If the class under test implements `TypedSPI` or `DatabaseTypedSPI`, instantiate it through `TypedSPILoader` or `DatabaseTypedSPILoader`, not with `new`.
+@@ -109,9 +108,10 @@ The following code of conduct is based on full compliance with the [Apache Softw
+ - Data assertion standards should follow:
+     - Boolean type assertions should use `assertTrue` and `assertFalse`;
+     - Null value assertions should use `assertNull` and `assertNotNull`;
+-    - Other types should use `assertThat(actual, is(expected))` instead of `assertEquals`;
+-    - Use `assertThat(..., isA(...))` instead of `instanceOf`;
+-    - Do not use `assertSame` / `assertNotSame`; use instead of `assertThat(actual, is(expected))` or `assertThat(actual, not(expected))`;
++    - Non-boolean, non-null value equality assertions must use `assertThat(actual, is(expected))`;
++    - Type assertions must use `assertThat(actual, isA(ExpectedType.class))`;
++    - Reference identity assertions must use `assertThat(actual, sameInstance(expected))`;
++    - Reference non-identity assertions must use `assertThat(actual, not(sameInstance(expected)))`;
+     - Use Hamcrest matchers like `is()`, `not()` for precise and readable assertions.
+ - The actual values in test cases should be named actual XXX, and expected values should be named expected XXX.
+ - Test classes and methods marked with `@Test` do not need JAVADOC.
