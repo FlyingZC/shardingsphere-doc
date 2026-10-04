@@ -4119,16 +4119,16 @@
   </url>
   
   <url>
-    <loc>https://shardingsphere.apache.org/document/current/cn/test-manual/</loc>
+    <loc>https://shardingsphere.apache.org/document/current/cn/build-manual/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://shardingsphere.apache.org/document/current/en/test-manual/"
+                href="https://shardingsphere.apache.org/document/current/en/build-manual/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="cn"
-                href="https://shardingsphere.apache.org/document/current/cn/test-manual/"
+                href="https://shardingsphere.apache.org/document/current/cn/build-manual/"
                 />
   </url>
   
@@ -4371,20 +4371,6 @@
   </url>
   
   <url>
-    <loc>https://shardingsphere.apache.org/document/current/cn/reference/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://shardingsphere.apache.org/document/current/en/reference/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://shardingsphere.apache.org/document/current/cn/reference/"
-                />
-  </url>
-  
-  <url>
     <loc>https://shardingsphere.apache.org/document/current/cn/features/encrypt/</loc>
     <xhtml:link
                 rel="alternate"
@@ -4427,6 +4413,20 @@
   </url>
   
   <url>
+    <loc>https://shardingsphere.apache.org/document/current/cn/test-manual/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://shardingsphere.apache.org/document/current/en/test-manual/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://shardingsphere.apache.org/document/current/cn/test-manual/"
+                />
+  </url>
+  
+  <url>
     <loc>https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-proxy/distsql/syntax/rdl/rule-definition/sharding/alter-sharding-key-generate-strategy/</loc>
     <xhtml:link
                 rel="alternate"
@@ -4451,20 +4451,6 @@
                 rel="alternate"
                 hreflang="cn"
                 href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-proxy/distsql/syntax/rdl/rule-definition/sharding/create-sharding-key-generator/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://shardingsphere.apache.org/document/current/cn/faq/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://shardingsphere.apache.org/document/current/en/faq/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://shardingsphere.apache.org/document/current/cn/faq/"
                 />
   </url>
   
@@ -4609,6 +4595,20 @@
   </url>
   
   <url>
+    <loc>https://shardingsphere.apache.org/document/current/cn/reference/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://shardingsphere.apache.org/document/current/en/reference/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://shardingsphere.apache.org/document/current/cn/reference/"
+                />
+  </url>
+  
+  <url>
     <loc>https://shardingsphere.apache.org/document/current/cn/features/mask/</loc>
     <xhtml:link
                 rel="alternate"
@@ -4707,6 +4707,20 @@
   </url>
   
   <url>
+    <loc>https://shardingsphere.apache.org/document/current/cn/faq/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://shardingsphere.apache.org/document/current/en/faq/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://shardingsphere.apache.org/document/current/cn/faq/"
+                />
+  </url>
+  
+  <url>
     <loc>https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-proxy/distsql/syntax/ral/refresh-table-metadata/</loc>
     <xhtml:link
                 rel="alternate"
@@ -4773,20 +4787,6 @@
                 rel="alternate"
                 hreflang="cn"
                 href="https://shardingsphere.apache.org/document/current/cn/user-manual/shardingsphere-jdbc/yaml-config/rules/sql-translator/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://shardingsphere.apache.org/document/current/cn/downloads/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://shardingsphere.apache.org/document/current/en/downloads/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://shardingsphere.apache.org/document/current/cn/downloads/"
                 />
   </url>
   
@@ -4931,6 +4931,20 @@
   </url>
   
   <url>
+    <loc>https://shardingsphere.apache.org/document/current/cn/downloads/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://shardingsphere.apache.org/document/current/en/downloads/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="cn"
+                href="https://shardingsphere.apache.org/document/current/cn/downloads/"
+                />
+  </url>
+  
+  <url>
     <loc>https://shardingsphere.apache.org/document/current/cn/features/observability/</loc>
     <xhtml:link
                 rel="alternate"
@@ -4955,20 +4969,6 @@
                 rel="alternate"
                 hreflang="cn"
                 href="https://shardingsphere.apache.org/document/current/cn/reference/observability/"
-                />
-  </url>
-  
-  <url>
-    <loc>https://shardingsphere.apache.org/document/current/cn/build-manual/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://shardingsphere.apache.org/document/current/en/build-manual/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="cn"
-                href="https://shardingsphere.apache.org/document/current/cn/build-manual/"
                 />
   </url>
   
