@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Configuration on ElasticJob</title>
+    <link>https://shardingsphere.apache.org/elasticjob/current/en/user-manual/configuration/</link>
+    <description>Recent content in Configuration on ElasticJob</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://shardingsphere.apache.org/elasticjob/current/en/user-manual/configuration/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Java API</title>
+      <link>https://shardingsphere.apache.org/elasticjob/current/en/user-manual/configuration/java-api/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shardingsphere.apache.org/elasticjob/current/en/user-manual/configuration/java-api/</guid>
+      <description>Registry Center Configuration The component which is used to register and coordinate the distributed behavior of jobs. ElasticJob supports ZooKeeper (the default), etcd, Nacos and an in-memory registry center. Besides elasticjob-bootstrap, add the Maven dependency of the registry center implementation to the project:
+   Registry Center Maven Dependency     ZooKeeper org.apache.shardingsphere.elasticjob:elasticjob-registry-center-zookeeper-curator   etcd org.apache.shardingsphere.elasticjob:elasticjob-registry-center-etcd   Nacos org.apache.shardingsphere.elasticjob:elasticjob-registry-center-nacos   Memory org.apache.shardingsphere.elasticjob:elasticjob-registry-center-memory    The dependencies use ${elasticjob.</description>
+    </item>
+    
+    <item>
+      <title>Spring Boot Starter</title>
+      <link>https://shardingsphere.apache.org/elasticjob/current/en/user-manual/configuration/spring-boot-starter/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shardingsphere.apache.org/elasticjob/current/en/user-manual/configuration/spring-boot-starter/</guid>
+      <description>To use the Spring boot, user need to add the dependency of the elasticjob-spring-boot-starter module in the pom.xml file.
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.apache.shardingsphere.elasticjob&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;elasticjob-spring-boot-starter&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${latest.release.version}&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; Registry Center Configuration Prefix: elasticjob.reg-center
+Configuration:
+   Property name Required     server-lists Yes   namespace Yes   base-sleep-time-milliseconds No   max-sleep-time-milliseconds No   max-retries No   session-timeout-milliseconds No   connection-timeout-milliseconds No   digest No    Reference:</description>
+    </item>
+    
+    <item>
+      <title>Spring Namespace</title>
+      <link>https://shardingsphere.apache.org/elasticjob/current/en/user-manual/configuration/spring-namespace/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shardingsphere.apache.org/elasticjob/current/en/user-manual/configuration/spring-namespace/</guid>
+      <description>To use the Spring namespace, user need to add the dependency of the elasticjob-spring module in the pom.xml file.
+&amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.apache.shardingsphere.elasticjob&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;elasticjob-spring-namespace&amp;lt;/artifactId&amp;gt; &amp;lt;version&amp;gt;${latest.release.version}&amp;lt;/version&amp;gt; &amp;lt;/dependency&amp;gt; Spring namespace: http://shardingsphere.apache.org/schema/elasticjob/elasticjob.xsd
+Registry Center Configuration &amp;lt;elasticjob:zookeeper /&amp;gt;
+Configuration:
+   Name Required     id Yes   server-lists Yes   namespace Yes   base-sleep-time-milliseconds No   max-sleep-time-milliseconds No   max-retries No   session-timeout-milliseconds No   connection-timeout-milliseconds No   digest No    Job Configuration &amp;lt;elasticjob:job /&amp;gt;</description>
+    </item>
+    
+    <item>
+      <title>Job Properties</title>
+      <link>https://shardingsphere.apache.org/elasticjob/current/en/user-manual/configuration/props/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shardingsphere.apache.org/elasticjob/current/en/user-manual/configuration/props/</guid>
+      <description>Introduction ElasticJob provide customized configurations for different types of jobs through the way of attribute configuration.
+Job Type Simple Job Interface name: org.apache.shardingsphere.elasticjob.simple.job.SimpleJob
+Configuration: no
+Dataflow Job Interface name: org.apache.shardingsphere.elasticjob.dataflow.job.DataflowJob
+Configuration:
+   Name Data Type Description Default Value     streaming.process boolean Enable or disable Streaming false    Script Job Type: SCRIPT
+Configuration:
+   Name Data Type Description Default Value     script.</description>
+    </item>
+    
+    <item>
+      <title>GraalVM Native Image</title>
+      <link>https://shardingsphere.apache.org/elasticjob/current/en/user-manual/configuration/graalvm-native-image/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://shardingsphere.apache.org/elasticjob/current/en/user-manual/configuration/graalvm-native-image/</guid>
+      <description>Background information ElasticJob has been verified for availability under GraalVM Native Image.
+To build a GraalVM Native Image with the Maven dependency org.apache.shardingsphere.elasticjob:elasticjob-bootstrap:${elasticjob.version}, you need to use GraalVM Native Build Tools.
+GraalVM Native Build Tools provides Maven Plugin and Gradle Plugin to simplify the long-winded shell commands of GraalVM CE&amp;rsquo;s native-image command line tool.
+ElasticJob requires the following or higher versions of GraalVM CE to build the GraalVM Native Image. Users can quickly switch JDKs through SDKMAN!</description>
+    </item>
+    
+  </channel>
+</rss>
