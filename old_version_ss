@@ -1,424 +1,196 @@
-commit d9726f9d4992bb0ecf1b8e122ee1c37eaa3abcd3
+commit daa4784cd02b935e91a9145baff938630794818b
 Author: Liang Zhang <zhangliang@apache.org>
-Date:   Sat Nov 7 15:37:12 2026 +0800
+Date:   Sat Nov 7 16:07:29 2026 +0800
 
-    Clarify DistSQL support for JDBC and Proxy (#40485)
+    Reorder user manual chapters for Agent and MCP (#40487)
 
-diff --git a/docs/document/content/user-manual/distsql/syntax/ral/circuit-breaker/enable-disable-compute-node.cn.md b/docs/document/content/user-manual/distsql/syntax/ral/circuit-breaker/enable-disable-compute-node.cn.md
-index 4accfe52fdf..8f5f69ecbf8 100644
---- a/docs/document/content/user-manual/distsql/syntax/ral/circuit-breaker/enable-disable-compute-node.cn.md
-+++ b/docs/document/content/user-manual/distsql/syntax/ral/circuit-breaker/enable-disable-compute-node.cn.md
-@@ -6,7 +6,7 @@ aliases = ["/user-manual/shardingsphere-proxy/distsql/syntax/ral/circuit-breaker
+diff --git a/docs/document/content/user-manual/common-config/_index.cn.md b/docs/document/content/user-manual/common-config/_index.cn.md
+index a6ead7dfff8..c5af16730a3 100644
+--- a/docs/document/content/user-manual/common-config/_index.cn.md
++++ b/docs/document/content/user-manual/common-config/_index.cn.md
+@@ -1,7 +1,7 @@
+ +++
+-pre = "<b>4.3. </b>"
++pre = "<b>4.5. </b>"
+ title = "通用配置"
+-weight = 3
++weight = 5
+ chapter = true
+ +++
+ 
+diff --git a/docs/document/content/user-manual/common-config/_index.en.md b/docs/document/content/user-manual/common-config/_index.en.md
+index e7cc46ccc1c..d9c61807125 100644
+--- a/docs/document/content/user-manual/common-config/_index.en.md
++++ b/docs/document/content/user-manual/common-config/_index.en.md
+@@ -1,7 +1,7 @@
+ +++
+-pre = "<b>4.3. </b>"
++pre = "<b>4.5. </b>"
+ title = "Common Configuration"
+-weight = 3
++weight = 5
+ chapter = true
+ +++
+ 
+diff --git a/docs/document/content/user-manual/dependencies/_index.cn.md b/docs/document/content/user-manual/dependencies/_index.cn.md
+index f6d2dfa4262..d327129316e 100644
+--- a/docs/document/content/user-manual/dependencies/_index.cn.md
++++ b/docs/document/content/user-manual/dependencies/_index.cn.md
+@@ -1,7 +1,7 @@
+ +++
+-pre = "<b>4.6. </b>"
++pre = "<b>4.8. </b>"
+ title = "依赖管理"
+-weight = 6
++weight = 8
+ chapter = true
+ +++
+ 
+diff --git a/docs/document/content/user-manual/dependencies/_index.en.md b/docs/document/content/user-manual/dependencies/_index.en.md
+index 8dc07b90aa5..68f81b3ab39 100644
+--- a/docs/document/content/user-manual/dependencies/_index.en.md
++++ b/docs/document/content/user-manual/dependencies/_index.en.md
+@@ -1,7 +1,7 @@
+ +++
+-pre = "<b>4.6. </b>"
++pre = "<b>4.8. </b>"
+ title = "Dependency Management"
+-weight = 6
++weight = 8
+ chapter = true
+ +++
+ 
+diff --git a/docs/document/content/user-manual/dependencies/bom.cn.md b/docs/document/content/user-manual/dependencies/bom.cn.md
+index c67a2408d3a..d03de77988a 100644
+--- a/docs/document/content/user-manual/dependencies/bom.cn.md
++++ b/docs/document/content/user-manual/dependencies/bom.cn.md
+@@ -1,5 +1,5 @@
+ +++
+-pre = "<b>4.6.1. </b>"
++pre = "<b>4.8.1. </b>"
+ title = "物料清单 (BOM)"
+ weight = 1
+ +++
+diff --git a/docs/document/content/user-manual/dependencies/bom.en.md b/docs/document/content/user-manual/dependencies/bom.en.md
+index cd92d26aeec..3a5e1e17116 100644
+--- a/docs/document/content/user-manual/dependencies/bom.en.md
++++ b/docs/document/content/user-manual/dependencies/bom.en.md
+@@ -1,5 +1,5 @@
+ +++
+-pre = "<b>4.6.1. </b>"
++pre = "<b>4.8.1. </b>"
+ title = "Bill of Materials (BOM)"
+ weight = 1
+ +++
+diff --git a/docs/document/content/user-manual/distsql/_index.cn.md b/docs/document/content/user-manual/distsql/_index.cn.md
+index 687d83fecc5..e57bf8406ea 100644
+--- a/docs/document/content/user-manual/distsql/_index.cn.md
++++ b/docs/document/content/user-manual/distsql/_index.cn.md
+@@ -1,7 +1,7 @@
+ +++
+-pre = "<b>4.4. </b>"
++pre = "<b>4.6. </b>"
+ title = "DistSQL"
+-weight = 4
++weight = 6
+ chapter = true
+ aliases = ["/user-manual/shardingsphere-proxy/distsql/"]
+ +++
+diff --git a/docs/document/content/user-manual/distsql/_index.en.md b/docs/document/content/user-manual/distsql/_index.en.md
+index c2ef7f074d1..d6940951fe3 100644
+--- a/docs/document/content/user-manual/distsql/_index.en.md
++++ b/docs/document/content/user-manual/distsql/_index.en.md
+@@ -1,7 +1,7 @@
+ +++
+-pre = "<b>4.4. </b>"
++pre = "<b>4.6. </b>"
+ title = "DistSQL"
+-weight = 4
++weight = 6
+ chapter = true
+ aliases = ["/user-manual/shardingsphere-proxy/distsql/"]
+ +++
+diff --git a/docs/document/content/user-manual/error-code/_index.cn.md b/docs/document/content/user-manual/error-code/_index.cn.md
+index fe8065f6e8e..f18292a62fe 100644
+--- a/docs/document/content/user-manual/error-code/_index.cn.md
++++ b/docs/document/content/user-manual/error-code/_index.cn.md
+@@ -1,7 +1,7 @@
+ +++
+-pre = "<b>4.5. </b>"
++pre = "<b>4.7. </b>"
+ title = "错误码"
+-weight = 5
++weight = 7
+ chapter = true
+ +++
+ 
+diff --git a/docs/document/content/user-manual/error-code/_index.en.md b/docs/document/content/user-manual/error-code/_index.en.md
+index 737ee835808..c1bc8aa7ef8 100644
+--- a/docs/document/content/user-manual/error-code/_index.en.md
++++ b/docs/document/content/user-manual/error-code/_index.en.md
+@@ -1,7 +1,7 @@
+ +++
+-pre = "<b>4.5. </b>"
++pre = "<b>4.7. </b>"
+ title = "Error Code"
+-weight = 5
++weight = 7
+ chapter = true
+ +++
+ 
+diff --git a/docs/document/content/user-manual/shardingsphere-agent/_index.cn.md b/docs/document/content/user-manual/shardingsphere-agent/_index.cn.md
+index cb9b8c2ac9b..b4686e5cd9f 100644
+--- a/docs/document/content/user-manual/shardingsphere-agent/_index.cn.md
++++ b/docs/document/content/user-manual/shardingsphere-agent/_index.cn.md
+@@ -1,7 +1,7 @@
+ +++
+-pre = "<b>4.7. </b>"
++pre = "<b>4.3. </b>"
+ title = "ShardingSphere-Agent"
+-weight = 7
++weight = 3
+ chapter = true
+ +++
+ 
+diff --git a/docs/document/content/user-manual/shardingsphere-agent/_index.en.md b/docs/document/content/user-manual/shardingsphere-agent/_index.en.md
+index d6b8fb954ff..19fedf7a205 100644
+--- a/docs/document/content/user-manual/shardingsphere-agent/_index.en.md
++++ b/docs/document/content/user-manual/shardingsphere-agent/_index.en.md
+@@ -1,7 +1,7 @@
+ +++
+-pre = "<b>4.7. </b>"
++pre = "<b>4.3. </b>"
+ title = "ShardingSphere-Agent"
+-weight = 7
++weight = 3
+ chapter = true
+ +++
+ 
+diff --git a/docs/document/content/user-manual/shardingsphere-mcp/_index.cn.md b/docs/document/content/user-manual/shardingsphere-mcp/_index.cn.md
+index a8474a8bb1d..333bde68e9c 100644
+--- a/docs/document/content/user-manual/shardingsphere-mcp/_index.cn.md
++++ b/docs/document/content/user-manual/shardingsphere-mcp/_index.cn.md
+@@ -1,7 +1,7 @@
+ +++
+-pre = "<b>4.8. </b>"
++pre = "<b>4.4. </b>"
+ title = "ShardingSphere-MCP"
+-weight = 8
++weight = 4
+ chapter = true
+ +++
+ 
+diff --git a/docs/document/content/user-manual/shardingsphere-mcp/_index.en.md b/docs/document/content/user-manual/shardingsphere-mcp/_index.en.md
+index 98d8887f65b..448aaf78502 100644
+--- a/docs/document/content/user-manual/shardingsphere-mcp/_index.en.md
++++ b/docs/document/content/user-manual/shardingsphere-mcp/_index.en.md
+@@ -1,7 +1,7 @@
+ +++
+-pre = "<b>4.8. </b>"
++pre = "<b>4.4. </b>"
+ title = "ShardingSphere-MCP"
+-weight = 8
++weight = 4
+ chapter = true
+ +++
  
- ## 描述
- 
--`ENABLE/DISABLE COMPUTE NODE` 语法用于启用/禁用指定 proxy 实例。
-+`ENABLE/DISABLE COMPUTE NODE` 语法用于在集群模式下启用或禁用指定计算节点。
- 
- ### 语法定义
- 
-@@ -29,17 +29,17 @@ instanceId ::=
- 
- - `instanceId` 需要通过 [SHOW COMPUTE NODES](/cn/user-manual/distsql/syntax/ral/circuit-breaker/show-compute-nodes/) 语法查询得到
- 
--- 不可禁用当前正在使用的 proxy 实例
-+- 不能禁用执行该语句的当前计算节点。
- 
- ### 示例
- 
--- 禁用指定 proxy 实例
-+- 禁用指定计算节点
- 
- ```sql
- DISABLE COMPUTE NODE '734bb086-b15d-4af0-be87-2372d8b6a0cd';
- ```
- 
--- 启用指定 proxy 实例
-+- 启用指定计算节点
- 
- ```sql
- ENABLE COMPUTE NODE '734bb086-b15d-4af0-be87-2372d8b6a0cd';
-diff --git a/docs/document/content/user-manual/distsql/syntax/ral/circuit-breaker/enable-disable-compute-node.en.md b/docs/document/content/user-manual/distsql/syntax/ral/circuit-breaker/enable-disable-compute-node.en.md
-index 9bdded249c2..3b320e1ed6c 100644
---- a/docs/document/content/user-manual/distsql/syntax/ral/circuit-breaker/enable-disable-compute-node.en.md
-+++ b/docs/document/content/user-manual/distsql/syntax/ral/circuit-breaker/enable-disable-compute-node.en.md
-@@ -6,7 +6,7 @@ aliases = ["/user-manual/shardingsphere-proxy/distsql/syntax/ral/circuit-breaker
- 
- ## Description
- 
--The `ENABLE/DISABLE COMPUTE NODE` syntax is used to enable/disable a specified proxy instance
-+The `ENABLE/DISABLE COMPUTE NODE` syntax is used to enable or disable a specified compute node in cluster mode.
- 
- ### Syntax
- 
-@@ -29,16 +29,16 @@ instanceId ::=
- 
- - `instanceId` needs to be obtained through [SHOW COMPUTE NODES](/en/user-manual/distsql/syntax/ral/circuit-breaker/show-compute-nodes/) syntax query
- 
--- The currently in-use proxy instance cannot be disabled
-+- The compute node executing this statement cannot be disabled.
- 
- ### Example
- 
--- Disable a specified proxy instance
-+- Disable a specified compute node
- ```sql
- DISABLE COMPUTE NODE '734bb086-b15d-4af0-be87-2372d8b6a0cd';
- ```
- 
--- Enable a specified proxy instance
-+- Enable a specified compute node
- 
- ```sql
- ENABLE COMPUTE NODE '734bb086-b15d-4af0-be87-2372d8b6a0cd';
-diff --git a/docs/document/content/user-manual/distsql/syntax/ral/set-dist-variable.cn.md b/docs/document/content/user-manual/distsql/syntax/ral/set-dist-variable.cn.md
-index 8add3738e80..7e6d6ffe25a 100644
---- a/docs/document/content/user-manual/distsql/syntax/ral/set-dist-variable.cn.md
-+++ b/docs/document/content/user-manual/distsql/syntax/ral/set-dist-variable.cn.md
-@@ -30,13 +30,13 @@ variableValue ::=
- 
- ### 补充说明
- 
--- `variableName` 为 `PROXY` 的[属性配置](/cn/user-manual/shardingsphere-proxy/yaml-config/props/)，DistSQL 变量名使用下划线而非连字符
-+- `variableName` 为 ShardingSphere 属性，可参考[通用属性配置](/cn/user-manual/common-config/props/)和 [Proxy 属性配置](/cn/user-manual/shardingsphere-proxy/yaml-config/props/)，DistSQL 变量名使用下划线而非连字符。
- 
- - `agent_plugins_enabled` 用于设置 `agent` 插件的启用状态，默认值为 `TRUE`
- 
- ### 示例
- 
--- 设置 `Proxy` 属性配置
-+- 设置 ShardingSphere 属性配置
- 
- ```sql
- SET DIST VARIABLE sql_show = true;
-diff --git a/docs/document/content/user-manual/distsql/syntax/ral/set-dist-variable.en.md b/docs/document/content/user-manual/distsql/syntax/ral/set-dist-variable.en.md
-index 561f434e399..9c7813df6b4 100644
---- a/docs/document/content/user-manual/distsql/syntax/ral/set-dist-variable.en.md
-+++ b/docs/document/content/user-manual/distsql/syntax/ral/set-dist-variable.en.md
-@@ -30,13 +30,14 @@ variableValue ::=
- 
- ### Supplement
- 
--- `variableName` is one of [properties configuration](/en/user-manual/shardingsphere-proxy/yaml-config/props/) of `PROXY`. Use underscores instead of hyphens in DistSQL variable names.
-+- `variableName` is a ShardingSphere property; see [common properties](/en/user-manual/common-config/props/) and [Proxy properties](/en/user-manual/shardingsphere-proxy/yaml-config/props/).
-+  Use underscores instead of hyphens in DistSQL variable names.
- 
- - `agent_plugins_enabled` is used to set the `agent` plugin status. Its default value is `TRUE`.
- 
- ### Example
- 
--- Set property configuration of `Proxy`
-+- Set a ShardingSphere property
- 
- ```sql
- SET DIST VARIABLE sql_show = true;
-diff --git a/docs/document/content/user-manual/distsql/syntax/ral/show-compute-node-info.cn.md b/docs/document/content/user-manual/distsql/syntax/ral/show-compute-node-info.cn.md
-index 1f292fff97c..47b950b33ad 100644
---- a/docs/document/content/user-manual/distsql/syntax/ral/show-compute-node-info.cn.md
-+++ b/docs/document/content/user-manual/distsql/syntax/ral/show-compute-node-info.cn.md
-@@ -6,7 +6,7 @@ aliases = ["/user-manual/shardingsphere-proxy/distsql/syntax/ral/show-compute-no
- 
- ### 描述
- 
--`SHOW COMPUTE NODE INFO` 语法用于查询当前 proxy 实例信息。
-+`SHOW COMPUTE NODE INFO` 语法用于查询当前计算节点信息。
- 
- ### 语法
- 
-@@ -26,17 +26,17 @@ ShowComputeNodeInfo ::=
- 
- | 列           | 说明         |
- |-------------|------------|
--| instance_id | proxy 实例编号 |
-+| instance_id | 计算节点编号 |
- | host        | 主机地址       |
--| port        | 端口号        |
--| status      | proxy 实例状态 |
--| mode_type   | proxy 实例模式 |
-+| port        | Proxy 端口号，JDBC 为 `-1` |
-+| status      | 计算节点状态 |
-+| mode_type   | 计算节点运行模式 |
- | worker_id   | worker id  |
- | version    | 版本                  |
- 
- ### 示例
- 
--- 查询当前 proxy 实例信息
-+- 查询当前计算节点信息
- 
- ```sql
- SHOW COMPUTE NODE INFO;
-diff --git a/docs/document/content/user-manual/distsql/syntax/ral/show-compute-node-info.en.md b/docs/document/content/user-manual/distsql/syntax/ral/show-compute-node-info.en.md
-index f82ce076cc2..3296919ceff 100644
---- a/docs/document/content/user-manual/distsql/syntax/ral/show-compute-node-info.en.md
-+++ b/docs/document/content/user-manual/distsql/syntax/ral/show-compute-node-info.en.md
-@@ -6,7 +6,7 @@ aliases = ["/user-manual/shardingsphere-proxy/distsql/syntax/ral/show-compute-no
- 
- ### Description
- 
--The `SHOW COMPUTE NODE INFO` syntax is used to query current proxy instance information.
-+The `SHOW COMPUTE NODE INFO` syntax is used to query information about the current compute node.
- ### Syntax
- 
- {{< tabs >}}
-@@ -25,17 +25,17 @@ ShowComputeNodeInfo ::=
- 
- | Columns        | Description           |
- |----------------|-----------------------|
--| instance_id    | proxy instance id     |
-+| instance_id    | compute node ID     |
- | host           | host address          |
--| port           | port number           |
--| status         | proxy instance status |
--| mode_type      | proxy instance mode   |
-+| port           | Proxy port number; `-1` for JDBC |
-+| status         | compute node status |
-+| mode_type      | compute node operating mode   |
- | worker_id      | worker id             |
- | version        | version               |
- 
- ### Example
- 
--- Query current proxy instance information
-+- Query information about the current compute node
- 
- ```sql
- SHOW COMPUTE NODE INFO;
-diff --git a/docs/document/content/user-manual/distsql/syntax/ral/show-compute-node-mode.cn.md b/docs/document/content/user-manual/distsql/syntax/ral/show-compute-node-mode.cn.md
-index 62e9bce2365..16c0c455d5d 100644
---- a/docs/document/content/user-manual/distsql/syntax/ral/show-compute-node-mode.cn.md
-+++ b/docs/document/content/user-manual/distsql/syntax/ral/show-compute-node-mode.cn.md
-@@ -6,7 +6,7 @@ aliases = ["/user-manual/shardingsphere-proxy/distsql/syntax/ral/show-compute-no
- 
- ### 描述
- 
--`SHOW COMPUTE NODE MODE` 语法用于查询当前 proxy 的模式配置信息。
-+`SHOW COMPUTE NODE MODE` 语法用于查询当前计算节点的运行模式配置信息。
- 
- ### 语法
- 
-@@ -26,13 +26,13 @@ ShowComputeNodeMode ::=
- 
- | 列          | 说明              |
- |------------|-----------------|
--| type       | proxy 模式类型      |
--| repository | proxy 持久化仓库类型   |
--| props      | proxy 持久化仓库属性参数 |
-+| type       | 运行模式类型      |
-+| repository | 持久化仓库类型   |
-+| props      | 持久化仓库属性参数 |
- 
- ### 示例
- 
--- 查询当前 proxy 实例模式配置信息
-+- 查询当前计算节点的运行模式配置信息
- 
- ```sql
- SHOW COMPUTE NODE MODE;
-diff --git a/docs/document/content/user-manual/distsql/syntax/ral/show-compute-node-mode.en.md b/docs/document/content/user-manual/distsql/syntax/ral/show-compute-node-mode.en.md
-index 0cb6b068a33..a2375537023 100644
---- a/docs/document/content/user-manual/distsql/syntax/ral/show-compute-node-mode.en.md
-+++ b/docs/document/content/user-manual/distsql/syntax/ral/show-compute-node-mode.en.md
-@@ -6,7 +6,7 @@ aliases = ["/user-manual/shardingsphere-proxy/distsql/syntax/ral/show-compute-no
- 
- ### Description
- 
--The `SHOW COMPUTE NODE MODE` syntax is used to query current proxy instance mode configuration information.
-+The `SHOW COMPUTE NODE MODE` syntax is used to query mode configuration information for the current compute node.
- ### Syntax
- 
- {{< tabs >}}
-@@ -25,13 +25,13 @@ ShowComputeNodeMode ::=
- 
- | Columns      | Description                        |
- |--------------|------------------------------------|
--| type         | type of proxy mode configuration   |
-+| type         | compute node operating mode   |
- | repository   | type of persist repository         |
- | props        | properties of persist repository   |
- 
- ### Example
- 
--- Query current proxy instance mode configuration information
-+- Query mode configuration information for the current compute node
- 
- ```sql
- SHOW COMPUTE NODE MODE;
-diff --git a/docs/document/content/user-manual/distsql/syntax/ral/show-dist-variable.cn.md b/docs/document/content/user-manual/distsql/syntax/ral/show-dist-variable.cn.md
-index 5a13d92187c..3cfd12fa90f 100644
---- a/docs/document/content/user-manual/distsql/syntax/ral/show-dist-variable.cn.md
-+++ b/docs/document/content/user-manual/distsql/syntax/ral/show-dist-variable.cn.md
-@@ -6,7 +6,7 @@ aliases = ["/user-manual/shardingsphere-proxy/distsql/syntax/ral/show-dist-varia
- 
- ### 描述
- 
--`SHOW DIST VARIABLE` 语法用于查询 `PROXY` 系统变量配置。
-+`SHOW DIST VARIABLE` 语法用于查询 ShardingSphere 系统变量配置。
- 
- ### 语法
- 
-@@ -37,11 +37,11 @@ variableName ::=
- 
- ### 补充说明
- 
--- 未指定 `variableName` 时，默认查询所有持久化 `PROXY` 系统变量配置和缓存连接数
-+- 未指定 `variableName` 时，默认查询所有持久化 ShardingSphere 系统变量配置和缓存连接数
- 
- ### 示例
- 
--- 查询所有 `PROXY` 系统变量配置
-+- 查询所有 ShardingSphere 系统变量配置
- 
- ```sql
- SHOW DIST VARIABLES;
-@@ -79,7 +79,7 @@ mysql> SHOW DIST VARIABLES;
- 23 rows in set (0.01 sec)
- ```
- 
--- 查询指定 `PROXY` 系统变量配置
-+- 查询指定 ShardingSphere 系统变量配置
- 
- ```sql
- SHOW DIST VARIABLE WHERE NAME = sql_show;
-diff --git a/docs/document/content/user-manual/distsql/syntax/ral/show-dist-variable.en.md b/docs/document/content/user-manual/distsql/syntax/ral/show-dist-variable.en.md
-index 84f2ec705eb..0913601d22e 100644
---- a/docs/document/content/user-manual/distsql/syntax/ral/show-dist-variable.en.md
-+++ b/docs/document/content/user-manual/distsql/syntax/ral/show-dist-variable.en.md
-@@ -6,7 +6,7 @@ aliases = ["/user-manual/shardingsphere-proxy/distsql/syntax/ral/show-dist-varia
- 
- ### Description
- 
--The `SHOW DIST VARIABLE` syntax is used to query `PROXY` system variables configuration.
-+The `SHOW DIST VARIABLE` syntax is used to query ShardingSphere system variables.
- 
- ### Syntax
- 
-@@ -37,11 +37,11 @@ variableName ::=
- 
- ### Supplement
- 
--- When `variableName` is not specified, all persistent `PROXY` system variables and the cached connection count are queried by default.
-+- When `variableName` is not specified, all persistent ShardingSphere system variables and the cached connection count are queried by default.
- 
- ### Example
- 
--- Query all system variables configuration of `PROXY`
-+- Query all ShardingSphere system variables
- 
- ```sql
- SHOW DIST VARIABLES;
-@@ -79,7 +79,7 @@ mysql> SHOW DIST VARIABLES;
- 23 rows in set (0.01 sec)
- ```
- 
--- Query specified system variable configuration of `PROXY`
-+- Query a specified ShardingSphere system variable
- 
- ```sql
- SHOW DIST VARIABLE WHERE NAME = sql_show;
-diff --git a/docs/document/content/user-manual/distsql/syntax/rdl/storage-unit-definition/alter-storage-unit.cn.md b/docs/document/content/user-manual/distsql/syntax/rdl/storage-unit-definition/alter-storage-unit.cn.md
-index 837c00f6a2a..4dfc9b1df36 100644
---- a/docs/document/content/user-manual/distsql/syntax/rdl/storage-unit-definition/alter-storage-unit.cn.md
-+++ b/docs/document/content/user-manual/distsql/syntax/rdl/storage-unit-definition/alter-storage-unit.cn.md
-@@ -66,7 +66,7 @@ privilegeType ::=
- 
- ### 补充说明
- 
--- 修改存储单元前请确认已经在 Proxy 中创建逻辑数据库，并执行 `use` 命令选择一个逻辑数据库；
-+- 修改存储单元前，请确认目标逻辑数据库已存在，并已为当前连接选中该数据库；
- - `ALTER STORAGE UNIT`不允许改变该存储单元关联的真实数据源（通过 host、port 和 db 判断）；
- - `ALTER STORAGE UNIT`会发生连接池的切换，这个操作可能对进行中的业务造成影响，请谨慎使用；
- - 请确认修改的存储单元是可以正常连接的， 否则将不能修改成功；
-diff --git a/docs/document/content/user-manual/distsql/syntax/rdl/storage-unit-definition/alter-storage-unit.en.md b/docs/document/content/user-manual/distsql/syntax/rdl/storage-unit-definition/alter-storage-unit.en.md
-index 558879aa37c..6e26b869d3d 100644
---- a/docs/document/content/user-manual/distsql/syntax/rdl/storage-unit-definition/alter-storage-unit.en.md
-+++ b/docs/document/content/user-manual/distsql/syntax/rdl/storage-unit-definition/alter-storage-unit.en.md
-@@ -66,7 +66,7 @@ privilegeType ::=
- 
- ### Supplement
- 
--- Before altering the storage units, please confirm that a database exists in Proxy, and execute the `use` command to select a database;
-+- Before altering storage units, ensure that the target logical database exists and is selected for the current connection;
- - `ALTER STORAGE UNIT` is not allowed to change the real data source associated with this storageUnit (determined by host, port and db);
- - `ALTER STORAGE UNIT` will switch the connection pool. This operation may affect the ongoing business, please use it with caution;
- - Please confirm that the storage unit to be altered can be connected successfully, otherwise the altering will fail;
-diff --git a/docs/document/content/user-manual/distsql/syntax/rdl/storage-unit-definition/register-storage-unit.cn.md b/docs/document/content/user-manual/distsql/syntax/rdl/storage-unit-definition/register-storage-unit.cn.md
-index b402365fece..ff9e9d73bd8 100644
---- a/docs/document/content/user-manual/distsql/syntax/rdl/storage-unit-definition/register-storage-unit.cn.md
-+++ b/docs/document/content/user-manual/distsql/syntax/rdl/storage-unit-definition/register-storage-unit.cn.md
-@@ -69,7 +69,7 @@ privilegeType ::=
- 
- ### 特别说明
- 
--- 注册存储单元前请确认已经在 Proxy 中创建逻辑数据库，并执行 `use` 命令成功选择一个逻辑数据库；
-+- 注册存储单元前，请确认目标逻辑数据库已存在，并已为当前连接选中该数据库；
- - 确认注册的存储单元是可以正常连接的， 否则将不能注册成功；
- - `storageUnitName` 区分大小写；
- - `storageUnitName` 在当前逻辑库中需要唯一；
-diff --git a/docs/document/content/user-manual/distsql/syntax/rdl/storage-unit-definition/register-storage-unit.en.md b/docs/document/content/user-manual/distsql/syntax/rdl/storage-unit-definition/register-storage-unit.en.md
-index 6d9f3a025d6..0a3d6cffb93 100644
---- a/docs/document/content/user-manual/distsql/syntax/rdl/storage-unit-definition/register-storage-unit.en.md
-+++ b/docs/document/content/user-manual/distsql/syntax/rdl/storage-unit-definition/register-storage-unit.en.md
-@@ -69,7 +69,7 @@ privilegeType ::=
- 
- ### Supplement
- 
--- Before register storage units, please confirm that a database has been created in Proxy, and execute the `use` command to successfully select a database;
-+- Before registering storage units, ensure that the target logical database exists and is selected for the current connection;
- - Confirm that the registered storage unit can be connected normally, otherwise it will not be added successfully;
- - `storageUnitName` is case-sensitive;
- - `storageUnitName` needs to be unique within the current database;
-diff --git a/docs/document/content/user-manual/distsql/syntax/rdl/storage-unit-definition/unregister-storage-unit.cn.md b/docs/document/content/user-manual/distsql/syntax/rdl/storage-unit-definition/unregister-storage-unit.cn.md
-index 584b4d6bc6b..520c1b2c758 100644
---- a/docs/document/content/user-manual/distsql/syntax/rdl/storage-unit-definition/unregister-storage-unit.cn.md
-+++ b/docs/document/content/user-manual/distsql/syntax/rdl/storage-unit-definition/unregister-storage-unit.cn.md
-@@ -34,7 +34,7 @@ ignoreTables ::=
- 
- ### 补充说明
- 
--- `UNREGISTER STORAGE UNIT` 只会移除 Proxy 中的存储单元，不会删除与存储单元对应的真实数据源；
-+- `UNREGISTER STORAGE UNIT` 只会移除 ShardingSphere 中注册的存储单元，不会删除与存储单元对应的真实数据源；
- - 无法移除已经被规则使用的存储单元。移除被规则使用的存储单元时会提示 `Storage unit '%s' still used by '%s'.`；
- - 将要移除的存储单元中仅包含 `SINGLE RULE`、`BROADCAST RULE`，且用户确认可以忽略该限制时，可添加 `IGNORE SINGLE TABLES`、`IGNORE BROADCAST TABLES`、`IGNORE SINGLE, BROADCAST TABLES` 或 `IGNORE BROADCAST, SINGLE TABLES` 关键字移除存储单元；
- - `ifExists` 子句用于避免 `Storage unit not exists` 错误。
-diff --git a/docs/document/content/user-manual/distsql/syntax/rdl/storage-unit-definition/unregister-storage-unit.en.md b/docs/document/content/user-manual/distsql/syntax/rdl/storage-unit-definition/unregister-storage-unit.en.md
-index 1d2a0b49fbd..bb093a2865c 100644
---- a/docs/document/content/user-manual/distsql/syntax/rdl/storage-unit-definition/unregister-storage-unit.en.md
-+++ b/docs/document/content/user-manual/distsql/syntax/rdl/storage-unit-definition/unregister-storage-unit.en.md
-@@ -34,7 +34,7 @@ ignoreTables ::=
- 
- ### Supplement
- 
--- `UNREGISTER STORAGE UNIT` only unregisters storage units in Proxy. The real data sources corresponding to the storage units are not unregistered;
-+- `UNREGISTER STORAGE UNIT` only removes storage unit registrations from ShardingSphere and does not drop the underlying databases;
- - Storage units already used by rules can not be unregistered. `Storage unit '%s' still used by '%s'.` will be prompted when unregistering storage units used by rules;
- - When the storage units to be unregistered are only used by single table rules or broadcast rules, and the user confirms that this restriction can be ignored,
-   `IGNORE SINGLE TABLES`, `IGNORE BROADCAST TABLES`, `IGNORE SINGLE, BROADCAST TABLES`, or `IGNORE BROADCAST, SINGLE TABLES` can be added to unregister the storage units;
-diff --git a/docs/document/content/user-manual/distsql/usage/_index.cn.md b/docs/document/content/user-manual/distsql/usage/_index.cn.md
-index 1c624069aa3..a34029afe21 100644
---- a/docs/document/content/user-manual/distsql/usage/_index.cn.md
-+++ b/docs/document/content/user-manual/distsql/usage/_index.cn.md
-@@ -7,6 +7,9 @@ aliases = ["/user-manual/shardingsphere-proxy/distsql/usage/"]
- 
- 本章节将结合 DistSQL 的语法，并以实战的形式分别介绍如何使用 DistSQL 管理分布式数据库下的资源和规则。
- 
-+本章示例使用 ShardingSphere-Proxy。
-+ShardingSphere-JDBC 的执行方式和使用限制请参见 [Java API：执行 DistSQL](/cn/user-manual/shardingsphere-jdbc/java-api/)。
-+
- ## 前置工作
- 
- 以 MySQL 为例，其他数据库可直接替换。
-diff --git a/docs/document/content/user-manual/distsql/usage/_index.en.md b/docs/document/content/user-manual/distsql/usage/_index.en.md
-index e41c0cf7497..e4f42d7a328 100644
---- a/docs/document/content/user-manual/distsql/usage/_index.en.md
-+++ b/docs/document/content/user-manual/distsql/usage/_index.en.md
-@@ -7,6 +7,9 @@ aliases = ["/user-manual/shardingsphere-proxy/distsql/usage/"]
- 
- This chapter will introduce how to use DistSQL to manage resources and rules in a distributed database.
- 
-+The examples in this chapter use ShardingSphere-Proxy.
-+For execution with ShardingSphere-JDBC and its limitations, see [Java API: Execute DistSQL](/en/user-manual/shardingsphere-jdbc/java-api/).
-+
- ## Pre-work
- 
- Use MySQL as example, can replace to other databases.
