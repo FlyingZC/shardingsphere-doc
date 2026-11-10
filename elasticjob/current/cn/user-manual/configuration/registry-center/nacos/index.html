@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <meta name="generator" content="Hugo 0.70.0" />
     <meta name="description" content="">
-    <meta name="buildDate" content="2026-10-27 13:36:10">
+    <meta name="buildDate" content="2026-11-11 02:06:49">
 
 
     <link rel="shortcut icon" href="https://shardingsphere.apache.org/elasticjob/images/favicon.png" type="image/x-icon" />
@@ -13,19 +13,19 @@
     <title>Nacos 配置 :: ElasticJob</title>
     
     
-    <link href="https://shardingsphere.apache.org/elasticjob/current/css/nucleus.css?1793079370" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/elasticjob/current/css/font-awesome.min.css?1793079370" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/elasticjob/current/css/hybrid.css?1793079370" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/elasticjob/current/css/featherlight.min.css?1793079370" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/elasticjob/current/css/perfect-scrollbar.min.css?1793079370" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/elasticjob/current/css/auto-complete.css?1793079370" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/elasticjob/current/css/theme.css?1793079370" rel="stylesheet">
-    <link href="https://shardingsphere.apache.org/elasticjob/current/css/hugo-theme.css?1793079370" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/elasticjob/current/css/nucleus.css?1794334009" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/elasticjob/current/css/font-awesome.min.css?1794334009" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/elasticjob/current/css/hybrid.css?1794334009" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/elasticjob/current/css/featherlight.min.css?1794334009" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/elasticjob/current/css/perfect-scrollbar.min.css?1794334009" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/elasticjob/current/css/auto-complete.css?1794334009" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/elasticjob/current/css/theme.css?1794334009" rel="stylesheet">
+    <link href="https://shardingsphere.apache.org/elasticjob/current/css/hugo-theme.css?1794334009" rel="stylesheet">
     
-      <link href="https://shardingsphere.apache.org/elasticjob/current/css/theme-white.css?1793079370" rel="stylesheet">
+      <link href="https://shardingsphere.apache.org/elasticjob/current/css/theme-white.css?1794334009" rel="stylesheet">
     
 
-    <script src="https://shardingsphere.apache.org/elasticjob/current/js/jquery-2.x.min.js?1793079370"></script>
+    <script src="https://shardingsphere.apache.org/elasticjob/current/js/jquery-2.x.min.js?1794334009"></script>
     
     <script>
       var _hmt = _hmt || [];
@@ -165,14 +165,14 @@
     <span data-search-clear=""><i class="fa fa-close"></i></span>
 </div>
 
-<script type="text/javascript" src="https://shardingsphere.apache.org/elasticjob/current/js/lunr.min.js?1793079370"></script>
-<script type="text/javascript" src="https://shardingsphere.apache.org/elasticjob/current/js/auto-complete.js?1793079370"></script>
+<script type="text/javascript" src="https://shardingsphere.apache.org/elasticjob/current/js/lunr.min.js?1794334009"></script>
+<script type="text/javascript" src="https://shardingsphere.apache.org/elasticjob/current/js/auto-complete.js?1794334009"></script>
 <script type="text/javascript">
     
         var baseurl = "\/cn";
     
 </script>
-<script type="text/javascript" src="https://shardingsphere.apache.org/elasticjob/current/js/search.js?1793079370"></script>
+<script type="text/javascript" src="https://shardingsphere.apache.org/elasticjob/current/js/search.js?1794334009"></script>
 
     
   </div>
@@ -965,7 +965,7 @@
             </svg>
           
           </i>
-          <b>4.1.2.1 </b>注册中心配置
+          注册中心配置
           
       </a>
       
@@ -1845,6 +1845,8 @@
     <li><a href="#使用示例">使用示例</a>
       <ul>
         <li><a href="#java-api">Java API</a></li>
+        <li><a href="#spring-boot-starter">Spring Boot Starter</a></li>
+        <li><a href="#spring-namespace">Spring Namespace</a></li>
         <li><a href="#registrycenterfactoryspi">RegistryCenterFactory（SPI）</a></li>
       </ul>
     </li>
@@ -1888,7 +1890,7 @@
 <td align="left">ElasticJob 命名空间，映射为 Nacos 配置 group</td>
 </tr>
 <tr>
-<td>nacosNamespace</td>
+<td>tenant</td>
 <td align="left">String</td>
 <td align="left"></td>
 <td align="left">Nacos 租户（命名空间 ID），为空表示 <code>public</code></td>
@@ -1921,6 +1923,9 @@
 <code>RegistryCenterFactory.createCoordinatorRegistryCenter(&quot;nacos://127.0.0.1:8848&quot;, &quot;elasticjob&quot;, null)</code>。</p>
 <p><strong>namespace:</strong></p>
 <p>ElasticJob 命名空间，映射为 Nacos 配置 group，用于隔离不同的作业集群。建议使用有意义的名称，如：<code>elasticjob</code>。</p>
+<p><strong>tenant:</strong></p>
+<p>Nacos 租户（命名空间 ID），用于隔离开发、测试、生产等不同环境，为空表示 <code>public</code>。
+注意它与 ElasticJob 的 <code>namespace</code> 不同，后者映射为 Nacos 配置 group。</p>
 <p><strong>username 和 password:</strong></p>
 <p>Nacos 认证信息，也可以作为 <code>RegistryCenterFactory</code> 的 <code>digest</code> 参数（<code>username:password</code>）传入。</p>
 <p><strong>注意事项与限制：</strong></p>
@@ -1950,6 +1955,24 @@
         registryCenter<span style="color:#f92672">.</span><span style="color:#a6e22e">close</span><span style="color:#f92672">();</span>
     <span style="color:#f92672">}</span>
 <span style="color:#f92672">}</span>
+</code></pre></div><h3 id="spring-boot-starter">Spring Boot Starter</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-yaml" data-lang="yaml"><span style="color:#66d9ef">elasticjob</span>:
+  <span style="color:#66d9ef">reg-center</span>:
+    <span style="color:#66d9ef">type</span>: nacos
+    <span style="color:#66d9ef">server-lists</span>: nacos://<span style="color:#ae81ff">127.0.0.1</span>:<span style="color:#ae81ff">8848</span>,<span style="color:#ae81ff">127.0.0.2</span>:<span style="color:#ae81ff">8848</span>
+    <span style="color:#66d9ef">namespace</span>: elasticjob
+    <span style="color:#66d9ef">tenant</span>: <span style="color:#e6db74">&#34;&#34;</span>
+    <span style="color:#66d9ef">username</span>: nacos
+    <span style="color:#66d9ef">password</span>: nacos
+    <span style="color:#66d9ef">timeout-ms</span>: <span style="color:#ae81ff">3000</span>
+</code></pre></div><h3 id="spring-namespace">Spring Namespace</h3>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-xml" data-lang="xml"><span style="color:#f92672">&lt;elasticjob:nacos</span> <span style="color:#a6e22e">id=</span><span style="color:#e6db74">&#34;regCenter&#34;</span> 
+    <span style="color:#a6e22e">server-lists=</span><span style="color:#e6db74">&#34;nacos://127.0.0.1:8848,127.0.0.2:8848&#34;</span> 
+    <span style="color:#a6e22e">namespace=</span><span style="color:#e6db74">&#34;elasticjob&#34;</span>
+    <span style="color:#a6e22e">tenant=</span><span style="color:#e6db74">&#34;&#34;</span>
+    <span style="color:#a6e22e">username=</span><span style="color:#e6db74">&#34;nacos&#34;</span>
+    <span style="color:#a6e22e">password=</span><span style="color:#e6db74">&#34;nacos&#34;</span>
+    <span style="color:#a6e22e">timeout-ms=</span><span style="color:#e6db74">&#34;3000&#34;</span> <span style="color:#f92672">/&gt;</span>
 </code></pre></div><h3 id="registrycenterfactoryspi">RegistryCenterFactory（SPI）</h3>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#f92672">import</span> org.apache.shardingsphere.elasticjob.lifecycle.internal.reg.RegistryCenterFactory<span style="color:#f92672">;</span>
 <span style="color:#f92672">import</span> org.apache.shardingsphere.elasticjob.reg.base.CoordinatorRegistryCenter<span style="color:#f92672">;</span>
@@ -2955,17 +2978,17 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="https://shardingsphere.apache.org/elasticjob/current/js/clipboard.min.js?1793079370"></script>
-    <script src="https://shardingsphere.apache.org/elasticjob/current/js/perfect-scrollbar.min.js?1793079370"></script>
-    <script src="https://shardingsphere.apache.org/elasticjob/current/js/perfect-scrollbar.jquery.min.js?1793079370"></script>
-    <script src="https://shardingsphere.apache.org/elasticjob/current/js/jquery.sticky.js?1793079370"></script>
-    <script src="https://shardingsphere.apache.org/elasticjob/current/js/featherlight.min.js?1793079370"></script>
-    <script src="https://shardingsphere.apache.org/elasticjob/current/js/html5shiv-printshiv.min.js?1793079370"></script>
-    <script src="https://shardingsphere.apache.org/elasticjob/current/js/highlight.pack.js?1793079370"></script>
+    <script src="https://shardingsphere.apache.org/elasticjob/current/js/clipboard.min.js?1794334009"></script>
+    <script src="https://shardingsphere.apache.org/elasticjob/current/js/perfect-scrollbar.min.js?1794334009"></script>
+    <script src="https://shardingsphere.apache.org/elasticjob/current/js/perfect-scrollbar.jquery.min.js?1794334009"></script>
+    <script src="https://shardingsphere.apache.org/elasticjob/current/js/jquery.sticky.js?1794334009"></script>
+    <script src="https://shardingsphere.apache.org/elasticjob/current/js/featherlight.min.js?1794334009"></script>
+    <script src="https://shardingsphere.apache.org/elasticjob/current/js/html5shiv-printshiv.min.js?1794334009"></script>
+    <script src="https://shardingsphere.apache.org/elasticjob/current/js/highlight.pack.js?1794334009"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="https://shardingsphere.apache.org/elasticjob/current/js/modernizr.custom.71422.js?1793079370"></script>
-    <script src="https://shardingsphere.apache.org/elasticjob/current/js/learn.js?1793079370"></script>
-    <script src="https://shardingsphere.apache.org/elasticjob/current/js/hugo-learn.js?1793079370"></script>
+    <script src="https://shardingsphere.apache.org/elasticjob/current/js/modernizr.custom.71422.js?1794334009"></script>
+    <script src="https://shardingsphere.apache.org/elasticjob/current/js/learn.js?1794334009"></script>
+    <script src="https://shardingsphere.apache.org/elasticjob/current/js/hugo-learn.js?1794334009"></script>
 
     
 
